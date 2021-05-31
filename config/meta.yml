@@ -1,6 +1,6 @@
 
 meta_product_name: "Tester"
-meta_title: "Tester - making your MVP the MVP"
+meta_title: "Tester | Making your MVP the MVP"
 meta_description: "A web application designed to make testing your features a breeze"
 meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@startuptestr"   # required for Twitter Cards
