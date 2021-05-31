@@ -40,6 +40,6 @@ yarn-debug.log*
 *.swp
 .DS_Store
 
-server.csr
-server.key
-server.pass.key
+*.key
+*.csr
+*.pass
