@@ -12,4 +12,8 @@ class TestPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    record.project.user == user
+  end
 end

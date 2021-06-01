@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tests, only: %i[new create index]
   end
-  resources :tests, only: %i[show]
+  resources :tests, only: %i[show edit update]
 end

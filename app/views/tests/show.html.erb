@@ -1,18 +1,43 @@
-<div class="container">
 
-<h1><%=@test.name %></h1>
-<%= @test.description %>
-<%= @test.test_url %>
 
-<p>Sample size: <%= @test.sample_size %></p>
 
-<p> <%= @test.time_limit - Date.today()%> days remainining  </p>
+<div class="container mt-3">
 
-<p> <%= Date.today() + 10 %> </p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item "><%= link_to @test.project.name, project_path(@test.project) %></li>
+    <li class="breadcrumb-item active transparent" id="chevron" aria-current="page"><%= @test.name %></li>
+  </ol>
+</nav>
+<h1><%= @test.project.name %></h1>
+<p>strDescription</p>
+<p><%= @test.project.description %></p>
+<p><%= @test.project.github_url %></p>
+  <div class="card test-card">
+    <div class="card-header test-card-header">
+      <div class="row">
+        <h2><%=@test.name %></h2>
+        <span class="live-dot">•</span> <%= @test_status %>
+        <%= link_to edit_test_path(@test) do %>
+        <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <p> Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %> </p>
+      </div>
+      <p><%= @test.test_url %></p>
+    </div>
+      <p><%= @test.description %></p>
 
-<% if @test.is_finished == false %>
-<p>Test is still going</p>
-<% else %>
-<p>Test is finished</p>
-<% end %>
+      <p>Sample size: <%= @test.sample_size %></p>
+
+      <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
+
+      <p> <%= Date.today() + 10 %> </p>
+
+      <% if @test.is_finished == false %>
+      <% else %>
+      <p>Ended</p>
+      <% end %>
+  </div>
 </div>
+
+
