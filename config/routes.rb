@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :tests, only: %i[index show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :tests do
-    resources :projects, only: %i[new create]
+  resources :project do
+    resources :tests, only: %i[new create]
   end
-  resources :projects, only: [:destroy]
+  resources :tests, only: [:destroy]
 end
