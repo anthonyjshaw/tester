@@ -28,11 +28,6 @@
 }
 
 
-.flexy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 
 .test-btn-blue {
@@ -41,4 +36,10 @@
   border-radius: 8px;
   background: #2355FF;
   border: none;
+}
+
+
+.test-fav {
+  color: $body-color;
+  text-decoration: none;
 }

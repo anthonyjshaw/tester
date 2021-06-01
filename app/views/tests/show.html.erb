@@ -3,7 +3,7 @@
 
 <div class="container mt-3">
   <%= render 'new_test_modal' %>
-
+  <%= render 'edit_test_modal' %>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb test-breadcrumb">
       <li class="breadcrumb-item "><%= link_to @test.project.name, project_path(@test.project) %></li>
@@ -38,15 +38,17 @@
       </div>
       <div class="col">
         <%= @test.test_url %>
-        <i class="fas fa-external-link-alt"></i>
+        <i class="fas fa-external-link-alt test-fav"></i>
       </div>
       <div class="col">
-        <%= link_to edit_test_path(@test) do %>
-        <i class="fas fa-pencil-alt"></i>
+        <%= link_to edit_test_path(@test), data: {toggle: "modal", target: "#exampleModalEdit"} do %>
+        <i class="fas fa-pencil-alt test-fav"></i>
         <% end %>
         <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
-        <i class="fas fa-trash"></i>
-      </div><% end %>
+        <i class="fas fa-trash test-fav"></i>
+      <% end %>
+      </div>
+
     </div>
         <p>Description</p>
         <p><%= @test.description %></p>

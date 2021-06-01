@@ -28,7 +28,7 @@ class TestsController < ApplicationController
     authorize @test
     @test.project = @project
     if @test.save
-      redirect_to project_path(@test.project_id)
+      redirect_to test_path(@test)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class TestsController < ApplicationController
   def edit; end
 
   def update
-    if @test.update
+    if @test.update(test_params)
       redirect_to test_path(@test)
     else
       render :edit
