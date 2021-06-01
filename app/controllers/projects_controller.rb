@@ -28,14 +28,11 @@ class ProjectsController < ApplicationController
      @project = Project.new(project_params)
      @project.user = current_user
      authorize @project
-
-     
-        if @project.save
-         redirect_to my_projects_path
-        else
-         render :new
-          end
-       
+     if @project.save
+        redirect_to my_projects_path
+     else
+        render :new
+     end    
     end
 
     def update
