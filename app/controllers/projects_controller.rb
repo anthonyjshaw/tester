@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
      @projects = policy_scope(Project)
 
      @projects = Project.all
-     render 'projects/index'
+     render :index
    end
 
    def show

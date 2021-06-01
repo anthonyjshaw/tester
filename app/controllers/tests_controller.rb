@@ -3,16 +3,17 @@ class TestsController < ApplicationController
   before_action :set_test, only: :show
 
   def index
-    @tests = policy_scope(Test)
+    @tests = policy_scope(Test.where(project: params[:project_id]))
   end
 
   def show
-    @test = Test.find(params[:id])
+   @test.is_finished = true if @test.time_limit < Date.today
   end
 
   private
 
   def set_test
     @test = Test.find(params[:id])
+    authorize @test
   end
 end
