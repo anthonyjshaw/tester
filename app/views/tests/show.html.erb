@@ -3,9 +3,12 @@
 <h1><%=@test.name %></h1>
 <%= @test.description %>
 <%= @test.test_url %>
-<%= @test.sample_size %>
 
-<p> <%= @test.time_limit - Date.today%> days remainining  </p>
+<p>Sample size: <%= @test.sample_size %></p>
+
+<p> <%= @test.time_limit - Date.today()%> days remainining  </p>
+
+<p> <%= Date.today() + 10 %> </p>
 
 <% if @test.is_finished == false %>
 <p>Test is still going</p>
