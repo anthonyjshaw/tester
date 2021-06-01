@@ -34,7 +34,6 @@ class ProjectsController < ApplicationController
      else
         render :new
      end    
-    end
   end
 
   def update
@@ -67,8 +66,6 @@ class ProjectsController < ApplicationController
       @projects = current_user.projects
       authorize @projects
     end
-
-    private
 
   def set_project
     @project = Project.find(params[:id])

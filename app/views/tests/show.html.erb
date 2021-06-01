@@ -2,51 +2,56 @@
 
 
 <div class="container mt-3">
+  <%= render 'new_test_modal' %>
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb test-breadcrumb">
-    <li class="breadcrumb-item "><%= link_to @test.project.name, project_path(@test.project) %></li>
-    <li class="breadcrumb-item active" id="chevron" aria-current="page"><%= @test.name %></li>
-  </ol>
-</nav>
-<h1 class='project-name'><%= @test.project.name %></h1>
-<div class="row align-items-start ">
-  <div class="col-6">
-    <p><strong>Description</strong></p>
-    <p><%= @test.project.description %></p>
-    <i class="fab fa-github"></i> <%= @test.project.github_url %>
-  </div>
-  <div class="col-2">
-    <p>Collaborators</p>
-    <%= image_tag "cover512-512.png", alt: "alttext", class: "avatar" %>
-    <%= image_tag "cover512-512.png", alt: "alttext", class: 'avatar' %>
-  </div>
-  <div class="col align-items-center">
-    <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary" %>
-  </div>
-</div>
-  <div class="row align-items-center test-header my-4">
-    <div class="col">
-      <h2><%=@test.name %></h2>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb test-breadcrumb">
+      <li class="breadcrumb-item "><%= link_to @test.project.name, project_path(@test.project) %></li>
+      <li class="breadcrumb-item active" id="chevron" aria-current="page"><%= @test.name %></li>
+    </ol>
+  </nav>
+  <h1 class='project-name'><%= @test.project.name %></h1>
+  <div class="row align-items-start ">
+    <div class="col-6">
+      <p><strong>Description</strong></p>
+      <p><%= @test.project.description %></p>
+      <i class="fab fa-github"></i> <%= @test.project.github_url %>
     </div>
-    <div class="col">
-      <span class="live-dot">•</span> <%= @test_status %>
+    <div class="col-2">
+      <p><strong>Collaborators</strong></p>
+      <%= image_tag "cover512-512.png", alt: "alttext", class: "avatar" %>
+      <%= image_tag "cover512-512.png", alt: "alttext", class: 'avatar' %>
     </div>
-    <div class="col">
-      <p> Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %> </p>
-    </div>
-    <div class="col">
-      <p><%= @test.test_url %></p>
-    </div>
-    <div class="col">
-      <%= link_to edit_test_path(@test) do %>
-      <i class="fas fa-pencil-alt"></i>
-      <% end %>
+    <div class="col align-items-center">
+      <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"} %>
     </div>
   </div>
-      <p><%= @test.description %></p>
-      <p>Sample size: <%= @test.sample_size %></p>
-      <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
+    <div class="row align-items-center test-header my-4">
+      <div class="col">
+        <h2><%=@test.name %></h2>
+      </div>
+      <div class="col">
+        <span class="live-dot">•</span> <%= @test_status %>
+      </div>
+      <div class="col">
+       Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %>
+      </div>
+      <div class="col">
+        <%= @test.test_url %>
+        <i class="fas fa-external-link-alt"></i>
+      </div>
+      <div class="col">
+        <%= link_to edit_test_path(@test) do %>
+        <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
+        <i class="fas fa-trash"></i>
+      </div><% end %>
+    </div>
+        <p>Description</p>
+        <p><%= @test.description %></p>
+        <p>Sample size: <%= @test.sample_size %></p>
+        <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
 </div>
 
 
