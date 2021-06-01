@@ -1,1 +1,7 @@
-<h1>My Tests</h1>
+<div class="container mt-4">
+
+<h1> <%= @tests[0].project.name %>  </h1>
+<% @tests.each do |test| %>
+  <%= test.description %>
+<% end %>
+</div>
