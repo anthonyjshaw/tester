@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
    end
 
    def new
-     @projects = Project.new
+     @project = Project.new
      authorize @project
    end
 
@@ -28,18 +28,11 @@ class ProjectsController < ApplicationController
      @project = Project.new(project_params)
      @project.user = current_user
      authorize @project
-
-     respond_to do |format|
-        if @project.save
-         format.html { redirect_to @project, notice: "Your Project was sucessfully created."  }
-         format.json { render :show, status: :created, location: @project }
-         redirect_to index_path
-        else
-         format.html { render :new, status: :unprocessable_entity }
-         format.json { render json: @project.errors, status: :unprocessable_entity }
-         render :new
-          end
-       end
+     if @project.save
+        redirect_to my_projects_path
+     else
+        render :new
+     end    
     end
 
     def update
@@ -63,6 +56,11 @@ class ProjectsController < ApplicationController
           format.html { redirect_to github_url, notice: "Your Project was successfully destroyed." }
           format.json { head :no_content }
         end
+    end
+
+    def my_projects 
+      @projects = current_user.projects
+      authorize @projects
     end
 
     private

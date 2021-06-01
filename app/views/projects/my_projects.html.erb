@@ -1,0 +1,16 @@
+
+<% if @projects.empty? %>
+      <p>Hmm..  you don’t seem to have any projects. <br>
+      <%= link_to "Create a new project", new_project_path %>
+       </p>
+<% else %>
+    <ul>
+
+        <% @projects.each do |project| %>
+          <li><%= project.name %></li>
+            
+        <% end %>
+
+    </ul>
+<% end %>
+
