@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   get :my_projects, to: 'projects#my_projects'
-  resources :tests, only: %i[show]
+  resources :tests, only: %i[show edit update]
 
 end
