@@ -15,6 +15,20 @@ class TestsController < ApplicationController
     end
   end
 
+  def new
+    @test = Test.new
+    authorize @test.new
+  end
+
+  def create
+    @test = Test.new(test_params)
+    if @test.save
+      redirect_to project_path(@test.project_id)
+    else
+      render :new
+    end
+  end
+
   def edit; end
 
   def update

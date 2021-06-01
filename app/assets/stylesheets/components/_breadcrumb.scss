@@ -1,4 +1,17 @@
 
+.test-breadcrumb {
+  background: transparent;
+
+}
+
+.test-breadcrumb * {
+  color: grey;
+  text-decoration: none;
+}
+
+
 #chevron::before {
   content: ">>"
 }
+
+
