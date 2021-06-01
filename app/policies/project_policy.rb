@@ -2,6 +2,14 @@ class ProjectPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
-    end
+    end  
+  end
+
+  def create?
+    true
+  end
+
+  def my_projects?
+    true
   end
 end

@@ -14,31 +14,26 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
-  def new
-    @projects = Project.new
-    authorize @project
-  end
+
+   def new
+     @project = Project.new
+     authorize @project
+   end
 
   def edit
     @project = Project.find(params[:id])
     authorize @project
   end
 
-  def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-    authorize @project
-
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: "Your Project was sucessfully created." }
-        format.json { render :show, status: :created, location: @project }
-        redirect_to index_path
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+   def create
+     @project = Project.new(project_params)
+     @project.user = current_user
+     authorize @project
+     if @project.save
+        redirect_to my_projects_path
+     else
         render :new
-      end
+     end    
     end
   end
 
@@ -65,7 +60,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   private
+
+    def my_projects 
+      @projects = current_user.projects
+      authorize @projects
+    end
+
+    private
 
   def set_project
     @project = Project.find(params[:id])
