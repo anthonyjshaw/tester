@@ -1,0 +1,8 @@
+<%= simple_form_for [@test.project, @new_test], url: project_tests_path(@test.project) do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :sample_size %>
+<%= f.input :test_url %>
+<%= f.input :time_limit %>
+<%= f.submit %>
+<% end %>
