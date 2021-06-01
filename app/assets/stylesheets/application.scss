@@ -24,5 +24,21 @@
 
 
 .test-header {
-  background: lightgrey;
+  background: #EBEEF2;
+}
+
+
+.flexy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.test-btn-blue {
+  margin: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #2355FF;
+  border: none;
 }

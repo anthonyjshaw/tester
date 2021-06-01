@@ -17,7 +17,7 @@ class TestsController < ApplicationController
 
   def new
     @test = Test.new
-    authorize @test.new
+    authorize @test
   end
 
   def create

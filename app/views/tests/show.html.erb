@@ -17,12 +17,12 @@
     <i class="fab fa-github"></i> <%= @test.project.github_url %>
   </div>
   <div class="col-2">
-    <p>Collaborators</p>
+    <p><strong>Collaborators</strong></p>
     <%= image_tag "cover512-512.png", alt: "alttext", class: "avatar" %>
     <%= image_tag "cover512-512.png", alt: "alttext", class: 'avatar' %>
   </div>
   <div class="col align-items-center">
-    <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary" %>
+    <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary test-btn-blue" %>
   </div>
 </div>
   <div class="row align-items-center test-header my-4">
@@ -33,17 +33,21 @@
       <span class="live-dot">•</span> <%= @test_status %>
     </div>
     <div class="col">
-      <p> Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %> </p>
+     Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %>
     </div>
     <div class="col">
-      <p><%= @test.test_url %></p>
+      <%= @test.test_url %>
+      <i class="fas fa-external-link-alt"></i>
     </div>
     <div class="col">
       <%= link_to edit_test_path(@test) do %>
       <i class="fas fa-pencil-alt"></i>
       <% end %>
-    </div>
+      <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
+      <i class="fas fa-trash"></i>
+    </div><% end %>
   </div>
+      <p>Description</p>
       <p><%= @test.description %></p>
       <p>Sample size: <%= @test.sample_size %></p>
       <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
