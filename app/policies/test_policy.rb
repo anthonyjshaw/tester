@@ -12,5 +12,4 @@ class TestPolicy < ApplicationPolicy
   def show?
     true
   end
-
 end

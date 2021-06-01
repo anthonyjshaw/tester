@@ -7,7 +7,7 @@ class TestsController < ApplicationController
   end
 
   def show
-   @test.is_finished = true if @test.time_limit < Date.today
+    @test.is_finished = true if @test.time_limit < Date.today
   end
 
   private
