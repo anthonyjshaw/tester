@@ -8,11 +8,13 @@ class TestsController < ApplicationController
 
   def show
     @test.is_finished = true if @test.time_limit < Date.today
-    if is_finished?(@test)
+    if finished?(@test)
       @test_status = 'Ended'
     else
       @test_status = 'live'
     end
+
+    @new_test = Test.new
   end
 
   def new
@@ -22,6 +24,9 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
+    @project = Project.find(params[:project_id])
+    authorize @test
+    @test.project = @project
     if @test.save
       redirect_to project_path(@test.project_id)
     else
@@ -46,7 +51,11 @@ class TestsController < ApplicationController
     authorize @test
   end
 
-  def is_finished?(test)
+  def test_params
+    params.require(:test).permit(:name, :description, :sample_size, :test_url, :time_limit)
+  end
+
+  def finished?(test)
     test.is_finished == true
   end
 end
