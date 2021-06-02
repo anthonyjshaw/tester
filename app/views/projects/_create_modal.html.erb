@@ -1,6 +1,5 @@
 
-<div class="container">
-<%= @project.name %>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -12,25 +11,28 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
-        <%= f.input :name, label_html: {class: "required-class"} %>
-        <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
-        <%= f.input :test_url, label_html: {class: "required-class"} %>
-        <%= f.input :sample_size, label_html: {class: "required-class"}%>
-        <%= f.input :time_limit, label_html: {class: "required-class"} %>
+        <%= simple_form_for(@project, remote: true) do |f| %>
+        <div class="row justify-content-center">
+        <%= f.input :name %>
+        </div>
+        <div class="row justify-content-center">
+        <%= f.input :description %>
+        </div>
+        <div class="row justify-content-center">
+        <%= f.input :github_url %>
+        </div>
+        <div class="row justify-content-center">
+          <%= f.input :project_tag, collection: Project::PROJECT_TAGS %>
+        </div>
         <%= f.submit class: "btn btn-primary" %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <% end %>
       </div>
     </div>
   </div>
 </div>
 
 
-<% @tests.each do |test| %>
-<%= test.name %>
-<% end %>
-<%= button_tag "Create a new test", class: "btn-primary", data: { toggle: "modal", target: "#exampleModal"} %>
-</div>
+

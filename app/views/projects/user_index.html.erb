@@ -1,5 +1,6 @@
-<%= render 'shared/sidebar' %>
-<%= link_to "Create a new Project", new_project_path, class: "btn btn-flat" %>
+<%= render 'create_modal' %>
+<%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal"},  class: "btn btn-flat"%>
+<%=  %>
 <% if @projects.empty? %>
   <p>Hmm..  you don’t seem to have any projects. <br>
     <%= link_to "Create a new project", new_project_path %>

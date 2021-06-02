@@ -1,5 +1,4 @@
 <div class="container mt-3">
-   <%= render 'tests/components/new_test_modal' %>
    <%= render 'tests/components/edit_test_modal' %>
    <%= render 'tests/components/new_review', test: @test, review: @review %>
    <nav aria-label="breadcrumb">
@@ -25,7 +24,8 @@
       </div>
       <div class="col align-items-center">
          <% if policy(Test).new? %>
-         <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"} %>
+         <%= button_tag "Create a new test", class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"}%>
+         <%= link_to "Create a new test", new_project_test_path(@test.project) %>
          <% end %>
       </div>
    </div>

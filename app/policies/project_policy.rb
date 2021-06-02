@@ -21,6 +21,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def user_index?
+    true
+  end
+
   def my_projects?
     true
   end

@@ -20,7 +20,7 @@
 
 
 .project-name {
-  color:#0B5FFF;
+  color:#2e2ac5;
 }
 
 
@@ -49,6 +49,10 @@
   font-size: 20px;
 }
 
+.nav-white {
+  color:white;
+}
+
 
 .menu-icon {
   display: inline;
@@ -59,14 +63,13 @@
   margin: 16px;
   padding: 16px;
   border-radius: 8px;
-  background: #2355FF;
+  background: #2e2ac5;
   border: none;
-  transition: opacity 0.1s;
+  transition: background 0.1s;
 }
 
 .test-btn-blue:hover {
   background: #2355FF;
-  opacity: 50%;
 }
 
 .test-fav {
