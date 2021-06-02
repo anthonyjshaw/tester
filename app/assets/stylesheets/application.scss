@@ -29,6 +29,26 @@
 }
 
 
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.flex-box p {
+  margin: 0;
+}
+
+#test-created-date {
+  color: #394452;
+}
+.test-heading {
+  color:#0C9E42;
+  font-size: 20px;
+}
+
 
 
 .test-btn-blue {
@@ -58,4 +78,23 @@
 a:hover {
      text-decoration: none;
 
+}
+
+.required-class abbr {
+  color: red;
+  text-decoration: none;
+}
+
+.review-card {
+  padding: 16px;
+  width: 70%;
+  background: #FAFAFA;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border:none
+
+}
+
+#review-created-date {
+  color: #A5ABB3;
 }
