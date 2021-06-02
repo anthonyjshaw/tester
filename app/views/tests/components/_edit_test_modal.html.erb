@@ -1,5 +1,6 @@
 
-<div class="modal fade" id="exampleModalReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="exampleModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,10 +10,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [test, review], url: test_reviews_path(test), remote: true do  |f| %>
-        <%= f.input :rating %>
-        <%= f.input :question1, collection: Review::QUESTION_1_CATEGORIES, label: "How do you feel about this feature?" %>
-        <%= f.input :content, label: "Any comments you'd like to share?" %>
+        <%= simple_form_for [@test.project, @test], url: test_path(@test), remote: true do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description, input_html: {rows: 4} %>
+        <%= f.input :test_url %>
+        <%= f.input :sample_size %>
+        <%= f.input :time_limit %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

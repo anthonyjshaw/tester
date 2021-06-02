@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @review.test = Test.find(params[:test_id])
     @review.user = current_user
     if @review.save
-      redirect_to test_path(@review.test)
+      redirect_to test_path(@review.test, anchor: @review)
     else
       render :new
     end

@@ -7,11 +7,12 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test.is_finished = true if (@test.time_limit - Date.today).to_i.zero?
+    @test.is_finished = true if (@test.time_limit - Date.today) <= 0
+
     if finished?(@test)
       @test_status = 'Ended'
     else
-      @test_status = 'live'
+      @test_status = 'Live'
     end
     @new_test = Test.new
     test_reviews

@@ -1,10 +1,7 @@
-
-
-
 <div class="container mt-3">
-   <%= render partial: 'tests/new_test_modal' %>
-   <%= render 'edit_test_modal' %>
-   <%= render 'new_review', test: @test, review: @review %>
+   <%= render 'tests/components/new_test_modal' %>
+   <%= render 'tests/components/edit_test_modal' %>
+   <%= render 'tests/components/new_review', test: @test, review: @review %>
    <nav aria-label="breadcrumb">
       <ol class="breadcrumb test-breadcrumb">
          <li class="breadcrumb-item "><%= link_to @test.project.name, project_path(@test.project) %></li>
@@ -16,7 +13,10 @@
       <div class="col-6">
          <p><strong>Description</strong></p>
          <p><%= @test.project.description %></p>
-         <i class="fab fa-github"></i> <%= @test.project.github_url %>
+         <i class="fab fa-github"></i>
+         <%= link_to "http://#{@test.project.github_url}" do %>
+         <%= @test.project.github_url %>
+         <% end %>
       </div>
       <div class="col-2">
          <p><strong>Collaborators</strong></p>
@@ -29,55 +29,8 @@
          <% end %>
       </div>
    </div>
-        <div class="flex-box test-header my-4">
-         <h2 class="test-heading"><%=@test.name %></h2>
-
-
-         <span class="live-dot">•</span> <p><%= @test_status %></p>
-
-         <p index="test-created-date">Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %></p>
-
-
-         <p><%= @test.test_url %></p>
-         <span>
-         <i class="fas fa-external-link-alt test-fav"></i>
-         </span>
-         <% if policy(@test).edit? %>
-         <%= link_to edit_test_path(@test), data: {toggle: "modal", target: "#exampleModalEdit"} do %>
-         <i class="fas fa-pencil-alt test-fav"></i>
-         <% end %>
-         <% end %>
-         <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
-         <i class="fas fa-trash test-fav"></i>
-         <% end %>
-    </div>
-  <p>Description</p>
-   <p><%= @test.description %></p>
-   <p>Sample size: <%= @test.sample_size %></p>
-   <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
-
+   <%= render 'tests/components/test_header' %>
+   <%= render 'tests/components/test_sub_header' %>
    <hr>
-
-
-
-
-    <% if @test.reviews.count.zero? %>
-
-    <p>No reviews. Be the first to <span><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></span></p>
-    <% else %>
-
-      <p><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></p>
-    <p> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></p>
-    <% @reviews.each do |review| %>
-    <div class="card my-4 review-card">
-      <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
-      <p><strong><%= review.user.email %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
-       <%= review.content %>
-    </div>
-       <% end %>
-    <% end %>
+   <%= render 'tests/components/reviews' %>
 </div>
-
-
-
-
