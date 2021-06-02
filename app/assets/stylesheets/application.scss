@@ -28,17 +28,33 @@
 }
 
 
-.flexy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 
 .test-btn-blue {
-  margin: 24px;
+  margin: 16px;
   padding: 16px;
   border-radius: 8px;
   background: #2355FF;
   border: none;
+  transition: opacity 0.1s;
+}
+
+.test-btn-blue:hover {
+  background: #2355FF;
+  opacity: 50%;
+}
+
+.test-fav {
+  color: $body-color;
+  text-decoration: none;
+}
+
+.test-fav:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+a:hover {
+     text-decoration: none;
+
 }
