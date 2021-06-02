@@ -31,8 +31,9 @@
 .flex-box {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  padding: 8px 16px;
 }
 
 .flex-box p {
@@ -44,6 +45,7 @@
 }
 .test-heading {
   color:#0C9E42;
+  font-size: 20px;
 }
 
 

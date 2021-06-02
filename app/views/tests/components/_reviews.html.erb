@@ -1,13 +1,18 @@
+
 <% if @test.reviews.count.zero? %>
     <p>No reviews. Be the first to <span><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></span></p>
    <% else %>
-    <p><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></p>
-    <p> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></p>
+    <p><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></p>
+    <h5 class="my-4"> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></h5>
     <% @reviews.each do |review| %>
-      <div class="card my-4 review-card">
-        <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
+      <div class="row align-items-self-start">
+        <div class="col-1">
+      <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
+      </div>
+      <div class="card mb-4 review-card">
         <p><strong><%= review.user.email %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
         <%= review.content %>
+      </div>
       </div>
     <% end %>
    <% end %>

@@ -1,7 +1,6 @@
 <div class="flex-box test-header my-4">
-      <h2 class="test-heading"><%=@test.name %></h2>
-      <span class="live-dot">•</span>
-      <p><%= @test_status %></p>
+      <p class="test-heading"><%=@test.name %></p>
+      <p><span class="live-dot">•</span><%= @test_status %></p>
       <p index="test-created-date">Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %></p>
       <p><%= @test.test_url %></p>
       <span>
