@@ -42,9 +42,10 @@
          <span>
          <i class="fas fa-external-link-alt test-fav"></i>
          </span>
-
+         <% if policy(@test).edit? %>
          <%= link_to edit_test_path(@test), data: {toggle: "modal", target: "#exampleModalEdit"} do %>
          <i class="fas fa-pencil-alt test-fav"></i>
+         <% end %>
          <% end %>
          <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
          <i class="fas fa-trash test-fav"></i>
