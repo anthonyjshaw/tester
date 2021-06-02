@@ -11,3 +11,80 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.live-dot {
+  color: green;
+}
+
+
+.project-name {
+  color:#0B5FFF;
+}
+
+
+.test-header {
+  background: #EBEEF2;
+}
+
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.flex-box p {
+  margin: 0;
+}
+
+#test-created-date {
+  color: #394452;
+}
+.test-heading {
+  color:#0C9E42;
+}
+
+
+
+.test-btn-blue {
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #2355FF;
+  border: none;
+  transition: opacity 0.1s;
+}
+
+.test-btn-blue:hover {
+  background: #2355FF;
+  opacity: 50%;
+}
+
+.test-fav {
+  color: $body-color;
+  text-decoration: none;
+}
+
+.test-fav:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+a:hover {
+     text-decoration: none;
+
+}
+
+.review-card {
+  padding: 16px;
+  width: 70%;
+  background: #FAFAFA;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2)
+}
+
+#review-created-date {
+  color: #A5ABB3;
+}

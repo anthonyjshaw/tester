@@ -1,19 +1,19 @@
-class ProjectPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
-    true
-  end
-  
   def create?
     true
   end
 
-  def my_projects?
+  def show?
+    true
+  end
+
+  def index?
     true
   end
 
