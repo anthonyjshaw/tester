@@ -52,13 +52,14 @@ class TestsController < ApplicationController
   end
 
   def test_reviews
-    @reviews = policy_scope(Review)
+    @reviews = policy_scope(Review.where(test: params[:test_id]))
     @review = Review.new
   end
 
   def test_params
     params.require(:test).permit(:name, :description, :sample_size, :test_url, :time_limit)
   end
+
 
   def finished?(test)
     test.is_finished == true

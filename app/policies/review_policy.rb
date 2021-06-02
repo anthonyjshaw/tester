@@ -1,7 +1,7 @@
 class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(test: params[:test_id])
+      scope.all
     end
   end
 
