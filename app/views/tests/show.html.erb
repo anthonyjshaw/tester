@@ -3,7 +3,7 @@
 
 <div class="container mt-3">
   <%= render 'new_test_modal' %>
-
+  <%= render 'edit_test_modal' %>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb test-breadcrumb">
       <li class="breadcrumb-item "><%= link_to @test.project.name, project_path(@test.project) %></li>
@@ -23,7 +23,9 @@
       <%= image_tag "cover512-512.png", alt: "alttext", class: 'avatar' %>
     </div>
     <div class="col align-items-center">
+      <% if policy(Test).new? %>
       <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"} %>
+      <% end %>
     </div>
   </div>
     <div class="row align-items-center test-header my-4">
@@ -38,20 +40,25 @@
       </div>
       <div class="col">
         <%= @test.test_url %>
-        <i class="fas fa-external-link-alt"></i>
+        <i class="fas fa-external-link-alt test-fav"></i>
       </div>
       <div class="col">
-        <%= link_to edit_test_path(@test) do %>
-        <i class="fas fa-pencil-alt"></i>
+        <%= link_to edit_test_path(@test), data: {toggle: "modal", target: "#exampleModalEdit"} do %>
+        <i class="fas fa-pencil-alt test-fav"></i>
         <% end %>
         <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
-        <i class="fas fa-trash"></i>
-      </div><% end %>
+        <i class="fas fa-trash test-fav"></i>
+      <% end %>
+      </div>
+
     </div>
         <p>Description</p>
         <p><%= @test.description %></p>
         <p>Sample size: <%= @test.sample_size %></p>
         <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
+
 </div>
+
+
 
 
