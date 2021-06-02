@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
-
    def new
      @project = Project.new
      authorize @project
