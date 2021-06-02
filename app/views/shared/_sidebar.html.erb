@@ -1,0 +1,35 @@
+<nav role="navigation" id="mySidebar" class="sidebar">
+  <div onclick="sidebarToggle()">
+    <i class='bx bxs-chevrons-right' id="menu-icon"></i>
+  </div>
+
+  <div class="overflow-hidden">
+    <div>
+    <%= link_to '#', data: { turbolinks: false } do %>
+    <!-- for later: -->
+      <!-- link_to t('.profile'), business_path(@business), class: '#{'active' if current_page? business_path(@business)}' -->
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar menu-icon"%>
+      <span class="icon-text">Account</span>
+    <% end %>
+    <%= link_to my_projects_path, data: { turbolinks: false } do %>
+      <i class="fas fa-th-large"></i>
+      <span class="icon-text">Dashboard</span>
+    <% end %>
+    <%= link_to '#', data: { turbolinks: false } do %>
+      <i class="fas fa-comments"></i>
+      <span class="icon-text">Messeges</span>
+    <% end %>
+    </div>
+    <div id="logout" >
+      <%= link_to destroy_user_session_path , method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="icon-text">exit</span>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="content"   >
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Inventore perferendis nam dignissimos explicabo ut sunt itaque nulla expedita officia quasi incidunt ab, quisquam eos cumque aut placeat corrupti magni officiis.</p>
+</div>
+
