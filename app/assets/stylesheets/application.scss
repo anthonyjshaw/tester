@@ -28,6 +28,24 @@
 }
 
 
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.flex-box p {
+  margin: 0;
+}
+
+#test-created-date {
+  color: #394452;
+}
+.test-heading {
+  color:#0C9E42;
+}
+
 
 
 .test-btn-blue {
@@ -57,4 +75,16 @@
 a:hover {
      text-decoration: none;
 
+}
+
+.review-card {
+  padding: 16px;
+  width: 70%;
+  background: #FAFAFA;
+  border-radius: 4px;
+  box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2)
+}
+
+#review-created-date {
+  color: #A5ABB3;
 }
