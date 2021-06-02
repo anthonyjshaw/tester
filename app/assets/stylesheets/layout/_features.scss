@@ -115,14 +115,16 @@
 	.features {
 
 		.section-inner {
-			padding-bottom: 168px; /* 88+80px second column offset */
+			padding-bottom: 500px; /* 88+80px second column offset */
 		}
 	}
 
-	.feature {
+}
 
-		&:nth-child(even) {
-			top: 80px;
-		}
+.features-inner {
+
+	.section-tests{
+		padding-bottom: 500px;
+		background-color: rgba(245, 245, 245, 0.678);
 	}
 }

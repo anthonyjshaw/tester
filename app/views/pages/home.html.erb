@@ -86,9 +86,16 @@
 									<input class="input" type="email" name="email" placeholder="Your best email&hellip;">
 								</div>
 								<div class="control">
-									<a class="button button-primary button-block" href="#">Early access</a>
+									<a class="button button-primary button-block" href="https://startup-testr.me/login">Sign up and start testing</a>
 								</div>
 							</div>
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                <h4 class="feature-title h3-mobile mb-8">Scroll down, discover tester!</h4>
+                                    <p class="text-sm">You have an excited Idea <br> for a Start-Up Business?</p>
+                                    <%= image_tag "idea.png" %>
+                                </div>
+                            </div>
 						</div>
 						<div class="hero-illustration">
 							<div class="hero-shape hero-shape-1">
@@ -291,21 +298,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="features section">
-                <div class="container">
-                    <div class="features-inner section-inner">
-                        <div class="features-header text-center">
-                            <div class="container-sm">
-                                <h2 class="section-title mt-0">Meet Tester</h2>
-                                <p class="section-paragraph">For every Startup-Developer who want to start their business in the most effective way.</p>
-                            </div>
-                        </div>
-						<div class="features-wrap">
-							<div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon" style="background:#FFD2DA;">
+                <div class="feature-icon" style="background:#FFD2DA;">
 										<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg">
 										    <g fill="none" fill-rule="nonzero">
 										        <path d="M43 47v7a13 13 0 0 0 13-13v-7c-7.18 0-13 5.82-13 13z" fill="#FF6381"/>
@@ -313,10 +306,19 @@
 										    </g>
 										</svg>
                                     </div>
-                                    <h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-                                    <p class="text-sm">You have an idea for an web-App?</p>
-                                </div>
+            </section>
+
+            <section class="features section">
+                <div class="flex-container">
+                    <div class="features-inner section-inner">
+                        <div class="features-header text-center">
+                            <div class="container-sm">
+                                <h2 class="section-title mt-0">Meet Tester</h2>
+                                <p class="section-paragraph">For every Startup-Developer <br> who want to start their business in the most effective way.</p>
+                                <p></p>
                             </div>
+                        </div>
+						<div class="features-wrap">
 							<div class="feature text-center is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon" style="background:#FFD8CD;">
@@ -327,8 +329,9 @@
 										    </g>
 										</svg>
                                     </div>
-                                    <h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-                                    <p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise design elements.</p>
+                                    <h4 class="feature-title h3-mobile mb-8">Start your Idea on Tester</h4>
+                                    <p class="text-sm">You don't have to code alone <br> along your way, <br> collaborate with other developers!</p>
+                                    <%= image_tag "coding.png" %>
                                 </div>
                             </div>
 							<div class="feature text-center is-revealing">
@@ -342,11 +345,12 @@
 										    </g>
 										</svg>
                                     </div>
-                                    <h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-                                    <p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise design elements.</p>
+                                    <h4 class="feature-title h3-mobile mb-8">Work in a Team</h4>
+                                    <p class="text-sm">Team up and work together on your own project-App</p>
+                                    <%= image_tag "together.png" %>
                                 </div>
                             </div>
-							<div class="feature text-center is-revealing">
+                            <div class="feature text-center is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon" style="background:#E0E1FE;">
 										<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg">
@@ -356,13 +360,29 @@
 										    </g>
 										</svg>
                                     </div>
-                                    <h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-                                    <p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise design elements.</p>
+                                    <h4 class="feature-title h3-mobile mb-8">Send out a Test prototype</h4>
+                                    <p class="text-sm">Get immediately Feedback from specific users or test developers features by yourself.</p>
+                                    <%= image_tag "testers.png" %>
                                 </div>
-                            </div>
 						</div>
                     </div>
                 </div>
+            </section>
+
+            <section class="livetest">
+              <div class="features section-tests">
+                 <div class="container">
+                       <h2 class="section-title mt-0 text-center">Live tests</h2>
+                       <%= @tests.each do |test| %>
+                     <div class="card-product">
+                      <div class="card-product-infos">
+                        <h2><%= test.name %></h2>
+                        <p> <%= test.description %> <strong></strong> only.</p>
+                      </div>
+                     </div>
+                     <% end %>
+                  </div>
+              </div>
             </section>
 
 			<section class="testimonials section">
@@ -405,15 +425,15 @@
 								<div class="testimonial-inner">
 									<div class="testimonial-main">
 										<div class="testimonial-header">
-											<img class="mb-16" src="dist/images/testimonial-01.png" alt="Testimonial">
+                                         <%= image_tag "testimonial-01.png" %>
 										</div>
 										<div class="testimonial-body">
-											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+											<p class="mb-0">With Tester, i could launch my product with a team in just 2 weeks, which i couldn't handle alone with my 9 to 5 Job. <br> We even could pitch it to a users community to get our start up fundraised <br> with interested users which liked to donate for our ideas.</p>
 										</div>
 									</div>
 									<div class="testimonial-footer">
 										<div class="testimonial-link">
-											<a href="#">@martajones</a>
+											<a href="#">@sarasmith</a>
 										</div>
 									</div>
 								</div>
@@ -422,15 +442,16 @@
 								<div class="testimonial-inner">
 									<div class="testimonial-main">
 										<div class="testimonial-header">
-											<img class="mb-16" src="dist/images/testimonial-02.png" alt="Testimonial">
+                                            <%= image_tag "testimonial-02.png" %>
 										</div>
 										<div class="testimonial-body">
-											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+											<p class="mb-0">Tester, gives me immediately feedback to my programmed apps from specific users. <br> I even could present my App to Investors
+                                            and it got financialized.</p>
 										</div>
 									</div>
 									<div class="testimonial-footer">
 										<div class="testimonial-link">
-											<a href="#">@michealpahm</a>
+											<a href="#">@michaeltestor</a>
 										</div>
 									</div>
 								</div>
@@ -439,15 +460,15 @@
 								<div class="testimonial-inner">
 									<div class="testimonial-main">
 										<div class="testimonial-header">
-											<img class="mb-16" src="dist/images/testimonial-03.png" alt="Testimonial">
+                                            <%= image_tag "testimonial-03.png" %>
 										</div>
 										<div class="testimonial-body">
-											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+											<p class="mb-0">I am not a Developer, but i like to test apps on "Tester" to deserve some money.</p>
 										</div>
 									</div>
 									<div class="testimonial-footer">
 										<div class="testimonial-link">
-											<a href="#">@markbrown</a>
+											<a href="#">@marcbrown</a>
 										</div>
 									</div>
 								</div>
@@ -461,55 +482,32 @@
                 <div class="container-sm">
                     <div class="newsletter-inner section-inner">
                         <div class="newsletter-header text-center">
-                            <h2 class="section-title mt-0">Stay in the know</h2>
-                            <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
+                            <h2 class="section-title mt-0">Get updated about the newest Projects</h2>
+                            <p class="section-paragraph">collaboraters requests and <br> test features</p>
                         </div>
                         <div class="footer-form newsletter-form field field-grouped">
                             <div class="control control-expanded">
                                 <input class="input" type="email" name="email" placeholder="Your best email&hellip;">
                             </div>
                             <div class="control">
-                                <a class="button button-primary button-block button-shadow" href="#">Early access</a>
+                                <a class="button button-danger button-block button-shadow" href="#">Early access</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+                        <div id="footer">
+<p>Startup your Idea into a real product follow ©Tester</p>
+<ul class="list-inline">
+<li class="list-inline-item"><a href="https://github.com/speakinginlungs/tester"><i class="fab fa-github"></i></a></li>
+<li class="list-inline-item"><a href="https://instagram.com/github"><i class="fab fa-instagram-square"></i></a></li>
+<li class="list-inline-item"><a href="https://twitter.com/github"><i class="fab fa-twitter-square"></i></a></li>
+</ul>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="site-footer-inner has-top-divider">
-                    <div class="brand footer-brand">
-                        <a href="#">
-							<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-								<title>April</title>
-								<defs>
-									<linearGradient x1="114.674%" y1="39.507%" x2="-52.998%" y2="39.507%" id="logo-footer-a">
-										<stop stop-color="#8D92FA" offset="0%"/>
-										<stop stop-color="#8D92FA" stop-opacity="0" offset="100%"/>
-									</linearGradient>
-									<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="logo-footer-b">
-										<stop stop-color="#FF3058" offset="0%"/>
-										<stop stop-color="#FF6381" offset="100%"/>
-									</linearGradient>
-									<linearGradient x1="32.716%" y1="-20.176%" x2="32.716%" y2="148.747%" id="logo-footer-c">
-										<stop stop-color="#FF97AA" offset="0%"/>
-										<stop stop-color="#FF97AA" stop-opacity="0" offset="100%"/>
-									</linearGradient>
-								</defs>
-								<g fill="none" fill-rule="evenodd">
-									<path d="M31.12 7.482C28.327 19.146 19.147 28.326 7.483 31.121A12.04 12.04 0 0 1 .88 24.518C3.674 12.854 12.854 3.674 24.518.879a12.04 12.04 0 0 1 6.603 6.603z" fill="#312ECA"/>
-									<path d="M28.874 3.922l-24.91 24.99a12.026 12.026 0 0 1-3.085-4.394C3.674 12.854 12.854 3.674 24.518.879a12.025 12.025 0 0 1 4.356 3.043z" fill="url(#logo-footer-a)"/>
-									<g opacity=".88">
-										<path d="M31.12 24.518a12.04 12.04 0 0 1-6.602 6.603C12.854 28.326 3.674 19.146.879 7.482A12.04 12.04 0 0 1 7.482.88c11.664 2.795 20.844 11.975 23.639 23.639z" fill="url(#logo-footer-b)"/>
-										<path d="M24.518 31.12C12.854 28.327 3.674 19.147.879 7.483A12.015 12.015 0 0 1 3.46 3.57L28.47 28.5a12.016 12.016 0 0 1-3.951 2.62z" fill="url(#logo-footer-c)"/>
-									</g>
-								</g>
-							</svg>
-                        </a>
+</div>
                     </div>
-    <script src="dist/js/main.min.js"></script>
+
 
 </main>
 <!--Main layout-->
@@ -519,15 +517,6 @@
 
 
 <!--Footer-->
-<footer>
-<div id="footer">
-<p>Startup your Idea into a real product at ©Tester</p>
-<ul class="list-inline">
-<li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
-<li class="list-inline-item"><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-<li class="list-inline-item"><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-</ul>
-</div>
  <footer class="page-footer font-small unique-color-dark">
 
         <!-- Social buttons -->
@@ -552,7 +541,7 @@
                     <h6 class="text-uppercase font-weight-bold">
                         <strong>Frequently asked questions</strong>
                     </h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 12px;">
                     <p>
                         <a href="#!">Why Tester?</a>
                     </p>
@@ -573,7 +562,7 @@
                     <h6 class="text-uppercase font-weight-bold">
                         <strong>Contact</strong>
                     </h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 12px;">
                     <p>
                         <i class="fas fa-home"></i></i> London, Hey Avenue 555 A, UK</p>
                     <p>

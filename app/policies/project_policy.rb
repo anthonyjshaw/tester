@@ -13,6 +13,14 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    true
+  end
+
   def my_projects?
     true
   end
