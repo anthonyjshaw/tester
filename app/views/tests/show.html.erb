@@ -23,7 +23,9 @@
       <%= image_tag "cover512-512.png", alt: "alttext", class: 'avatar' %>
     </div>
     <div class="col align-items-center">
+      <% if policy(Test).new? %>
       <%= link_to "Create a new test", new_project_test_path(@test.project), class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"} %>
+      <% end %>
     </div>
   </div>
     <div class="row align-items-center test-header my-4">
@@ -54,6 +56,13 @@
         <p><%= @test.description %></p>
         <p>Sample size: <%= @test.sample_size %></p>
         <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
+
+<iframe src="https://example.org"
+            title="iframe Example 1" width="400" height="300">
+</iframe>
+
 </div>
+
+
 
 
