@@ -1,0 +1,14 @@
+  <div class="row justify-content-around">
+  <div class="col">
+  <p><strong>Description</strong></p>
+  <p><%= @test.description %></p>
+  </div>
+  <div class="col">
+   <p>Sample size: <%= @test.sample_size %></p>
+   <% if @test.time_limit <= Date.today %>
+   <p>Ended</p>
+   <% else %>
+   <p><%= (@test.time_limit - Date.today).to_i %> days left  </p>
+   <% end %>
+  </div>
+  </div>

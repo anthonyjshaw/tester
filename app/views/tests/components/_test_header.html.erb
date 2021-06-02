@@ -1,0 +1,19 @@
+<div class="flex-box test-header my-4">
+      <p class="test-heading"><%=@test.name %></p>
+      <p><span class="live-dot">•</span><%= @test_status %></p>
+      <p index="test-created-date">Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %></p>
+      <p><%= @test.test_url %></p>
+      <span>
+      <i class="fas fa-external-link-alt test-fav"></i>
+      </span>
+      <% if policy(@test).edit? %>
+      <%= link_to edit_test_path(@test), data: {toggle: "modal", target: "#exampleModalEdit"} do %>
+      <i class="fas fa-pencil-alt test-fav"></i>
+      <% end %>
+      <% end %>
+      <% if policy(@test).destroy? %>
+      <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
+      <i class="fas fa-trash test-fav"></i>
+      <% end %>
+      <% end %>
+   </div>

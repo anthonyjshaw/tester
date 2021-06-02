@@ -18,6 +18,16 @@ class TestPolicy < ApplicationPolicy
   end
 
   def update?
+    set_user
+  end
+
+  def destroy?
+    set_user
+  end
+
+  private
+
+  def set_user
     record.project.user == user
   end
 end
