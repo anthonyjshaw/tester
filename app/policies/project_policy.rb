@@ -8,7 +8,7 @@ class ProjectPolicy < ApplicationPolicy
   def show?
     true
   end
-
+  
   def create?
     true
   end
@@ -24,4 +24,5 @@ class ProjectPolicy < ApplicationPolicy
   def my_projects?
     true
   end
+
 end
