@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def create
     @review = Review.new(review_params)
     authorize @review
@@ -13,7 +12,8 @@ class ReviewsController < ApplicationController
   end
 
   private
-    def review_params
-      params.require(:review).permit(:content, :rating, :question1, :question2, :question3)
-    end
+
+  def review_params
+    params.require(:review).permit(:content, :rating, :question1, :question2, :question3)
+  end
 end

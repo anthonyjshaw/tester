@@ -33,7 +33,9 @@
   <body data-no-turbolink="true" >
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/sidebar' %>
+    <div class="flex-box">
+    <%= render 'shared/sidebar' unless current_page?(root_path) || !user_signed_in? %>
+    </div>
     <%= yield %>
   </body>
 </html>

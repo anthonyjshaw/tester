@@ -45,7 +45,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
 
-  #both gems are for better_errors
+  # both gems are for better_errors
   gem "better_errors"
   gem "binding_of_caller"
 

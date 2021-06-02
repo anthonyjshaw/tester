@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @tests = policy_scope(Test)
+    @disable_sidebar = true
   end
 end
