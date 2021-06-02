@@ -32,3 +32,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+import { sidebarToggle } from '../custom/sidebar';
+window.sidebarToggle = sidebarToggle;
+// window.sidebarOff = sidebarOff;

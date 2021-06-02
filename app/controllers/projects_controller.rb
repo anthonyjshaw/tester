@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
+
+  
+
   skip_before_action :authenticate_user!, only: %i[index show]
+  skip_after_action :verify_authorized, only: [:user_index]
   before_action :set_project, only: %i[show edit update destroy]
 
   def index
@@ -7,6 +11,10 @@ class ProjectsController < ApplicationController
 
     @projects = Project.all
     render :index
+  end
+  
+  def user_index
+    @projects = policy_scope(Project).where(user: current_user)
   end
 
   def show
@@ -73,4 +81,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:name, :description, :github_url)
   end
+
 end
