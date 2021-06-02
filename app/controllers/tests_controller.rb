@@ -14,6 +14,7 @@ class TestsController < ApplicationController
       @test_status = 'live'
     end
     @new_test = Test.new
+    test_reviews
   end
 
   def new
@@ -48,6 +49,11 @@ class TestsController < ApplicationController
   def set_test
     @test = Test.find(params[:id])
     authorize @test
+  end
+
+  def test_reviews
+    @reviews = policy_scope(Review)
+    @review = Review.new
   end
 
   def test_params
