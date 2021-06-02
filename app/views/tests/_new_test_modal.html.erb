@@ -1,0 +1,26 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New test</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@test.project, @new_test], url: project_tests_path(@test.project) do |f| %>
+        <%= f.input :name, label_html: {class: "required-class"} %>
+        <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
+        <%= f.input :test_url, label_html: {class: "required-class"}%>
+        <%= f.input :sample_size, label_html: {class: "required-class"}%>
+        <%= f.input :time_limit, label_html: {class: "required-class"} %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
