@@ -15,6 +15,7 @@ class TestsController < ApplicationController
     end
     @new_test = Test.new
     test_reviews
+    review_or_reviews
   end
 
   def new
@@ -52,7 +53,7 @@ class TestsController < ApplicationController
   end
 
   def test_reviews
-    @reviews = policy_scope(Review.where(test: params[:test_id]))
+    @reviews = policy_scope(Review.where(test: params[:id]))
     @review = Review.new
   end
 
@@ -60,6 +61,14 @@ class TestsController < ApplicationController
     params.require(:test).permit(:name, :description, :sample_size, :test_url, :time_limit)
   end
 
+  def review_or_reviews
+    @review_count = @test.reviews.count
+    if @review_count == 1
+      @count == 'review'
+    else
+      @count == 'reviews'
+    end
+  end
 
   def finished?(test)
     test.is_finished == true

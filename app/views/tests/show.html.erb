@@ -29,30 +29,28 @@
          <% end %>
       </div>
    </div>
-   <div class="row align-items-center test-header my-4">
-      <div class="col">
-         <h2><%=@test.name %></h2>
-      </div>
-      <div class="col">
-         <span class="live-dot">•</span> <%= @test_status %>
-      </div>
-      <div class="col">
-         Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %>
-      </div>
-      <div class="col">
-         <%= @test.test_url %>
+        <div class="flex-box test-header my-4">
+         <h2 class="test-heading"><%=@test.name %></h2>
+
+
+         <span class="live-dot">•</span> <p><%= @test_status %></p>
+
+         <p index="test-created-date">Created on: <%= @test.created_at.strftime("%d-%m-%Y" ) %></p>
+
+
+         <p><%= @test.test_url %></p>
+         <span>
          <i class="fas fa-external-link-alt test-fav"></i>
-      </div>
-      <div class="col">
+         </span>
+
          <%= link_to edit_test_path(@test), data: {toggle: "modal", target: "#exampleModalEdit"} do %>
          <i class="fas fa-pencil-alt test-fav"></i>
          <% end %>
          <%= link_to test_path(@test), method: :delete, data: {confirm: "Are you sure?"} do %>
          <i class="fas fa-trash test-fav"></i>
          <% end %>
-      </div>
-   </div>
-   <p>Description</p>
+    </div>
+  <p>Description</p>
    <p><%= @test.description %></p>
    <p>Sample size: <%= @test.sample_size %></p>
    <p> <%= (@test.time_limit - Date.today).to_i %> days left  </p>
@@ -62,15 +60,21 @@
 
 
 
-<% if @test.reviews.count.zero? %>
+    <% if @test.reviews.count.zero? %>
 
-<p>No reviews. Be the first to<%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></p>
-<% else %>
-<p><%= @test.reviews.count %> reviews</p>
-<% @reviews.each do |review| %>
-   <%= review.content %>
-   <% end %>
-<% end %>
+    <p>No reviews. Be the first to <span><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></span></p>
+    <% else %>
+
+      <p><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></p>
+    <p> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></p>
+    <% @reviews.each do |review| %>
+    <div class="card my-4 review-card">
+      <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
+      <p><strong><%= review.user.email %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
+       <%= review.content %>
+    </div>
+       <% end %>
+    <% end %>
 </div>
 
 
