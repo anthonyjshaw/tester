@@ -34,10 +34,6 @@ gem 'meta-tags'
 
 gem 'cloudinary', '~> 1.16.0'
 
-# both gems are for better_errors
-gem "better_errors"
-gem "binding_of_caller"
-
 gem 'pundit'
 
 gem 'autoprefixer-rails', '10.2.5'
@@ -48,6 +44,10 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
+
+  #both gems are for better_errors
+  gem "better_errors"
+  gem "binding_of_caller"
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
