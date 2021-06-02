@@ -18,7 +18,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.project.user == user
   end
 
   def my_projects?
