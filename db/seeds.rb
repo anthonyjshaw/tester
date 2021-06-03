@@ -7,29 +7,52 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 p 'Destroying records'
 
-Project.delete_all
-User.delete_all
+User.destroy_all
+Project.destroy_all
+Test.destroy_all
+Review.destroy_all
+
+
 
 p 'Creating user'
-user = User.create!(email: 'user@user.io', password: 123456)
+
+10.times do |i|
+
+user_i = User.create!(email: "user_#{i}@user.io", password: 123456)
+
 
 p 'Creating Project'
 
-project = Project.create!(
+5.times do
+
+project_i = Project.create!(
   name: "Tester",
   description: "Tester is the world’s leading community for people to share, test and grow their products",
   github_url: "https://github.com/speakinginlungs/tester",
-  user_id: user.id,
+  user_id: user_i.id,
+  project_tag: Project::PROJECT_TAGS.sample
 )
 
-test = Test.create!(
+p 'Creating Tests...'
+10.times do
+@test_i = Test.create!(
   name: "Tester project UX",
   description: "testing user pain-points",
   test_url: "http://example.com/acoustics/birthday.html#bedroom",
   sample_size: 235,
   time_limit: Date.current.tomorrow,
-  project_id: project.id
+  project_id: project_i.id
 )
 
 
-p "#{User.count} user created, #{Project.count} project created, #{Test.count} test created"
+
+end
+
+end
+
+p 'Creating reviews'
+
+
+p 'test created!'
+
+end

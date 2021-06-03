@@ -8,7 +8,7 @@ class ProjectPolicy < ApplicationPolicy
   def show?
     true
   end
-  
+
   def create?
     true
   end
@@ -21,8 +21,15 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def user_index?
+    true
+  end
+
   def my_projects?
     true
   end
 
+  def destroy?
+    record.user == user
+  end
 end

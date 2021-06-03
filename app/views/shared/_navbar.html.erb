@@ -1,6 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+      <svg width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="19" cy="19" r="19" fill="#FBFBFB"/>
+    <path d="M16.342 33V13.992H9.89805V9.528H28.114V13.992H21.67V33H16.342Z" fill="#2E2AC5"/>
+    </svg>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +15,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "My projects", my_projects_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
@@ -27,7 +30,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link nav-white" %>
         </li>
       <% end %>
     </ul>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
-  has_many :tests, through: :projects
+  has_many :tests, through: :projects, dependent: :destroy
   has_many :reviews
 
 end
