@@ -29,6 +29,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def set_user
+    record.project.user == user
+  end
+
   def destroy?
     record.user == user
   end
