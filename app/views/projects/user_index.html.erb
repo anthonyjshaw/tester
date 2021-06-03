@@ -2,31 +2,32 @@
 <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" },  class: "btn btn-flat"%>
 <%=  %>
 <% if @projects.empty? %>
-  <p>Hmm..  you don’t seem to have any projects. <br>
-    <%= link_to "Create a new project", new_project_path %>
-  </p>
+<p>Hmm..  you don’t seem to have any projects. <br>
+  <%= link_to "Create a new project", new_project_path %>
+</p>
 <% else %>
-  <% @projects.each do |project| %>
+<% @projects.each do |project| %>
+  <div class="container mt-3">
     <div class="project-card">
       <div class="project-head">
         <div class="p-flex">
           <%= link_to project_path(project) do %>
-            <h5><strong><%= project.name %></h5></strong>
+          <h5><strong><%= project.name %></h5></strong>
           <% end %>
           <p>Created on: <%= project.created_at.strftime("%Y-%m-%d") %></p>
         </div>
         <div class="p-flex">
           <div class="project-edit">
             <%= link_to edit_project_path(project),
-              method: :get do %>
-              <i class="fas fa-edit"></i>
+            method: :get do %>
+            <i class="fas fa-edit"></i>
             <% end %>
           </div>
           <div class="project-delete">
             <%= link_to project_path(project),
-              method: :delete,
-              data: { confirm: "Are you sure?" } do %>
-              <i class="far fa-trash-alt trash"></i>
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt trash"></i>
             <% end %>
           </div>
         </div>
@@ -46,11 +47,12 @@
               <p><strong><i class="fas fa-circle test-live"></i>live: <%= project.tests.where(is_finished: false).count %> tests</strong> </p>
               <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended: <%= project.tests.where(is_finished: true).count %> tests</strong> </p>
             </div>
+          </div>
         </div>
-       </div>
         <div class="project-b-resp">
         </div>
       </div>
+    </div>
     </div>
   <% end %>
 <% end %>

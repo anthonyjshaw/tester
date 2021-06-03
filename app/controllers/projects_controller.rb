@@ -10,10 +10,9 @@ class ProjectsController < ApplicationController
   end
 
   def user_index
-    @projects = policy_scope(Project).where(user: current_user)
+    @projects = policy_scope(Project).where(user: current_user).order("created_at DESC")
     @project = Project.new
     authorize @project
-    @test = Test.new
   end
 
   def show
@@ -21,7 +20,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @test = Test.new
     authorize @test
-    @tests = policy_scope(Test).where(project: @project)
+    @tests = policy_scope(Test).where(project: @project).order("created_at ASC")
   end
 
   def new
