@@ -29,11 +29,14 @@
     <%= favicon_link_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
-  <body data-no-turbolink="true" >
+  <body >
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/sidebar' %>
+
+    <%= render 'shared/sidebar' unless current_page?(root_path) || !user_signed_in? %>
+
     <%= yield %>
+    <hr>
+    <%= render 'shared/footer' unless current_page?(root_path) %>
   </body>
 </html>

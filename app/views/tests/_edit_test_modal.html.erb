@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@test.project, @test], url: test_path(@test) do |f| %>
+        <%= simple_form_for [@test.project, @test], url: test_path(@test), remote: true do |f| %>
         <%= f.input :name %>
         <%= f.input :description, input_html: {rows: 4} %>
         <%= f.input :test_url %>
