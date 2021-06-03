@@ -4,16 +4,17 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
   def index
-    @projects = policy_scope(Project)
+    @projects = policy_scope(Project).where(user: current_user)
 
     # @projects = Project.all
     # render :index
   end
 
   def user_index
-    @projects = policy_scope(Project).where(user: current_user).order("created_at DESC")
+    @projects = policy_scope(Project).where(user: current_user)
     @project = Project.new
     authorize @project
+    @test = Test.new
   end
 
   def show
@@ -21,7 +22,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @test = Test.new
     authorize @test
-    @tests = policy_scope(Test).where(project: @project).order("created_at ASC")
+    @tests = policy_scope(Test).where(project: @project)
   end
 
   def new

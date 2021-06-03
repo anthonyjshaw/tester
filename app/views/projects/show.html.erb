@@ -64,16 +64,19 @@
       <p> test url: <%= test.test_url %></p>
       <div class="p-flex">
         <div class="project-edit">
+
           <%= link_to edit_test_path(test),
             method: :get do %>
             <i class="fas fa-edit"></i>
           <% end %>
         </div>
         <div class="project-delete">
+          <% if test.project.user == current_user %>
           <%= link_to test_path(test),
             method: :delete,
-            data: { confirm: "Are you sure?" } do %>
+            data: { confirm: "Are you sure?" } do%>
             <i class="far fa-trash-alt trash"></i>
+          <% end %>
           <% end %>
         </div>
       </div>
