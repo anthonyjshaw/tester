@@ -370,14 +370,7 @@
               <div class="features section-tests">
                  <div class="container">
                        <h2 class="section-title mt-0 text-center">Live tests</h2>
-                       <% @tests.each do |test| %>
-                     <div class="card-product">
-                      <div class="card-product-infos">
-                        <h2><%= test.name %></h2>
-                        <p> <%= test.description %> <strong></strong> only.</p>
-                      </div>
-                     </div>
-                     <% end %>
+                     <%= render 'shared/feed' %>
                   </div>
               </div>
             </section>
@@ -576,7 +569,7 @@
         <!--/.Footer Links-->
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">Tester © 2021 
+        <div class="footer-copyright text-center py-3">Tester © 2021
         </div>
         <!-- Copyright -->
 </footer>
