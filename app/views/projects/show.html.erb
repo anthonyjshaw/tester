@@ -1,7 +1,3 @@
-
-<div class="container" id="container">
-<%= @project.name %>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -11,6 +7,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+
       <div class="modal-body">
         <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
         <%= f.input :name, label_html: {class: "required-class"} %>
@@ -28,9 +26,81 @@
   </div>
 </div>
 
+<%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
 
-<% @tests.each do |test| %>
-<%= test.name %>
-<% end %>
-<%= button_tag "Create a new test", class: "btn-primary", data: { toggle: "modal", target: "#exampleModal"} %>
+<div class="container mt-3">
+  <h1 class='project-name'><%= @project.name %></h1>
+  <div class="row align-items-start ">
+    <div class="col-6">
+       <p><strong>Description</strong></p>
+       <p><%= @project.description %></p>
+       <i class="fab fa-github"></i>
+       <%= link_to "http://#{@project.github_url}" do %>
+       <%= @project.github_url %>
+       <% end %>
+    </div>
+  </div>
 </div>
+
+<div class="container mt-3">
+  <% @project.tests.each do |test| %>
+    <div class="project-card">
+    <div class="project-head">
+      <div class="p-flex">
+        <%= link_to test_path(test) do %>
+          <% if test.is_finished %>
+            <h5><strong><%= test.name %></h5></strong>
+          <% else %>
+            <h5 id="color"><strong><%= test.name %></h5></strong>
+          <% end %>
+        <% end %>
+        <p>Created on: <%= test.created_at.strftime("%Y-%m-%d") %></p>
+        <% unless test.is_finished %>
+          <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
+        <% else %>
+          <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
+        <% end %>
+      </div>
+      <p> test url: <%= test.test_url %></p>
+      <div class="p-flex">
+        <div class="project-edit">
+          <%= link_to edit_test_path(test),
+            method: :get do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
+        <div class="project-delete">
+          <%= link_to test_path(test),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt trash"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="project-body">
+      <p><strong>Description</strong></p>
+      <div class="project-body-inside">
+        <div class="test-b-desc">
+        <%= test.description %>
+        </div>
+        <div class="test-b-stats">
+          <div class="count">
+            <h2><%= test.reviews.count %></h2>
+            <p><strong>Reviews</strong></p>
+          </div>
+          <div class="count">
+            <h2><%= test.reviews.count %></h2>
+            <p><strong>Responses</strong></p>
+          </div>
+          <div class="count">
+            <h2><%= (test.time_limit - Date.today).round %></h2>
+            <p><strong>days left</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>
+

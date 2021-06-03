@@ -2,10 +2,11 @@
   height: 100%;
   width: 80px;
   position: fixed;
-  top: 66px;
+  top: 0;
+  // 68px;
   left: 0;
   background-color: #f4f6f9;
-  padding-top: 20px;
+  padding-top: 88px;
   white-space: nowrap;
   transition: 0.5s;
   z-index: 1;
@@ -43,14 +44,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90%;
+  height: 95%;
 }
 
 #menu-icon {
   padding: 3px 3px;
   position: absolute;
   right: -38px;
-  top: 52px;
+  top: 120px;
   overflow-x: visible!important;
   border-radius: 0px 5px 5px 0px;
   background-color: #f4f6f9;
