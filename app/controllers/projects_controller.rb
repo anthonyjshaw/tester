@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
   def index
-    @projects = policy_scope(Project).where(user: current_user)
+    @projects = policy_scope(Project)
 
     # @projects = Project.all
     # render :index
