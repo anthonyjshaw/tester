@@ -13,9 +13,6 @@
         <%= f.input :rating %>
         <%= f.input :question1, collection: Review::QUESTION_1_CATEGORIES, label: "How do you feel about this feature?" %>
         <%= f.input :content, label: "Any comments you'd like to share?" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= f.submit class: "btn btn-primary" %>
         <% end %>
       </div>

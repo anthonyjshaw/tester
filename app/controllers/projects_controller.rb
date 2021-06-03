@@ -54,24 +54,18 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     authorize @project
-    respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: "Your Project was successfully updated." }
-        format.json { render :show, status: :ok, location: @project }
         redirect_to user_path(current_user)
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        render :show
       end
-    end
   end
 
   def destroy
-    @project.destroy
-    respond_to do |format|
-      format.html { redirect_to github_url, notice: "Your Project was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    authorize @project
+    if @project.destroy
+    redirect_to my_projects_path
+  end
   end
 
   private

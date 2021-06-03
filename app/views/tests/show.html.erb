@@ -25,7 +25,6 @@
       <div class="col align-items-center">
          <% if policy(Test).new? %>
          <%= button_tag "Create a new test", class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"}%>
-         <%= link_to "Create a new test", new_project_test_path(@test.project) %>
          <% end %>
       </div>
    </div>

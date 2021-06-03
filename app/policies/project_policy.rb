@@ -28,4 +28,8 @@ class ProjectPolicy < ApplicationPolicy
   def my_projects?
     true
   end
+
+  def destroy?
+    record.user == user
+  end
 end
