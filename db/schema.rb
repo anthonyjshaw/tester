@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_093729) do
+ActiveRecord::Schema.define(version: 2021_06_03_095350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 2021_06_02_093729) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "test_users", force: :cascade do |t|
+    t.bigint "test_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "test_finished", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_test_users_on_test_id"
+    t.index ["user_id"], name: "index_test_users_on_user_id"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.bigint "project_id", null: false
     t.boolean "is_finished", default: false
@@ -90,5 +100,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_093729) do
   add_foreign_key "projects", "users"
   add_foreign_key "reviews", "tests"
   add_foreign_key "reviews", "users"
+  add_foreign_key "test_users", "tests"
+  add_foreign_key "test_users", "users"
   add_foreign_key "tests", "projects"
 end
