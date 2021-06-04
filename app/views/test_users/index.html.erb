@@ -1,0 +1,25 @@
+<% @test_users.each do |x| %>
+  <div class="container mt-3">
+    <div class="project-card">
+      <div class="project-head">
+        <div class="p-flex">
+          <%= link_to test_path(x.test) do %>
+            <% if x.test.is_finished %>
+              <h5><strong><%= x.test.name %></h5></strong>
+            <% else %>
+              <h5 id="color"><strong><%= x.test.name %></h5></strong>
+            <% end %>
+          <% end %>
+          <p>Created on: <%= x.test.created_at.strftime("%Y-%m-%d") %></p>
+          <% unless x.test.is_finished %>
+            <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
+            <p><strong><%= (x.test.time_limit - Date.today).round %> days left</strong> </p>
+          <% else %>
+            <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
+          <% end %>
+        </div>
+        <p><strong>test url: </strong><%= link_to x.test.test_url, x.test.test_url, :target => "_blank", :style=>'color:#2355ff;' %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
