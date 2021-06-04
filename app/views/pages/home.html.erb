@@ -70,17 +70,17 @@
                 </div>
             </div>
         </header>
-
+        
         <main>
             <section class="hero">
                 <div class="container">
                     <div class="hero-inner">
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0"><strong>Start up your App Idea today <br> or test a product</strong></h1>
-	                        <p class="hero-paragraph">Tester is the world’s leading community <br> for people to share, test and grow their products</p>
+	                        <p class="hero-paragraph">Tester is the world’s leading community <br> for people to share, test and grow their products.</p>
 							<div class="hero-form field field-grouped">
 								<div class="control control-expanded">
-									<input class="input" type="email" name="email" placeholder="Your email&hellip;">
+									<input class="input" type="email" name="email" placeholder="Your best email" style="width: 165px;">
 								</div>
 								<div class="container">
 									 <%= link_to "Sign Up!", new_user_registration_path, class: "button button-primary button-block" %>
@@ -368,11 +368,7 @@
 			 <div class="container">
               <div class="features section-tests section inner">
                  <div class="container">
-
-                       <h2 class="section-title mt-0 text-center"><strong>Newest Live Tests</strong></h2>
-
-                       <h2 class="section-title mt-0 text-center">Live tests</h2>
-
+                       <h2 class="testimonials section-title mt-0 text-center"><strong>Newest Live Tests</strong></h2>
                        <% @tests.each do |test| %>
                      <div class="card-product">
                       <div class="card-product-infos">
@@ -395,7 +391,7 @@
 			 <div class="container">
               <div class="features section-projects">
                  <div class="container">
-                       <h2 class="section-title mt-0 text-center">Newest Live Projects</h2>
+                       <h2 class="testimonials section-title mt-0 text-center"><strong>Newest Live Projects</strong></h2>
                        <% @projects.each do |project| %>
                      <div class="card-product">
                       <div class="card-product-infos">
@@ -407,13 +403,16 @@
 
                   </div>
               </div>
+
+              <!--Here comes a new section for feature products-->
+              <!--Here comes a new section for feature products-->
 			   <div class="container text-center">
 				 <div class="button text-center">
 				 <%= link_to "Explore more", explore_path, class: "button button-primary button-block" %>
 				</div>
 				</div>
 				</div>
-            </section>
+        </section>
 
 			<section class="testimonials section">
 				<div class="testimonials-shape testimonials-shape-1">
@@ -449,7 +448,7 @@
 				</div>
 				<div class="container">
 					<div class="testimonials-inner section-inner">
-						<h2 class="section-title mt-0 text-center">Testimonials</h2>
+						<h2 class="section-title mt-0 text-center"><strong>Testimonials</strong></h2>
 						<div class="testimonials-wrap">
 							<div class="testimonial text-xs is-revealing">
 								<div class="testimonial-inner">
