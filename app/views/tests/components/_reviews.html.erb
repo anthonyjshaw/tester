@@ -10,7 +10,7 @@
       <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
       </div>
       <div class="card mb-4 review-card">
-        <p><strong><%= review.user.email %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
+        <p><strong><%= review.user.username %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
         <%= review.content %>
       </div>
       </div>
