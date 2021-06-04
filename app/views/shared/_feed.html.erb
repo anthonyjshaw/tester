@@ -3,24 +3,21 @@
   <% @projects.first(5).each do |project| %>
   <div class='card' style="width: auto;">
     <%= link_to project_path(project) do %>
-      <div class="card-img-top" style='position:relative;width:auto;height: 200px;background-image: url("https://picsum.photos/200/300?random=1")' src="" alt="Card image cap">
-      <% end %>
-    <h2 class='card-title' style='position:absolute; bottom:0; '><%= project.name %></h2>
+    <div class="card-img-top" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover; background-image: url("https://picsum.photos/1600/900?<%= project.name %>")' src="" alt="Card image cap">
   </div>
     <div class="card-body">
       <div class="body-header d-flex justify-content-between align-items-center mb-3">
         <div class="col d-flex align-items-center">
-          <%= image_tag "https://i.pravatar.cc/100", class: "avatar menu-icon"%>
-          <h5 class='username'><%= project.user.username %></h5>
+          <%= image_tag "https://i.pravatar.cc/150?img=#{project.id}", class: "avatar menu-icon"%>
+          <h5 class='username'><%= project.name %></h5>
           </div>
           <p class='stats'><i class="fas fa-clipboard-list"></i>25</p>
           <p class='stats'><i class="fas fa-clipboard-check"></i>345</p>
       </div>
       <p class='card-text desc'><%= project.description %></p>
-      <%= link_to project_path(project), class: 'btn btn purple-round' do %>
-          See project
-      <% end %>
-    </div>
-  </div>
+
+      </div>
   <% end %>
+  </div>
+      <% end %>
 </div>
