@@ -1,0 +1,19 @@
+.feed-wrapper {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+}
+
+.stats {
+  margin-bottom: 0;
+}
+
+.fas {
+  margin-right: 0.25rem;
+  margin-left: 0.3rem;
+}
+
+.desc {
+  min-height: 5rem;
+}
