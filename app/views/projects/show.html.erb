@@ -26,9 +26,9 @@
 
 <%= render 'shared/circle_gradient' %>
 
-
+<% if @project.user == current_user %>
 <%= button_tag "Create a new test", style:"background: #2e2ac5; border-radius:20px", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
-
+<% end %>
 <div class="container mt-3">
   <h1 class='project-name'><%= @project.name %></h1>
   <div class="row align-items-start ">
