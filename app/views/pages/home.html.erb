@@ -76,14 +76,14 @@
                 <div class="container">
                     <div class="hero-inner">
 						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0">Start up your App Idea today or test a product</h1>
-	                        <p class="hero-paragraph">Tester is the world’s leading community for people to share, test and grow their products</p>
+	                        <h1 class="hero-title mt-0"><strong>Start up your App Idea today <br> or test a product</strong></h1>
+	                        <p class="hero-paragraph">Tester is the world’s leading community <br> for people to share, test and grow their products</p>
 							<div class="hero-form field field-grouped">
 								<div class="control control-expanded">
-									<input class="input" type="email" name="email" placeholder="Your best email&hellip;">
+									<input class="input" type="email" name="email" placeholder="Your email&hellip;">
 								</div>
-								<div class="control">
-									 <%= link_to "Sign up and start testing!", new_user_registration_path, class: "button button-primary button-block" %>
+								<div class="container">
+									 <%= link_to "Sign Up!", new_user_registration_path, class: "button button-primary button-block" %>
 								</div>
 							</div>
                             <div class="feature text-center is-revealing">
@@ -305,9 +305,8 @@
                                     </div>
             </section>
 
-            <section class="features section">
+            <section>
                 <div class="flex-container">
-                    <div class="features-inner section-inner">
                         <div class="features-header text-center">
                             <div class="container-sm">
                                 <h2 class="section-title mt-0">Meet Tester</h2>
@@ -362,16 +361,18 @@
                                     <%= image_tag "testers.png" %>
                                 </div>
 						</div>
-                    </div>
                 </div>
             </section>
 
-            <section class="livetest">
-              <div class="features section-tests">
+            <section class="livetest section-inner">
+			 <div class="container">
+              <div class="features section-tests section inner">
                  <div class="container">
+
+                       <h2 class="section-title mt-0 text-center"><strong>Newest Live Tests</strong></h2>
+
                        <h2 class="section-title mt-0 text-center">Live tests</h2>
-<<<<<<< HEAD
-=======
+
                        <% @tests.each do |test| %>
                      <div class="card-product">
                       <div class="card-product-infos">
@@ -382,12 +383,19 @@
                      <% end %>
                   </div>
               </div>
+                 <div class="container text-center">
+				 <div class="button text-center">
+				 <%= link_to "Explore more", new_user_registration_path, class: "button button-primary button-block" %>
+				</div>
+				</div>
+			    </div>
             </section>
 
-			 <section class="liveprojects">
+			 <section class="liveprojects section-inner">
+			 <div class="container">
               <div class="features section-projects">
                  <div class="container">
-                       <h2 class="section-title mt-0 text-center">Live Projects</h2>
+                       <h2 class="section-title mt-0 text-center">Newest Live Projects</h2>
                        <% @projects.each do |project| %>
                      <div class="card-product">
                       <div class="card-product-infos">
@@ -396,9 +404,15 @@
                       </div>
                      </div>
                      <% end %>
->>>>>>> 1ee9428eaebc550022f231dde570d60c38f2e931
+
                   </div>
               </div>
+			   <div class="container text-center">
+				 <div class="button text-center">
+				 <%= link_to "Explore more", new_user_registration_path, class: "button button-primary button-block" %>
+				</div>
+				</div>
+				</div>
             </section>
 
 			<section class="testimonials section">
