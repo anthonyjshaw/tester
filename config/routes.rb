@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     resources :tests, only: %i[new create index]
   end
   
-  resources :tests, only: %i[index show edit update] do
+  resources :tests, only: %i[index show edit update destroy] do
     resources :reviews, only: %i[index create new]
   end
-
 end

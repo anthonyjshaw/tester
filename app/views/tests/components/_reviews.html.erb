@@ -1,6 +1,6 @@
 
 <% if @test.reviews.count.zero? %>
-    <p>No reviews. Be the first to <span><%= link_to "add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} %></span></p>
+    <p>No reviews.<span><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless  @test.project.user == current_user %></span></p>
    <% else %>
     <p><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless @test.project.user == current_user  %></p>
     <h5 class="my-4"> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></h5>
