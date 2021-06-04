@@ -13,6 +13,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <%= link_to "Explore", '/explore', class: "nav-link nav-white" %>
+      </li>
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "My projects", my_projects_path, class: "nav-link nav-white" %>
