@@ -30,6 +30,19 @@
     }
 }
 
+.purple-round {
+  border-radius: 24px;
+  background: transparent;
+  border: 1px solid #2e2ac5;
+  color: #2e2ac5;
+}
+
+.purple-round:hover {
+  background: #2e2ac5;
+  border: 1px solid #2e2ac5;
+
+}
+
 .button-sm {
     padding: 8px 24px;
 	height: 32px;

@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
   has_many :tests, through: :projects, dependent: :destroy
+  has_many :test_users, dependent: :destroy
   has_many :reviews, dependent: :destroy
+
 end
