@@ -16,18 +16,19 @@
         <%= f.input :test_url, label_html: {class: "required-class"} %>
         <%= f.input :sample_size, label_html: {class: "required-class"}%>
         <%= f.input :time_limit, label_html: {class: "required-class"} %>
-        <%= f.submit class: "btn btn-primary" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit class: "btn btn-primary purple-round" %>
         <% end %>
+      </div>
       </div>
     </div>
   </div>
 </div>
 
-<%= button_tag "Create a new test", style:"background: #2e2ac5", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
+<%= render 'shared/circle_gradient' %>
 
+<% if @project.user == current_user %>
+<%= button_tag "Create a new test", style:"background: #2e2ac5; border-radius:20px", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
+<% end %>
 <div class="container mt-3">
   <h1 class='project-name'><%= @project.name %></h1>
   <div class="row align-items-start ">
@@ -61,13 +62,14 @@
           <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
         <% end %>
       </div>
-      <p> test url: <span><%= link_to "#{test.test_url}", "https://#{test.test_url}" %></span></p>
+      <p> test url: <span><%= link_to "#{test.test_url}", "https://#{test.test_url}", target: '_blank' %></span></p>
       <div class="p-flex">
         <div class="project-edit">
-
+          <% if test.project.user == current_user%>
           <%= link_to edit_test_path(test),
             method: :get do %>
             <i class="fas fa-edit"></i>
+          <% end %>
           <% end %>
         </div>
         <div class="project-delete">

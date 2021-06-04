@@ -57,7 +57,9 @@
 
 
 .test-header {
-  background: #EBEEF2;
+  background: white;
+  border-left:  1px grey solid;
+
 }
 
 
@@ -118,6 +120,7 @@
 
 a:hover {
      text-decoration: none;
+     color:white;
 
 }
 

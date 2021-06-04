@@ -76,6 +76,10 @@ class TestsController < ApplicationController
     end
   end
 
+  def test_finished?(test)
+    test.is_finished = true if (test.time_limit - Date.today) <= 0
+  end
+
   def finished?(test)
     test.is_finished == true
   end

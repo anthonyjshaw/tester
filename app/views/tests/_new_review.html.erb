@@ -9,13 +9,14 @@
         </button>
       </div>
       <div class="modal-body">
+
+      </div>
+    </div>
+  </div>
+</div>
         <%= simple_form_for [@test, @review], url: test_reviews_path(@test), remote: true do  |f| %>
         <%= f.input :rating %>
         <%= f.input :question1, collection: Review::QUESTION_1_CATEGORIES, label: "How do you feel about this feature?" %>
         <%= f.input :content, label: "Any comments you'd like to share?" %>
         <%= f.submit class: "btn btn-primary" %>
         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
