@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   resources :tests, only: %i[index show edit update] do
     resources :reviews, only: %i[index create new]
+    resources :test_users, only: %i[create]
   end
 
+  resources :test_users, only: %i[index]
 end
