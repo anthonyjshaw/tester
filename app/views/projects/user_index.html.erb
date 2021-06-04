@@ -1,11 +1,11 @@
 <%= render 'create_modal' %>
 <%= render 'edit_modal' %>
-<%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" },  class: "btn btn-flat"%>
-<%=  %>
 <% if @projects.empty? %>
+<div class="container">
 <p>Hmm..  you don’t seem to have any projects. <br>
-  <%= link_to "Create a new project", new_project_path %>
+  <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, class: 'no-style-btn' %>
 </p>
+</div>
 <% else %>
 <% @projects.each do |project| %>
   <div class="container mt-3">

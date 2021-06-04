@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
       if @project.update(project_params)
-        redirect_to user_path(current_user)
+        redirect_to my_projects_path
       else
         render :show
       end
