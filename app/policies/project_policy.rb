@@ -18,7 +18,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    record.project.user == user
+    true
   end
 
   def user_index?
