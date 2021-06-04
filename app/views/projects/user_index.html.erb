@@ -1,10 +1,11 @@
 <%= render 'create_modal' %>
-<%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" },  class: "btn btn-flat"%>
-<%=  %>
+<%= render 'edit_modal' %>
 <% if @projects.empty? %>
+<div class="container">
 <p>Hmm..  you don’t seem to have any projects. <br>
-  <%= link_to "Create a new project", new_project_path %>
+  <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, class: 'no-style-btn' %>
 </p>
+</div>
 <% else %>
 <% @projects.each do |project| %>
   <div class="container mt-3">
@@ -18,6 +19,7 @@
         </div>
         <div class="p-flex">
           <div class="project-edit">
+
             <%= link_to edit_project_path(project),
             method: :get do %>
             <i class="fas fa-edit"></i>

@@ -18,7 +18,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    record.project.user == user
+    record.user == user
   end
 
   def user_index?
@@ -30,7 +30,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def set_user
-    record.project.user == user
+    record.user == user
   end
 
   def destroy?
