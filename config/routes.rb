@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tests, only: %i[new create index]
   end
+<<<<<<< HEAD
 
   resources :tests, only: %i[index show edit update] do
+=======
+  
+  resources :tests, only: %i[index show edit update destroy] do
+>>>>>>> 1ee9428eaebc550022f231dde570d60c38f2e931
     resources :reviews, only: %i[index create new]
   end
-
 end

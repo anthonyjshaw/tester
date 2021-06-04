@@ -4,15 +4,21 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
   def index
+<<<<<<< HEAD
     @projects = policy_scope(Project)
+=======
+    @projects = policy_scope(Project).where(user: current_user)
+
+>>>>>>> 1ee9428eaebc550022f231dde570d60c38f2e931
     # @projects = Project.all
     # render :index
   end
 
   def user_index
-    @projects = policy_scope(Project).where(user: current_user).order("created_at DESC")
+    @projects = policy_scope(Project).where(user: current_user)
     @project = Project.new
     authorize @project
+    @test = Test.new
   end
 
   def show
@@ -20,7 +26,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @test = Test.new
     authorize @test
-    @tests = policy_scope(Test).where(project: @project).order("created_at ASC")
+    @tests = policy_scope(Test).where(project: @project)
   end
 
   def new
@@ -53,7 +59,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
       if @project.update(project_params)
-        redirect_to user_path(current_user)
+        redirect_to my_projects_path
       else
         render :show
       end

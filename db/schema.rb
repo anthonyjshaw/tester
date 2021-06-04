@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_06_03_120858) do
+=======
+ActiveRecord::Schema.define(version: 2021_06_03_152605) do
+>>>>>>> 1ee9428eaebc550022f231dde570d60c38f2e931
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_06_03_120858) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
-    t.integer "rating"
+    t.float "rating"
     t.text "content"
     t.string "question1"
     t.string "question2"
@@ -92,6 +96,11 @@ ActiveRecord::Schema.define(version: 2021_06_03_120858) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
+    t.string "first_name"
+    t.string "last_name"
+>>>>>>> 1ee9428eaebc550022f231dde570d60c38f2e931
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
