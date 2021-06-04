@@ -36,7 +36,6 @@
     <%= render 'shared/sidebar' unless current_page?(root_path) || !user_signed_in? %>
 
     <%= yield %>
-    <hr>
-    <%= render 'shared/footer' unless current_page?(root_path) %>
+    <%= render 'shared/footer' unless current_page?(root_path) || current_page?(my_projects_path) %>
   </body>
 </html>
