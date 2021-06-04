@@ -250,9 +250,9 @@ Review.destroy_all
   )
 
   project_26 = Project.create!( #27
-    name: Faker::App.name,
-    description: "Making trading easy to understand and make a lot of money",
-    github_url: "https://github.com/tradsmoothly",
+    name: "like-wisely",
+    description: "Avoid real Life mistakes which leads to pain decisions. Share your real and honest Life experience instead, so that everybody can learn from it!",
+    github_url: "https://github.com/likewisely",
     user_id: users[26].id,
     project_tag: Project::PROJECT_TAGS.sample
   )
