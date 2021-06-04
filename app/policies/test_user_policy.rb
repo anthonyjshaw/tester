@@ -12,5 +12,4 @@ class TestUserPolicy < ApplicationPolicy
   def create?
     true
   end
-
 end

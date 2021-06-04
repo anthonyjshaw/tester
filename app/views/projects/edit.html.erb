@@ -1,7 +1,7 @@
 <div class="form-container mt-3">
 <div class="row justify-content-center ">
 
-<h1>Update your Test</h1>
+<h1>Update your Project</h1>
 
 </div>
 <div class="row justify-content-center">
@@ -9,7 +9,7 @@
 
 
 
-<%= simple_form_for(@test) do |f| %>
+<%= simple_form_for(@project) do |f| %>
 <div class="row justify-content-center">
 <%= f.input :name %>
 </div>
@@ -17,9 +17,10 @@
 <%= f.input :description %>
 </div>
 <div class="row justify-content-center">
-<%= f.input :test_url %>
+<%= f.input :github_url %>
 </div>
 <div class="row justify-content-center">
+  <%= f.input :project_tag, collection: Project::PROJECT_TAGS %>
 </div>
 <div class="row justify-content-center">
 <%= f.submit class: 'btn btn-primary form-btn' %>

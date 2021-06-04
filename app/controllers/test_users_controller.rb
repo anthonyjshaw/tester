@@ -21,5 +21,4 @@ class TestUsersController < ApplicationController
   def test_user_params
     params.require(:test).permit(:user_id)
   end
-
 end

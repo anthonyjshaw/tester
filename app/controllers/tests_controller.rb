@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_test, only: %i[show edit update]
+  before_action :set_test, only: %i[show edit update destroy]
 
   def index
     @tests = policy_scope(Test.where(project: params[:project_id]))
@@ -46,6 +46,11 @@ class TestsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = @test.project
+    @test.delete
+    redirect_to project_path(@project)
+  end
   private
 
   def set_test

@@ -1,0 +1,12 @@
+
+
+<div class="container">
+<p>Hello</p>
+
+<%@tests.each do |test| %>
+<%= test.test.id %>
+<%= link_to test_path(test.test) do %>
+<%= test.test.name %>
+<% end %>
+<% end %>
+</div>

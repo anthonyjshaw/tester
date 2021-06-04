@@ -8,26 +8,7 @@
       </ol>
    </nav>
    <h1 class='project-name'><%= @test.project.name %></h1>
-   <div class="row align-items-start ">
-      <div class="col-6">
-         <p><strong>Description</strong></p>
-         <p><%= @test.project.description %></p>
-         <i class="fab fa-github"></i>
-         <%= link_to "http://#{@test.project.github_url}" do %>
-         <%= @test.project.github_url %>
-         <% end %>
-      </div>
-      <div class="col-2">
-         <p><strong>Collaborators</strong></p>
-         <%= image_tag "cover512-512.png", alt: "alttext", class: "avatar" %>
-         <%= image_tag "cover512-512.png", alt: "alttext", class: 'avatar' %>
-      </div>
-      <div class="col align-items-center">
-         <% if policy(Test).new? %>
-         <%= button_tag "Create a new test", class: "btn btn-primary test-btn-blue", data: {toggle: "modal", target: "#exampleModal"}%>
-         <% end %>
-      </div>
-   </div>
+
    <%= render 'tests/components/test_header' %>
    <%= render 'tests/components/test_sub_header' %>
    <hr>
