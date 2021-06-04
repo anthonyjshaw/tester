@@ -1,4 +1,6 @@
-<div class="container mt-3">
+<%= render 'shared/circle_gradient' %>
+
+  <div class="container mt-3">
    <%= render 'tests/components/edit_test_modal' %>
    <%= render 'tests/components/new_review', test: @test, review: @review %>
    <nav aria-label="breadcrumb">
@@ -8,7 +10,6 @@
       </ol>
    </nav>
    <h1 class='project-name'><%= @test.project.name %></h1>
-
    <%= render 'tests/components/test_header' %>
    <%= render 'tests/components/test_sub_header' %>
    <hr>
