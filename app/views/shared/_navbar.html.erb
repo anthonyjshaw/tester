@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
       <svg width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="19" cy="19" r="19" fill="#FBFBFB"/>
@@ -15,24 +15,19 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "My projects", my_projects_path, class: "nav-link" %>
+          <%= link_to "My projects", my_projects_path, class: "nav-link nav-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "placeholder-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link nav-white" %>
         </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link nav-white" %>
         </li>
       <% end %>
+      <form class="form-inline ml-5 mr-4">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Projects" aria-label="Search">
+      </form>
     </ul>
   </div>
 </div>
