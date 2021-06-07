@@ -39,6 +39,20 @@ Review.destroy_all
 
   # 27.times do
 
+  user_zero = User.create!(
+    email: 'soto@soto.com',
+    first_name: 'soto',
+    last_name: 'dim',
+    username: 'saoma',
+    password: 1111111)
+
+  project_zero_0 = Project.create!( #1
+    name: Faker::App.name,
+    description: "It's a great App to implement everything easily on your page",
+    github_url: "https://github.com/fantasticapp",
+    user_id: user_zero.id,
+    project_tag: Project::PROJECT_TAGS.sample
+  )
 
   users = User.all
   project_0 = Project.create!( #1
@@ -282,6 +296,13 @@ sample_size = Faker::Number.number(digits: 2)
 end
 p 'tests created!'
 p 'Creating reviews'
+
+
+TestUser.create!(
+  test_id: Test.last.id,
+  user_id: user_zero.id
+  )
+
 
 27.times do |i|
 users = User.all

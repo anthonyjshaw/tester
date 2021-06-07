@@ -27,7 +27,7 @@
 <%= render 'shared/circle_gradient' %>
 
 <% if @project.user == current_user %>
-<%= button_tag "Create a new test", style:"background: #2e2ac5; border-radius:20px", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
+<%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
 <% end %>
 <div class="container mt-3">
   <h1 class='project-name'><%= @project.name %></h1>
@@ -62,27 +62,35 @@
           <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
         <% end %>
       </div>
-      <p> test url: <span><%= link_to "#{test.test_url}", "https://#{test.test_url}", target: '_blank' %></span></p>
-      <div class="p-flex">
-        <div class="project-edit">
-          <% if test.project.user == current_user%>
-          <%= link_to edit_test_path(test),
-            method: :get do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-          <% end %>
-        </div>
-        <div class="project-delete">
-          <% if test.project.user == current_user %>
+      <% if @project.user == current_user %>
+        <div class="p-flex">
+          <div class="project-edit">
+            <% if test.project.user == current_user%>
+            <%= link_to edit_test_path(test),
+              method: :get do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <% end %>
+          </div>
+          <div class="project-delete">
+            <% if test.project.user == current_user %>
 
-          <%= link_to test_path(test),
-            method: :delete,
-            data: { confirm: "Are you sure?" } do%>
-            <i class="far fa-trash-alt trash"></i>
-          <% end %>
-          <% end %>
+            <%= link_to test_path(test),
+              method: :delete,
+              data: { confirm: "Are you sure?" } do%>
+              <i class="far fa-trash-alt trash"></i>
+            <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <% tu = test.test_users.map { |t| t.user } %>
+        <% if tu.include?(current_user)  %>
+          <p>already applied</p>
+        <% else %>
+          <%= link_to "Apply for test", test_test_users_path(test_id: test.id, user_id: current_user.id), class: "test-btn",method: :post%>
+        <% end %>
+      <% end %>
     </div>
     <div class="project-body">
       <p><strong>Description</strong></p>
@@ -96,7 +104,7 @@
             <p><strong>Reviews</strong></p>
           </div>
           <div class="count">
-            <h2><%= test.reviews.count %></h2>
+            <h2><%= test.test_users.where(test_finished: true).count %></h2>
             <p><strong>Responses</strong></p>
           </div>
           <div class="count">

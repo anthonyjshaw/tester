@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :test_users, only: %i[create]
   end
 
-  resources :test_users, only: %i[index]
-
+  resources :test_users, only: %i[index] do
+    member do
+      get :set_done
+    end
+  end
 end
