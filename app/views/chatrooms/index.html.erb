@@ -1,0 +1,14 @@
+<div class="container">
+
+<% @chatrooms.each do |chatroom| %>
+<p><%= chatroom.name %></p>
+<% if chatroom.messages.empty? %>
+<p>No messages.</p>
+<% else %>
+<p><%= chatroom.messages[0].content %></p>
+<% end %>
+<% end %>
+
+
+</div>
+

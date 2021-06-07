@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :test_users, only: %i[create]
   end
 
+  get 'my-chatrooms', to: 'chatrooms#index', as: :my_chatrooms
+
   resources :test_users, only: %i[index]
 
   resources :chatrooms, only: :show do
