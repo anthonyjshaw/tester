@@ -30,5 +30,4 @@ class TestPolicy < ApplicationPolicy
   def set_user
     record.project.user == user
   end
-  
 end
