@@ -12,6 +12,11 @@
 <% end %>
 <% end %>
 
+<%= simple_form_for :search, url: my_chatrooms_path, method: "GET", html: { class: 'form-inline search-form' } do |f| %>
+  <%= f.input :name, input_html: {placeholder: "Search for a developer"} %>   
+  <%= f.submit "Search", class: "btn btn-primary btn-search pad-small" %>
+<% end %>
+
 
 </div>
 
