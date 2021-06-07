@@ -29,6 +29,9 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+# github Omniauth
+gem 'omniauth-github'
+gem "omniauth-rails_csrf_protection"
 
 gem 'meta-tags'
 
