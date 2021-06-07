@@ -18,12 +18,13 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item active">
+          <%= link_to "#{current_user.username}", my_projects_path, class: "nav-link nav-white" %>
+        </li>
+        <li class="nav-item active">
           <%= link_to "My projects", my_projects_path, class: "nav-link nav-white" %>
         </li>
         <li class="nav-item">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link nav-white" %>
-
-
         </li>
         <li class="nav-item dropdown">
 

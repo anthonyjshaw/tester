@@ -6,6 +6,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.sender == user || record.receiver == user
   end
 end
