@@ -1,9 +1,10 @@
 <div class="container">
 
+
+<% if @chatrooms %>
 <% @chatrooms.each do |chatroom| %>
 <%= link_to chatroom_path(chatroom) do  %>
 <p><%= chatroom.name %></p>
-
 <% end %>
 <% if chatroom.messages.empty? %>
 <p>No messages.</p>
@@ -11,7 +12,7 @@
 <p><%= chatroom.messages.last.content %></p>
 <% end %>
 <% end %>
-
+<% end %>
 <%= simple_form_for :search, url: my_chatrooms_path, method: "GET", html: { class: 'form-inline search-form' } do |f| %>
   <%= f.input :name, input_html: {placeholder: "Search for a developer"} %>   
   <%= f.submit "Search", class: "btn btn-primary btn-search pad-small" %>
