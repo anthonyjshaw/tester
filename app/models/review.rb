@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :test
 
-  QUESTION_1_CATEGORIES = %w[Great! not\ so\ good...]
+  QUESTION_1_CATEGORIES = %w[Great! Okay... Not\ so\ good...]
 
   validates_presence_of :rating, :question1
   validates_numericality_of :rating
