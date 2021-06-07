@@ -8,4 +8,5 @@ class ChatroomPolicy < ApplicationPolicy
   def show?
     record.sender == user || record.receiver == user
   end
+  
 end
