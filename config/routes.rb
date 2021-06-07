@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root to: 'pages#home'
 
   get '/my-projects', to: 'projects#user_index', as: :my_projects
