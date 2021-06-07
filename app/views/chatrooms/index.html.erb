@@ -1,11 +1,14 @@
 <div class="container">
 
 <% @chatrooms.each do |chatroom| %>
+<%= link_to chatroom_path(chatroom) do  %>
 <p><%= chatroom.name %></p>
+
+<% end %>
 <% if chatroom.messages.empty? %>
 <p>No messages.</p>
 <% else %>
-<p><%= chatroom.messages[0].content %></p>
+<p><%= chatroom.messages.last.content %></p>
 <% end %>
 <% end %>
 
