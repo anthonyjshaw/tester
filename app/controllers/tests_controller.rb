@@ -51,6 +51,7 @@ class TestsController < ApplicationController
     @test.delete
     redirect_to project_path(@project)
   end
+
   private
 
   def set_test

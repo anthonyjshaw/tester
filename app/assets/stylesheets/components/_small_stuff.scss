@@ -1,0 +1,16 @@
+.test-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  padding: 8px 24px !important;
+  border-radius: 4px;
+  background: #2e2ac5;
+  transition: background 0.3s ease;
+  color: white!important;
+}
+
+.test-btn:hover {
+  background: #040174;
+  color: white;
+}
