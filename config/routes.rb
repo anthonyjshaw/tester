@@ -16,10 +16,13 @@ Rails.application.routes.draw do
 
   get 'my-chatrooms', to: 'chatrooms#index', as: :my_chatrooms
 
-  resources :test_users, only: %i[index]
+  resources :test_users, only: %i[index] do
+    member do
+      get :set_done
+    end
+   end
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
   end
-

@@ -9,6 +9,7 @@
 .project-head {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #ebeef2;
   padding: 20px;
   height: 60px;
@@ -33,6 +34,12 @@
   }
 
   a {
+    text-decoration: none;
+    color: black;
+    padding-right: 10px;
+  }
+
+  a:hover {
     text-decoration: none;
     color: black;
     padding-right: 10px;

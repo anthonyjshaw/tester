@@ -23,9 +23,12 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
+
 import "bootstrap";
 
 // Internal imports, e.g:
+import { testLink } from '../custom/testlink';
+
 // import { initSelect2 } from '../components/init_select2';
 import { footerMarginAdd } from 'packs/footer_margin_add';
 import { initChatroomCable } from 'channels/chatroom_channel';
@@ -35,9 +38,15 @@ import { changeTextBox } from 'packs/change_text_box'
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  testLink();
+});
+
+
+import { sidebarToggle } from '../custom/sidebar';
   initChatroomCable();
   changeTextBox();
 });
 
 window.sidebarToggle = sidebarToggle;
 // window.sidebarOff = sidebarOff;
+
