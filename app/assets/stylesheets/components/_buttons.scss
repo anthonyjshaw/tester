@@ -1,4 +1,4 @@
-.button {
+/* .button {
     display: inline-flex;
     @include font-size(8, mobile, true, false, true);
     @if ( get-font-size(8, desktop) != get-font-size(8, mobile) ) {
@@ -29,7 +29,7 @@
         border-radius: 2px;
     }
 }
-
+ */
 .purple-round {
   border-radius: 24px;
   background: transparent;
@@ -48,7 +48,7 @@
 	height: 32px;
 }
 
-.button-primary {
+/* .button-primary {
     color: color(typography, 1i) !important;
     transition: background .15s ease;
     align-items: center;
@@ -65,4 +65,19 @@
 
 .button-block {
     display: flex;
+}
+ */
+.btn {
+  color: white;
+}
+.btn-primary {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2e2ac5;
+}
+
+.btn-primary:hover {
+  background: #040174;
+  color: white;
 }
