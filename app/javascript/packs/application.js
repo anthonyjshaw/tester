@@ -28,11 +28,14 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { footerMarginAdd } from 'packs/footer_margin_add';
+import { initChatroomCable } from 'channels/chatroom_channel';
+import { sidebarToggle } from '../custom/sidebar';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initChatroomCable();
 });
 
-import { sidebarToggle } from '../custom/sidebar';
 window.sidebarToggle = sidebarToggle;
 // window.sidebarOff = sidebarOff;
