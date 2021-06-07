@@ -9,9 +9,9 @@ class PagesController < ApplicationController
 
   def explore
     if params[:query].present?
-      @projects = Project.where(params[:search])
+      @projects = Project.search_project_name_description(params[:query])
     else
-    @projects = Project.all
+      @projects = Project.all
     end
   end
 end
