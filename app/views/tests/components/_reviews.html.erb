@@ -1,18 +1,24 @@
 
 <% if @test.reviews.count.zero? %>
-    <p>No reviews.<span><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless  @test.project.user == current_user %></span></p>
+    <p>No reviews.<span><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless  @test.project.user == current_user || user_signed_in? == false %></span></p>
    <% else %>
-    <p><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless @test.project.user == current_user  %></p>
+    <p><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless @test.project.user == current_user || user_signed_in? == false %></p>
     <h5 class="my-4"> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></h5>
     <% @reviews.each do |review| %>
       <div class="row align-items-self-start">
         <div class="col-1">
       <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
       </div>
-      <div class="card mb-4 review-card">
+      <div class="card mb-4 review-card" id="review-<%= review.id %>">
         <p><strong><%= review.user.username %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
         <%= review.content %>
       </div>
       </div>
     <% end %>
+        <%= simple_form_for [@test, @review], url: test_reviews_path(@test), remote: true do  |f| %>
+        <%= f.input :rating %>
+        <%= f.input :question1, collection: Review::QUESTION_1_CATEGORIES, label: "How do you feel about this feature?" %>
+        <%= f.input :content, label: "Any comments you'd like to share?" %>
+        <%= f.submit class: "btn btn-primary purple-round" %>
+        <% end %>
    <% end %>

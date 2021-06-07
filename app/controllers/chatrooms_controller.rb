@@ -4,16 +4,16 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new
   end
 
-  def create
-    @chatroom = Chatroom.new(chatroom_params)
-    @chatroom.sender_id = current_user
-    @chatroom.receiver_id = User.find(29)
-    if @chatroom.save
-      redirect_to my_chatrooms_path
-    else
-      render :index
-    end
-  end
+  # def create
+  #   @chatroom = Chatroom.new(chatroom_params)
+  #   @chatroom.sender_id = current_user
+  #   @chatroom.receiver_id = User.find(29)
+  #   if @chatroom.save
+  #     redirect_to my_chatrooms_path
+  #   else
+  #     render :index
+  #   end
+  # end
 
   def show
     @chatroom = Chatroom.find(params[:id])

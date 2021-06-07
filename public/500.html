@@ -3,12 +3,23 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
+  <style>
+  body {
+    margin: 0;
+  }
+  .container {
+    margin-top: 100px;
+    max-width: 100%;
+    margin-left: 100px;
+  }
+  </style>
   </head>
 
 <body class="rails-default-error-page">
+  <div class="container">
+  <img src="cover-image.png" alt="Tester dark blue cover image">
 
-<h1>Sorry, but something's gone wrong. If you are the owner of this app, please vist the logs page or type in <code>heroku logs --tail</code> from your terminal</h1>
-
+<h2>Sorry, but something's gone wrong. If you are the owner of this app, please vist the logs page or enter <code>$ heroku logs --tail</code> in your terminal.</h2>
+</div>
 </body>
 </html>
