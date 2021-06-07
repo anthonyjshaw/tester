@@ -29,15 +29,15 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { footerMarginAdd } from 'packs/footer_margin_add';
 import { initChatroomCable } from 'channels/chatroom_channel';
+import { changeTextBox } from 'packs/change_text_box';
 import { sidebarToggle } from '../custom/sidebar';
-import { changeTextBox } from 'packs/change_text_box'
+window.sidebarToggle = sidebarToggle;
+// window.sidebarOff = sidebarOff;
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  testLink();
   initChatroomCable();
   changeTextBox();
 });
-
-window.sidebarToggle = sidebarToggle;
-// window.sidebarOff = sidebarOff;
