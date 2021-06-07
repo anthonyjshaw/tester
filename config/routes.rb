@@ -16,4 +16,10 @@ Rails.application.routes.draw do
 
   resources :test_users, only: %i[index]
 
+  #chatroom - messaging:
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
 end
