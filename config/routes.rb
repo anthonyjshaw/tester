@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root to: 'pages#home'
 
   get '/my-projects', to: 'projects#user_index', as: :my_projects
@@ -14,9 +14,15 @@ Rails.application.routes.draw do
     resources :test_users, only: %i[create]
   end
 
+  get 'my-chatrooms', to: 'chatrooms#index', as: :my_chatrooms
+
   resources :test_users, only: %i[index] do
     member do
       get :set_done
     end
+   end
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
-end
+  end
