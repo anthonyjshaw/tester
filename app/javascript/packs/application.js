@@ -23,12 +23,9 @@ require("channels")
 // ----------------------------------------------------
 
 // External imports
-
 import "bootstrap";
 
 // Internal imports, e.g:
-import { testLink } from '../custom/testlink';
-
 // import { initSelect2 } from '../components/init_select2';
 import { footerMarginAdd } from 'packs/footer_margin_add';
 import { initChatroomCable } from 'channels/chatroom_channel';
@@ -44,6 +41,3 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   changeTextBox();
 });
-
-
-
