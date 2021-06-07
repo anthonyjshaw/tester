@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :explore]
+  skip_before_action :authenticate_user!, only: %i[home explore]
 
   def home
     @tests = policy_scope(Test).last(3)
