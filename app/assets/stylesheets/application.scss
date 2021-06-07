@@ -63,7 +63,10 @@
 }
 
 
-
+.card a * {
+  text-decoration:none;
+  color: #262525;
+}
 
 .flex-box {
   display: flex;
