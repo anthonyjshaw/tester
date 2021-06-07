@@ -31,6 +31,7 @@ import { footerMarginAdd } from 'packs/footer_margin_add';
 import { initChatroomCable } from 'channels/chatroom_channel';
 import { changeTextBox } from 'packs/change_text_box';
 import { sidebarToggle } from '../custom/sidebar';
+import { testLink } from '../custom/testlink';
 window.sidebarToggle = sidebarToggle;
 // window.sidebarOff = sidebarOff;
 
