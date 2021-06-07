@@ -3,10 +3,8 @@
 <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, style: 'background: #2e2ac5;', class: "btn btn-flat"%>
 <%=  %>
 <% if @projects.empty? %>
-<div class="container">
-<p>Hmm..  you don’t seem to have any projects. <br>
-  <%= link_to "Create a new project", new_project_path %>
-</p>
+<div class="container d-flex justify-content-center mt-5">
+  <h4> 🤔 Hmm..  you don’t seem to have any projects. Start by creating one 👉</h4>
 </div>
 <% else %>
 <% @projects.each do |project| %>

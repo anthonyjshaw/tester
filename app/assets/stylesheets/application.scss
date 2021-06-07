@@ -17,7 +17,7 @@
 
 @media (max-width: 576px) {
 
-  #mySidebar {
+#mySidebar {
     display: none;
 }
 .flex-box {
@@ -120,10 +120,13 @@
   text-decoration: none;
   color: gray;
 }
+a {
+  transition: 0.3s;
+}
 
 a:hover {
      text-decoration: none;
-     color:white;
+     color:#2e2ac5;
 
 }
 
