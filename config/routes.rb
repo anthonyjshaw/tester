@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
   resources :test_users, only: %i[index]
 
-  resources :messages, only: :create
-end
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+

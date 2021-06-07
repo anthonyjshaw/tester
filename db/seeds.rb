@@ -42,9 +42,9 @@ Review.destroy_all
 
   users = User.all
   project_0 = Project.create!( #1
-    name: Faker::App.name,
-    description: "It's a great App to implement everything easily on your page",
-    github_url: "https://github.com/fantasticapp",
+    name: "Valeriedations",
+    description: "handle all your validations by just one implementation ",
+    github_url: "https://github.com/valeriedations",
     user_id: users[0].id,
     project_tag: Project::PROJECT_TAGS.sample
   )
