@@ -6,4 +6,6 @@ class ChatroomsController < ApplicationController
       authorize @chatroom
       authorize @message
     end
+
+    
 end
