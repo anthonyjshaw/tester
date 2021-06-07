@@ -8,6 +8,10 @@ class PagesController < ApplicationController
   end
 
   def explore
-    @projects = policy_scope(Project)
+    if params[:query].present?
+      @projects = Project.where(params[:search])
+    else
+    @projects = Project.all
+    end
   end
 end
