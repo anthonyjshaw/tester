@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     if params[:query].present?
       @projects = Project.search_project_name_description(params[:query])
     else
-      @projects = Project.all
+      @projects = Project.where.not(user: current_user)
     end
   end
 end
