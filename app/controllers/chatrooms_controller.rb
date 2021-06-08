@@ -3,16 +3,14 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom).where('sender_id = ? or receiver_id = ?', current_user.id, current_user.id)
     @chatroom = Chatroom.new
   # You need make an instance variable called: @users = User.all
-
   end
 
   def create
     @chatroom = Chatroom.new
     authorize @chatroom
     @chatroom.sender = current_user
-    @chatroom.receiver = Project.find(params[:id]).user
+    @chatroom.receiver = Project.find(params[:project_id]).user
     @chatroom.name = "#{@chatroom.sender.username} and #{@chatroom.receiver.username}"
-
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
     else

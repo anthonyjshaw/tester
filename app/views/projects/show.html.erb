@@ -41,7 +41,7 @@
        <%= @project.github_url %>
        <% end %>
        <div>
-        <%= link_to "Message #{@project.user.username}", chatrooms_path, method: :post, remote: true %>
+        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post %>
         </div>
     </div>
  </div>
