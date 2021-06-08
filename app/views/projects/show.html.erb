@@ -10,15 +10,16 @@
 
 
       <div class="modal-body">
-        <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
-        <%= f.input :name, label_html: {class: "required-class"} %>
-        <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
-        <%= f.input :test_url, label_html: {class: "required-class"} %>
-        <%= f.input :sample_size, label_html: {class: "required-class"}%>
-        <%= f.input :time_limit, label_html: {class: "required-class"} %>
-        <%= f.submit class: "btn btn-primary purple-round" %>
-        <% end %>
-      </div>
+        <div style= "width: 80% ; margin: auto;">
+          <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
+          <%= f.input :name, label_html: {class: "required-class"} %>
+          <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
+          <%= f.input :test_url, label_html: {class: "required-class"} %>
+          <%= f.input :sample_size, label_html: {class: "required-class"}%>
+          <%= f.input :time_limit, label_html: {class: "required-class"} %>
+          <%= f.submit class: "btn btn-primary purple-round", style: "width: 100%; margin-top: 20px" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -43,63 +44,63 @@
         <%= link_to "Message #{@project.user.username}", chatrooms_path, method: :post, remote: true %>
         </div>
     </div>
-  </div>
+ </div>
 </div>
 
 <div class="container mt-3">
   <% @project.tests.each do |test| %>
-    <div class="project-card">
+  <div class="project-card">
     <div class="project-head">
       <div class="p-flex">
         <%= link_to test_path(test) do %>
-          <% if test.is_finished %>
-            <h5><strong><%= test.name %></h5></strong>
-          <% else %>
-            <h5 id="color"><strong><%= test.name %></h5></strong>
-          <% end %>
+        <% if test.is_finished %>
+        <h5><strong><%= test.name %></h5></strong>
+        <% else %>
+        <h5 id="color"><strong><%= test.name %></h5></strong>
+        <% end %>
         <% end %>
         <p>Created on: <%= test.created_at.strftime("%Y-%m-%d") %></p>
         <% unless test.is_finished %>
-          <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
+        <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
         <% else %>
-          <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
+        <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
         <% end %>
       </div>
       <% if @project.user == current_user %>
-        <div class="p-flex">
-          <div class="project-edit">
-            <% if test.project.user == current_user%>
-            <%= link_to edit_test_path(test),
-              method: :get do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <% end %>
-          </div>
-          <div class="project-delete">
-            <% if test.project.user == current_user %>
-
-            <%= link_to test_path(test),
-              method: :delete,
-              data: { confirm: "Are you sure?" } do%>
-              <i class="far fa-trash-alt trash"></i>
-            <% end %>
-            <% end %>
-          </div>
+      <div class="p-flex">
+        <div class="project-edit">
+          <% if test.project.user == current_user%>
+          <%= link_to edit_test_path(test),
+          method: :get do %>
+          <i class="fas fa-edit"></i>
+          <% end %>
+          <% end %>
         </div>
+        <div class="project-delete">
+          <% if test.project.user == current_user %>
+
+          <%= link_to test_path(test),
+          method: :delete,
+          data: { confirm: "Are you sure?" } do%>
+          <i class="far fa-trash-alt trash"></i>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
       <% else %>
-        <% tu = test.test_users.map { |t| t.user } %>
-        <% if tu.include?(current_user)  %>
-          <p>already applied</p>
-        <% elsif tu.include?(current_user) == false && user_signed_in? %>
-          <%= link_to "Apply for test", test_test_users_path(test_id: test.id, user_id: current_user.id), class: "test-btn",method: :post%>
-        <% end %>
+      <% tu = test.test_users.map { |t| t.user } %>
+      <% if tu.include?(current_user)  %>
+      <p>already applied</p>
+      <% elsif tu.include?(current_user) == false && user_signed_in? %>
+      <%= link_to "Apply for test", test_test_users_path(test_id: test.id, user_id: current_user.id), class: "test-btn",method: :post%>
+      <% end %>
       <% end %>
     </div>
     <div class="project-body">
       <p><strong>Description</strong></p>
       <div class="project-body-inside">
         <div class="test-b-desc">
-        <%= test.description %>
+          <%= test.description %>
         </div>
         <div class="test-b-stats">
           <div class="count">
@@ -117,7 +118,7 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
   <% end %>
 </div>
 
