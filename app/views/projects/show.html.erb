@@ -41,10 +41,10 @@
        <%= @project.github_url %>
        <% end %>
        <div>
-        <% if @find_existing_chatroom.nil?%>
-        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post %>
-        <% else %>
-        <%= link_to "Message #{@project.user.username}", chatroom_path(@chatroom)%>
+        <% if @find_existing_chatroom.nil? && user_signed_in? %>
+        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post, remote: true %>
+        <% elsif @find_existing_chatroom && user_signed_in? %>
+        <%= link_to "Message #{@project.user.username}", chatroom_path(@chatroom) %>
         <% end %>
       </div>
     </div>
