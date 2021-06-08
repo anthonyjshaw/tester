@@ -1,4 +1,5 @@
 import consumer from "./consumer";
+import {changeTextBox } from "../packs/change_text_box"
 
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
@@ -10,6 +11,7 @@ const initChatroomCable = () => {
       received(data) {
         messagesContainer.insertAdjacentHTML('beforeend', data);
         console.log(data);
+        changeTextBox();
       },
     });
   }

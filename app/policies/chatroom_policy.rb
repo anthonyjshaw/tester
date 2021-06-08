@@ -4,6 +4,7 @@ class ChatroomPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def create?
     true
   end

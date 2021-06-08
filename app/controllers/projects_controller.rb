@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show explore]
   skip_after_action :verify_authorized, only: [:user_index]
   before_action :set_project, only: %i[show edit update destroy]
 
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
     @test = Test.new
     authorize @test
     @tests = policy_scope(Test).where(project: @project)
-    @chatroom = Chatroom.new
+    find_chatrooms
   end
 
   def new
@@ -71,6 +71,19 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def find_chatrooms
+    @find_existing_chatroom = Chatroom.where(
+                                'receiver_id = ? AND sender_id = ?',
+                                Project.find(params[:id]).user,
+                                current_user
+                              ).first
+    if @find_existing_chatroom.nil?
+      @chatroom = Chatroom.new
+    else
+      @chatroom = @find_existing_chatroom
+    end
   end
 
   def project_params

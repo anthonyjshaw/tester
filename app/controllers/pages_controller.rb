@@ -14,4 +14,5 @@ class PagesController < ApplicationController
       @projects = Project.where.not(user: current_user)
     end
   end
+
 end
