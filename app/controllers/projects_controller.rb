@@ -23,7 +23,12 @@ class ProjectsController < ApplicationController
     @test = Test.new
     authorize @test
     @tests = policy_scope(Test).where(project: @project)
-    @chatroom = Chatroom.new
+    @find_existing_chatroom = Chatroom.where('receiver_id = ?', Project.find(params[:id]).user).first
+    if @find_existing_chatroom.nil?
+      @chatroom = Chatroom.new
+    else
+      @chatroom = @find_existing_chatroom
+    end
   end
 
   def new
