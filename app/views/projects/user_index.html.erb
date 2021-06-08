@@ -2,11 +2,19 @@
 
 <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, class: "btn btn-flat"%>
 <%=  %>
+<% if current_user.photo.attached? %>
+<%= cl_image_tag current_user.photo.key, class:"avatar-position", :transformation=>[
+  {:gravity=>"face", :height=>200, :width=>200, :crop=>"crop"},
+  {:radius=>"max"},
+  {:width=>200, :crop=>"scale"}
+] %>
+<% end %>
 <% if @projects.empty? %>
 <div class="container d-flex justify-content-center mt-5">
   <h4> 🤔 Hmm..  you don’t seem to have any projects. Start by creating one 👉</h4>
 </div>
 <% else %>
+
 <% @projects.each do |project| %>
   <div class="container mt-3">
     <div class="project-card">

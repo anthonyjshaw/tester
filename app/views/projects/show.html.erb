@@ -16,7 +16,7 @@
           <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
           <%= f.input :test_url, label_html: {class: "required-class"} %>
           <%= f.input :sample_size, label_html: {class: "required-class"}%>
-          <%= f.input :time_limit, label_html: {class: "required-class"} %>
+          <%= f.input :time_limit, as: :string, required: true, input_html: {class: "datepicker"}, label_html: {class: "required-class"}%>
           <%= f.submit class: "btn btn-primary purple-round", style: "width: 100%; margin-top: 20px" %>
           <% end %>
         </div>
@@ -41,8 +41,12 @@
        <%= @project.github_url %>
        <% end %>
        <div>
-        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post %>
-        </div>
+        <% if @find_existing_chatroom.nil? && user_signed_in? %>
+        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post, remote: true %>
+        <% elsif @find_existing_chatroom && user_signed_in? %>
+        <%= link_to "Message #{@project.user.username}", chatroom_path(@chatroom) %>
+        <% end %>
+      </div>
     </div>
  </div>
 </div>

@@ -11,6 +11,15 @@ class ChatroomsController < ApplicationController
     end
 
 
+    @chatroom = Chatroom.new
+    # You need make an instance variable called: @users = User.all
+  end
+
+  def show
+    @chatroom = Chatroom.find(params[:id])
+    @message = Message.new
+    authorize @chatroom
+    authorize @message
   end
 
   def create
@@ -24,13 +33,6 @@ class ChatroomsController < ApplicationController
     else
       render 'chatrooms/index'
     end
-  end
-
-  def show
-    @chatroom = Chatroom.find(params[:id])
-    @message = Message.new
-    authorize @chatroom
-    authorize @message
   end
 
   private
