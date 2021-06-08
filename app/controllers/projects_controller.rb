@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
     @test = Test.new
     authorize @test
     @tests = policy_scope(Test).where(project: @project)
+    @chatroom = Chatroom.new
   end
 
   def new

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/explore', to: 'pages#explore', as: :explore
     resources :projects do
     resources :tests, only: %i[new create index]
+    resources :chatrooms, only: :create
     end
 
     resources :tests, only: %i[index show edit update destroy] do
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     end
    end
 
-    resources :chatrooms, only: %i[show create] do
+    resources :chatrooms, only: :show do
     resources :messages, only: :create
     end
 

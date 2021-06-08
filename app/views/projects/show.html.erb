@@ -34,13 +34,16 @@
   <h1 class='project-name'><%= @project.name %></h1>
   <div class="row align-items-start ">
     <div class="col-6">
-     <p><strong>Description</strong></p>
-     <p><%= @project.description %></p>
-     <i class="fab fa-github"></i>
-     <%= link_to @project.github_url, :target => "_blank" do %>
-     <%= @project.github_url %>
-     <% end %>
-   </div>
+       <p><strong>Description</strong></p>
+       <p><%= @project.description %></p>
+       <i class="fab fa-github"></i>
+       <%= link_to @project.github_url, :target => "_blank" do %>
+       <%= @project.github_url %>
+       <% end %>
+       <div>
+        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post %>
+        </div>
+    </div>
  </div>
 </div>
 
