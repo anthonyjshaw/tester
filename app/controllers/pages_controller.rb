@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :explore]
+  skip_before_action :authenticate_user!, only: %i[home explore]
 
   def home
     @tests = policy_scope(Test).last(3)
@@ -8,6 +8,10 @@ class PagesController < ApplicationController
   end
 
   def explore
-    @projects = policy_scope(Project)
+    if params[:query].present?
+      @projects = Project.search_project_name_description(params[:query])
+    else
+      @projects = Project.all
+    end
   end
 end

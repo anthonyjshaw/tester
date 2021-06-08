@@ -1,5 +1,4 @@
 class TestUsersController < ApplicationController
-
   def index
     @test_users = policy_scope(TestUser).where(user: current_user)
   end
@@ -23,5 +22,4 @@ class TestUsersController < ApplicationController
     @link = @test_user.test.test_url
     redirect_to "http://#{@link}"
   end
-
 end
