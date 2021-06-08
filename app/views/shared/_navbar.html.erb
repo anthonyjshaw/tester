@@ -40,9 +40,8 @@
           <%= link_to "Login", new_user_session_path, class: "nav-link nav-white" %>
         </li>
       <% end %>
-      <form class="form-inline ml-5 mr-4">
-        <%= form_tag explore_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control mr-sm-2", placeholder: "Find a Project" %>
+      <%= form_tag explore_path, method: :get , class: "form-inline ml-5 mr-4" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control mr-sm-2", placeholder: "Search projects and users" %>
           <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
       </form>

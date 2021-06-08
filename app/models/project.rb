@@ -7,17 +7,7 @@ class Project < ApplicationRecord
   validates :name, :description, :github_url, presence: true
   validates_inclusion_of :project_tag, in: PROJECT_TAGS
 
-  pg_search_scope :global_search,
-    against: [
-      :name,
-      :description
-     ],
-    associated_against: {
-      user: [ :username ]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+
   pg_search_scope :search_project_name_description , against: [ :name, :description ],
   associated_against: {
     user: [ :username ]
