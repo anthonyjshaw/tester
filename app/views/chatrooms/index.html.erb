@@ -1,10 +1,16 @@
 <div class="container">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a6462dbd4d2b5ac0205ab005ce3591e99fea8d3f
   <%= form_tag my_chatrooms_path, method: :get, class: 'form-inline search-form' do |f| %>
     <%= text_field_tag :username, params[:username], placeholder: "Search a Developer", class: "form-control" %>
     <%= submit_tag "Search", class: "btn btn-primary btn-search pad-small" %>
   <% end %>
-
+  <% if @chatrooms.empty? %>
+  <h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
+  <% else %>
   <% @chatrooms.each do |chatroom| %>
     <div class="row">
       <%= link_to chatroom_path(chatroom) do %>
@@ -13,9 +19,11 @@
       <% end %>
     </div>
    <% end %>
+  <% end %>
 </div>
 
 
+<<<<<<< HEAD
 =======
 <% if @chatrooms.empty? %>
 <h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
@@ -33,3 +41,5 @@
 
 
 >>>>>>> 7f6f5ca82d0aa5778af58594f89c135ee800be41
+=======
+>>>>>>> a6462dbd4d2b5ac0205ab005ce3591e99fea8d3f
