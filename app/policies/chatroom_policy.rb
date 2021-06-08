@@ -4,6 +4,9 @@ class ChatroomPolicy < ApplicationPolicy
       scope.all
     end
   end
+  def create?
+    true
+  end
 
   def show?
     record.sender == user || record.receiver == user

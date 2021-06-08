@@ -2,18 +2,23 @@ class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom).where('sender_id = ? or receiver_id = ?', current_user.id, current_user.id)
     @chatroom = Chatroom.new
+  # You need make an instance variable called: @users = User.all
+
   end
 
-  # def create
-  #   @chatroom = Chatroom.new(chatroom_params)
-  #   @chatroom.sender_id = current_user
-  #   @chatroom.receiver_id = User.find(29)
-  #   if @chatroom.save
-  #     redirect_to my_chatrooms_path
-  #   else
-  #     render :index
-  #   end
-  # end
+  def create
+    @chatroom = Chatroom.new
+    authorize @chatroom
+    @chatroom.sender = current_user
+    @chatroom.receiver = Project.find(params[:id]).user
+    @chatroom.name = "#{@chatroom.sender.username} and #{@chatroom.receiver.username}"
+
+    if @chatroom.save
+      redirect_to chatroom_path(@chatroom)
+    else
+      render 'chatrooms/index'
+    end
+  end
 
   def show
     @chatroom = Chatroom.find(params[:id])

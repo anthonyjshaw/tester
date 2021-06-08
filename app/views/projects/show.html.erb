@@ -39,6 +39,9 @@
        <%= link_to @project.github_url, :target => "_blank" do %>
        <%= @project.github_url %>
        <% end %>
+       <div>
+        <%= link_to "Message #{@project.user.username}", chatrooms_path, method: :post, remote: true %>
+        </div>
     </div>
   </div>
 </div>
