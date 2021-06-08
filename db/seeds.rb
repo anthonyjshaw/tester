@@ -39,27 +39,41 @@ Review.destroy_all
 
   # 27.times do
 
+  user_zero = User.create!(
+    email: 'soto@soto.com',
+    first_name: 'soto',
+    last_name: 'dim',
+    username: 'saoma',
+    password: 1111111)
 
-  users = User.all
-  project_0 = Project.create!( #1
+  project_zero_0 = Project.create!( #1
     name: Faker::App.name,
     description: "It's a great App to implement everything easily on your page",
     github_url: "https://github.com/fantasticapp",
+    user_id: user_zero.id,
+    project_tag: Project::PROJECT_TAGS.sample
+  )
+
+  users = User.all
+  project_0 = Project.create!( #1
+    name: "Valeriedations",
+    description: "handle all your validations by just one implementation ",
+    github_url: "https://github.com/valeriedations",
     user_id: users[0].id,
     project_tag: Project::PROJECT_TAGS.sample
   )
 
   project_1 = Project.create!( #2
-    name: "Tester",
-    description: "Tester is the world’s leading community for people to share, test and grow their products",
-    github_url: "https://github.com/speakinginlungs/tester",
+    name: "My Mood",
+    description: "My Mood is the premier place for finding your fashion identity.",
+    github_url: "https://github.com/speakinginlungs/rails-clothes",
     user_id: users[1].id,
     project_tag: Project::PROJECT_TAGS.sample
   )
 
   project_2 = Project.create!( #3
     name: "Soul Blogs",
-    description: "Drop every Blogpost easily into a social media profile feed and share it to public newspaper and users",
+    description: "Drop every Blogpost easily into a social media profile feed and share it to public newspaper and users.",
     github_url: "https://github.com/soul-blogs",
     user_id: users[2].id,
     project_tag: Project::PROJECT_TAGS.sample
@@ -91,7 +105,7 @@ Review.destroy_all
 
   project_6 = Project.create!( #7
     name: "Anosmiatherapy",
-    description: "A simple way to train back your sense of smell",
+    description: "Get back your sense of smell",
     github_url: "https://github.com/anosmiatherapy",
     user_id: users[6].id,
     project_tag: Project::PROJECT_TAGS.sample
@@ -139,7 +153,7 @@ Review.destroy_all
 
   project_12 = Project.create!( #13
     name: "Business-prepwork",
-    description: "Sometimes you don't even know how to start your own business. Here comes Business-Prepwork, it will help your everything to prepare your Business start with a step to step plan",
+    description: "Sometimes you don't even know how to start your own business. Here comes Business-Prepwork, it will help you with everything you'll need to start your business!",
     github_url: "https://github.com/bprepwork",
     user_id: users[12].id,
     project_tag: Project::PROJECT_TAGS.sample
@@ -267,21 +281,29 @@ p 'Creating Tests...'
 27.times do |i|
 projects = Project.all
 name = Faker::Computer.stack
-description = Faker::Job.title
+description = Faker::Company.bs
 test_url = Faker::Internet.domain_name
 sample_size = Faker::Number.number(digits: 2)
+date = rand(Date.today..Date.today + 30)
 
   Test.create!(
   name: name,
   description: description,
   test_url: test_url,
   sample_size: sample_size,
-  time_limit: Date.current.tomorrow,
+  time_limit: date,
   project_id: projects[i].id
 )
 end
 p 'tests created!'
 p 'Creating reviews'
+
+
+TestUser.create!(
+  test_id: Test.last.id,
+  user_id: user_zero.id
+  )
+
 
 27.times do |i|
 users = User.all

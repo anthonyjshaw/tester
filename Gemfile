@@ -29,6 +29,9 @@ gem 'pg_search', '~> 2.3.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+# github Omniauth
+gem 'omniauth-github'
+gem "omniauth-rails_csrf_protection"
 
 gem 'meta-tags'
 
@@ -39,8 +42,7 @@ gem 'pundit'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -8,14 +8,18 @@
     <%= link_to '#', data: { turbolinks: false } do %>
     <!-- for later:  -->
       <!-- link_to t('.profile'), business_path(@business), class: '#{'active' if current_page? business_path(@business)}' -->
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar menu-icon"%>
+      <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key %>
+      <% else %>
+      <%= image_tag "placeholder-avatar.png", class: "avatar menu-icon"%>
+      <% end %>
       <span class="icon-text">Account</span>
     <% end %>
     <%= link_to my_projects_path, data: { turbolinks: false } do %>
       <i class="fas fa-th-large"></i>
       <span class="icon-text">Dashboard</span>
     <% end %>
-    <%= link_to '#', data: { turbolinks: false } do %>
+    <%= link_to my_chatrooms_path, data: { turbolinks: false } do %>
       <i class="fas fa-comments"></i>
       <span class="icon-text">Messages</span>
     <% end %>

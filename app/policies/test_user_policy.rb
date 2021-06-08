@@ -12,4 +12,8 @@ class TestUserPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def set_done?
+    true
+  end
 end
