@@ -21,7 +21,7 @@ class TestUsersController < ApplicationController
     authorize @test_user
     @test_user.save
     @link = @test_user.test.test_url
-    redirect_to @link
+    redirect_to "http://#{@link}"
   end
 
 end
