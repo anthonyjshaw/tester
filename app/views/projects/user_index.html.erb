@@ -1,68 +1,88 @@
 <%= render 'create_modal' %>
 
 <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, class: "btn btn-flat"%>
-<%=  %>
 
-<%= cl_image_tag current_user.photo.key, class:"avatar-position", :transformation=>[
-  {:gravity=>"face", :height=>200, :width=>200, :crop=>"crop"},
-  {:radius=>"max"},
-  {:width=>200, :crop=>"scale"}
-] %>
 
-<% if @projects.empty? %>
-<div class="container d-flex justify-content-center mt-5">
-  <h4> 🤔 Hmm..  you don’t seem to have any projects. Start by creating one 👉</h4>
-</div>
-<% else %>
+<div class="avatar-position">
+  <% if current_user.photo.attached? %>
+  <%= cl_image_tag current_user.photo.key, :transformation=>[
+    {:height=>200, :width=>200, :crop=>"fill"},
+    {:radius=>"max"},
+    {:width=>200, :crop=>"scale"}
+    ] %>
+    <% else %>
+    <%= image_tag "placeholder-avatar.png", class: "avatar menu-icon"%>
+    <% end %>
+    <div class="user-info">
+      <h3><%= current_user.username %> </h3>
+      <p>project count: <%= current_user.projects.count %> </p>
+    </div>
+  </div>
 
-<% @projects.each do |project| %>
-  <div class="container mt-3">
-    <div class="project-card">
-      <div class="project-head">
-        <div class="p-flex">
-          <%= link_to project_path(project) do %>
-          <h5><strong><%= project.name %></h5></strong>
-          <% end %>
-          <p>Created on: <%= project.created_at.strftime("%Y-%m-%d") %></p>
-        </div>
-        <div class="p-flex">
-          <div class="project-edit">
-            <%= link_to edit_project_path(project),
-            method: :get do %>
-            <i class="fas fa-edit"></i>
+  <div class="header-shape header-shape-1" style="z-index: -1;">
+    <svg width="337" height="222" viewBox="0 0 337 222" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient x1="50%" y1="55.434%" x2="50%" y2="0%" id="header-shape-1">
+          <stop stop-color="#E0E1FE" stop-opacity="0" offset="0%"/>
+          <stop stop-color="#E0E1FE" offset="100%"/>
+        </linearGradient>
+      </defs>
+      <path d="M1103.21 0H1440v400h-400c145.927-118.557 166.997-251.89 63.21-400z" transform="translate(-1103)" fill="url(#header-shape-1)" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <% if @projects.empty? %>
+  <div class="container d-flex justify-content-center mt-5">
+    <h4> 🤔 Hmm..  you don’t seem to have any projects. Start by creating one 👉</h4>
+  </div>
+  <% else %>
+  <div class="p-main">
+    <% @projects.each do |project| %>
+    <div class="container mt-3", style="padding: 0px">
+      <div class="project-card">
+        <div class="project-head">
+          <div class="p-flex">
+            <%= link_to project_path(project) do %>
+            <h5><strong><%= project.name %></h5></strong>
             <% end %>
+            <p>Created on: <%= project.created_at.strftime("%Y-%m-%d") %></p>
           </div>
-          <div class="project-delete">
-            <%= link_to project_path(project),
-            method: :delete,
-            data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt trash"></i>
-            <% end %>
+          <div class="p-flex">
+            <div class="project-edit">
+              <%= link_to edit_project_path(project),
+              method: :get do %>
+              <i class="fas fa-edit"></i>
+              <% end %>
+            </div>
+            <div class="project-delete">
+              <%= link_to project_path(project),
+              method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p><strong>Description</strong></p>
+          <div class="project-body-inside">
+            <div class="project-b-desc">
+              <%= project.description %>
+            </div>
+            <div class="project-b-test">
+              <div class="test-count">
+                <h2><%= project.tests.count %></h2>
+                <p><strong>Tests</strong></p>
+              </div>
+              <div>
+                <p><strong><i class="fas fa-circle test-live"></i>live: <%= project.tests.where(is_finished: false).count %> tests</strong> </p>
+                <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended: <%= project.tests.where(is_finished: true).count %> tests</strong> </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="project-body">
-        <p><strong>Description</strong></p>
-        <div class="project-body-inside">
-          <div class="project-b-desc">
-            <%= project.description %>
-          </div>
-          <div class="project-b-test">
-            <div class="test-count">
-              <h2><%= project.tests.count %></h2>
-              <p><strong>Tests</strong></p>
-            </div>
-            <div>
-              <p><strong><i class="fas fa-circle test-live"></i>live: <%= project.tests.where(is_finished: false).count %> tests</strong> </p>
-              <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended: <%= project.tests.where(is_finished: true).count %> tests</strong> </p>
-            </div>
-          </div>
-        </div>
-        <div class="project-b-resp">
-        </div>
-      </div>
     </div>
-    </div>
-  <% end %>
-<% end %>
-
+    <% end %>
+    <% end %>
+  </div>
