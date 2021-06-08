@@ -18,6 +18,11 @@ Rails.application.routes.draw do
 
   get 'my-chatrooms', to: 'chatrooms#index', as: :my_chatrooms
 
+  # Like and Share Feature implementation to our cards
+  # put ‘/post/:id/like’ to: ‘posts#like’, as: ‘like’
+
+  put '/post/:id/like', to: 'posts#like', as: 'like'
+
   resources :test_users, only: %i[index] do
     member do
       get :set_done
