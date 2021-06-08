@@ -1,8 +1,27 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = policy_scope(Chatroom).where('sender_id = ? or receiver_id = ?', current_user.id, current_user.id)
+
+   
+#   # You need make an instance variable called: @users = User.all
+#     if params[:username].present?
+#       # Search by username to be implemented later         
+#       @chatrooms = policy_scope(Chatroom).where('sender_id = ? or receiver_id = ?', current_user.id, current_user.id)
+#     else
+#       @chatrooms = policy_scope(Chatroom).where('sender_id = ? or receiver_id = ?', current_user.id, current_user.id)
+#     end
+
+
     @chatroom = Chatroom.new
-  # You need make an instance variable called: @users = User.all
+    # You need make an instance variable called: @users = User.all
+  end
+
+  def show
+    @chatroom = Chatroom.find(params[:id])
+    @message = Message.new
+    authorize @chatroom
+    authorize @message
+
   end
 
   def create
@@ -16,13 +35,6 @@ class ChatroomsController < ApplicationController
     else
       render 'chatrooms/index'
     end
-  end
-
-  def show
-    @chatroom = Chatroom.find(params[:id])
-    @message = Message.new
-    authorize @chatroom
-    authorize @message
   end
 
   private

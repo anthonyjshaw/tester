@@ -457,24 +457,24 @@
 // 	padding-left: 64px;
 // }
 
-// /* Reveal animations */
-// .sr {
+/* Reveal animations */
+.sr {
 
-// 	.has-animations {
+	.has-animations {
 
-// 		.is-revealing {
-// 			visibility: hidden;
-// 		}
-// 	}
-// }
+		.is-revealing {
+			visibility: hidden;
+		}
+	}
+}
 
-// .has-animations {
+.has-animations {
 
-// 	.anime-element {
-// 		visibility: hidden;
+	.anime-element {
+		visibility: hidden;
 
-// 		.anime-ready & {
-// 			visibility: visible;
-// 		}
-// 	}
-// }
+		.anime-ready & {
+			visibility: visible;
+		}
+	}
+}

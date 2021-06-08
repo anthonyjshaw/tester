@@ -2,7 +2,6 @@
 
 <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, class: "btn btn-flat"%>
 
-
 <div class="avatar-position">
   <% if current_user.photo.attached? %>
   <%= cl_image_tag current_user.photo.key, :transformation=>[
