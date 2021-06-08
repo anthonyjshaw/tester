@@ -12,10 +12,12 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
-
+// @import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/material_blue.css";
 
 
 @media (max-width: 576px) {
+
 
 #mySidebar {
     display: none;

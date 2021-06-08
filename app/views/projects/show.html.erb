@@ -10,15 +10,16 @@
 
 
       <div class="modal-body">
-        <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
-        <%= f.input :name, label_html: {class: "required-class"} %>
-        <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
-        <%= f.input :test_url, label_html: {class: "required-class"} %>
-        <%= f.input :sample_size, label_html: {class: "required-class"}%>
-        <%= f.input :time_limit, label_html: {class: "required-class"} %>
-        <%= f.submit class: "btn btn-primary purple-round" %>
-        <% end %>
-      </div>
+        <div style= "width: 80% ; margin: auto;">
+          <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
+          <%= f.input :name, label_html: {class: "required-class"} %>
+          <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
+          <%= f.input :test_url, label_html: {class: "required-class"} %>
+          <%= f.input :sample_size, label_html: {class: "required-class"}%>
+          <%= f.input :time_limit, as: :string, required: true, input_html: {class: "datepicker"}, label_html: {class: "required-class"}%>
+          <%= f.submit class: "btn btn-primary purple-round", style: "width: 100%; margin-top: 20px" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -27,7 +28,7 @@
 <%= render 'shared/circle_gradient' %>
 
 <% if @project.user == current_user %>
-<%= button_tag "Create a new test", style:"background: #2e2ac5; border-radius:20px", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
+<%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
 <% end %>
 <div class="container mt-3">
   <h1 class='project-name'><%= @project.name %></h1>
@@ -36,39 +37,46 @@
        <p><strong>Description</strong></p>
        <p><%= @project.description %></p>
        <i class="fab fa-github"></i>
-       <%= link_to "http://#{@project.github_url}" do %>
+       <%= link_to @project.github_url, :target => "_blank" do %>
        <%= @project.github_url %>
        <% end %>
+       <div>
+        <% if @find_existing_chatroom.nil? && user_signed_in? %>
+        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post, remote: true %>
+        <% elsif @find_existing_chatroom && user_signed_in? %>
+        <%= link_to "Message #{@project.user.username}", chatroom_path(@chatroom) %>
+        <% end %>
+      </div>
     </div>
-  </div>
+ </div>
 </div>
 
 <div class="container mt-3">
   <% @project.tests.each do |test| %>
-    <div class="project-card">
+  <div class="project-card">
     <div class="project-head">
       <div class="p-flex">
         <%= link_to test_path(test) do %>
-          <% if test.is_finished %>
-            <h5><strong><%= test.name %></h5></strong>
-          <% else %>
-            <h5 id="color"><strong><%= test.name %></h5></strong>
-          <% end %>
+        <% if test.is_finished %>
+        <h5><strong><%= test.name %></h5></strong>
+        <% else %>
+        <h5 id="color"><strong><%= test.name %></h5></strong>
+        <% end %>
         <% end %>
         <p>Created on: <%= test.created_at.strftime("%Y-%m-%d") %></p>
         <% unless test.is_finished %>
-          <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
+        <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
         <% else %>
-          <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
+        <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
         <% end %>
       </div>
-      <p> test url: <span><%= link_to "#{test.test_url}", "https://#{test.test_url}", target: '_blank' %></span></p>
+      <% if @project.user == current_user %>
       <div class="p-flex">
         <div class="project-edit">
           <% if test.project.user == current_user%>
           <%= link_to edit_test_path(test),
-            method: :get do %>
-            <i class="fas fa-edit"></i>
+          method: :get do %>
+          <i class="fas fa-edit"></i>
           <% end %>
           <% end %>
         </div>
@@ -76,19 +84,27 @@
           <% if test.project.user == current_user %>
 
           <%= link_to test_path(test),
-            method: :delete,
-            data: { confirm: "Are you sure?" } do%>
-            <i class="far fa-trash-alt trash"></i>
+          method: :delete,
+          data: { confirm: "Are you sure?" } do%>
+          <i class="far fa-trash-alt trash"></i>
           <% end %>
           <% end %>
         </div>
       </div>
+      <% else %>
+      <% tu = test.test_users.map { |t| t.user } %>
+      <% if tu.include?(current_user)  %>
+      <p>already applied</p>
+      <% elsif tu.include?(current_user) == false && user_signed_in? %>
+      <%= link_to "Apply for test", test_test_users_path(test_id: test.id, user_id: current_user.id), class: "test-btn",method: :post%>
+      <% end %>
+      <% end %>
     </div>
     <div class="project-body">
       <p><strong>Description</strong></p>
       <div class="project-body-inside">
         <div class="test-b-desc">
-        <%= test.description %>
+          <%= test.description %>
         </div>
         <div class="test-b-stats">
           <div class="count">
@@ -96,7 +112,7 @@
             <p><strong>Reviews</strong></p>
           </div>
           <div class="count">
-            <h2><%= test.reviews.count %></h2>
+            <h2><%= test.test_users.where(test_finished: true).count %></h2>
             <p><strong>Responses</strong></p>
           </div>
           <div class="count">
@@ -106,7 +122,7 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
   <% end %>
 </div>
 

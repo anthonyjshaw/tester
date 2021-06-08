@@ -1,9 +1,11 @@
-
 <div class="container">
+<% if @chatroom == [] %>
+<p>No messages</p>
+<% else %>
 <h1>#<%= @chatroom.name %></h1>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>" data-chatroom-messenger-id="<%= message.user.id == current_user.id %>">
+    <div class="message-container" id="message-<%= message.id %>" data-chatroom-id="<%= message.user == current_user%>">
       <i class="author">
         <span><%= message.user.username %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
@@ -12,7 +14,8 @@
     </div>
   <% end %>
 </div>
-
-<%=simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}", input_html: {class: "message-border-bottom"} %>
 <% end %>
+<% end %>
+</div>

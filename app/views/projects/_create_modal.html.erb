@@ -11,27 +11,20 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(@project, remote: true) do |f| %>
-        <div class="row justify-content-center">
-        <%= f.input :name %>
-        </div>
-        <div class="row justify-content-center">
-        <%= f.input :description %>
-        </div>
-        <div class="row justify-content-center">
-        <%= f.input :github_url %>
-        </div>
-        <div class="row justify-content-center">
-          <%= f.input :project_tag, collection: Project::PROJECT_TAGS %>
-        </div>
-        <hr>
-        <div class="row justify-content-center">
-        <%= f.submit class: "btn btn-primary purple-round" %>
-        <% end %>
+        <div style= "width: 80% ; margin: auto;">
+          <%= simple_form_for(@project, remote: true) do |f| %>
+          <%= f.input :name, label_html: {class: "required-class"}%>
+          <%= f.input :description, label_html: {class: "required-class"}%>
+          <%= f.input :github_url, label_html: {class: "required-class"} %>
+          <%= f.input :project_tag, collection: Project::PROJECT_TAGS, label_html: {class: "required-class"} %>
+          <hr>
+          <%= f.submit class: "btn btn-primary purple-round", style: "width: 100%"%>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

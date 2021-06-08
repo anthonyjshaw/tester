@@ -23,6 +23,12 @@ class ProjectsController < ApplicationController
     @test = Test.new
     authorize @test
     @tests = policy_scope(Test).where(project: @project)
+    @find_existing_chatroom = Chatroom.where('receiver_id = ?', Project.find(params[:id]).user).first
+    if @find_existing_chatroom.nil?
+      @chatroom = Chatroom.new
+    else
+      @chatroom = @find_existing_chatroom
+    end
   end
 
   def new
@@ -54,23 +60,19 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     authorize @project
-      if @project.update(project_params)
-        redirect_to my_projects_path
-      else
-        render :show
-      end
+    if @project.update(project_params)
+      redirect_to my_projects_path
+    else
+      render :show
+    end
   end
 
   def destroy
     authorize @project
-    if @project.destroy
-    redirect_to my_projects_path
-  end
+    redirect_to my_projects_path if @project.destroy
   end
 
   private
-
-
 
   def set_project
     @project = Project.find(params[:id])

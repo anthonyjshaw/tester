@@ -17,8 +17,11 @@
           <% else %>
             <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
           <% end %>
+        <p><strong>test url: </strong><%= link_to x.test.test_url, set_done_test_user_path(x), :target => "_blank", :style=>'color:#2355ff;', :class => 'test-link' %></p>
         </div>
-        <p><strong>test url: </strong><%= link_to x.test.test_url, x.test.test_url, :target => "_blank", :style=>'color:#2355ff;' %></p>
+        <% if x.test_finished %>
+          <%= link_to 'leave a review', test_path(x.test_id), class: "test-btn" %>
+        <% end %>
       </div>
     </div>
   </div>
