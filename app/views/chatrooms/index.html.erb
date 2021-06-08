@@ -5,11 +5,11 @@
     <%= submit_tag "Search", class: "btn btn-primary btn-search pad-small" %>
   <% end %>
   <% if @chatrooms.empty? %>
-  <h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
+    <h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
   <% else %>
-  <% @chatrooms.each do |chatroom| %>
-    <div class="row">
-      <%= link_to chatroom_path(chatroom) do %>
+    <% @chatrooms.each do |chatroom| %>
+      <div class="row">
+        <%= link_to chatroom_path(chatroom) do %>
         <%# <%= @user.photo %>
         <%= chatroom.name %>
       <% end %>

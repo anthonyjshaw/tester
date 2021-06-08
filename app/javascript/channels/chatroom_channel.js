@@ -18,7 +18,7 @@ const initChatroomCable = () => {
 }
 
 
-consumer.subscriptions.create({ channel: "ChatChannel", room: "1st Room" })
-consumer.subscriptions.create({ channel: "ChatChannel", room: "2nd Room" })
+// consumer.subscriptions.create({ channel: "ChatChannel", room: "1st Room" })
+// consumer.subscriptions.create({ channel: "ChatChannel", room: "2nd Room" })
 
 export { initChatroomCable };
