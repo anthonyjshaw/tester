@@ -1,9 +1,13 @@
 <div class="container">
+<% if @chatrooms.empty? %>
+<h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
+<% else %>
 <% @chatrooms.each do |chatroom| %>
 <div class="row">
 <%= link_to chatroom_path(chatroom) do %>
 <%= chatroom.name %>
 <% end %>
 </div>
+<% end %>
 <% end %>
 </div>

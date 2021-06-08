@@ -23,12 +23,7 @@ class ProjectsController < ApplicationController
     @test = Test.new
     authorize @test
     @tests = policy_scope(Test).where(project: @project)
-    @find_existing_chatroom = Chatroom.where('receiver_id = ?', Project.find(params[:id]).user).first
-    if @find_existing_chatroom.nil?
-      @chatroom = Chatroom.new
-    else
-      @chatroom = @find_existing_chatroom
-    end
+    find_chatrooms
   end
 
   def new
@@ -76,6 +71,19 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def find_chatrooms
+    @find_existing_chatroom = Chatroom.where(
+                                'receiver_id = ? AND sender_id = ?',
+                                Project.find(params[:id]).user,
+                                current_user
+                              ).first
+    if @find_existing_chatroom.nil?
+      @chatroom = Chatroom.new
+    else
+      @chatroom = @find_existing_chatroom
+    end
   end
 
   def project_params
