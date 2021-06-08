@@ -29,9 +29,10 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { footerMarginAdd } from 'packs/footer_margin_add';
 import { initChatroomCable } from 'channels/chatroom_channel';
-import { sidebarToggle } from '../custom/sidebar';
 import { changeTextBox } from 'packs/change_text_box';
 import { testLink } from '../custom/testlink';
+import { initFlatpickr } from "../plugins/flatpickr";
+import { sidebarToggle } from '../custom/sidebar';
 window.sidebarToggle = sidebarToggle;
 // window.sidebarOff = sidebarOff;
 
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   testLink();
   changeTextBox();
   initChatroomCable();
+  initFlatpickr();
 });
