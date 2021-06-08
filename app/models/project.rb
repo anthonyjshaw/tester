@@ -6,7 +6,6 @@ class Project < ApplicationRecord
   has_many :tests, dependent: :destroy
   validates :name, :description, :github_url, presence: true
   validates_inclusion_of :project_tag, in: PROJECT_TAGS
-
   pg_search_scope :search_project_name_description , against: [ :name, :description ],
   associated_against: {
     user: [ :username ]
