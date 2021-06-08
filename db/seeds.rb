@@ -324,3 +324,4 @@ p "created review"
 end
 
 p 'reviews created!'
+p "you have #{Project.count} projects"
