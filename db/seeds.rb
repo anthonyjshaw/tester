@@ -540,12 +540,14 @@ p "Projects created!"
 p 'Creating Tests...'
 
 27.times do |i|
-projects = Project.all
-name = Faker::Computer.stack
-description = Faker::Company.bs
-test_url = Faker::Internet.domain_name
-sample_size = Faker::Number.number(digits: 2)
-date = rand(Date.today..Date.today + 30)
+
+  4.times do
+  projects = Project.all
+  name = Faker::Computer.stack
+  description = Faker::Company.bs
+  test_url = Faker::Internet.domain_name
+  sample_size = Faker::Number.number(digits: 2)
+  date = rand(Date.today..Date.today + 30)
 
   Test.create!(
   name: name,
@@ -555,6 +557,7 @@ date = rand(Date.today..Date.today + 30)
   time_limit: date,
   project_id: projects[i].id
 )
+end
 end
 p 'tests created!'
 p 'Creating reviews'

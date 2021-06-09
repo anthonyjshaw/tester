@@ -25,7 +25,10 @@
   </div>
 </div>
 
+
+
 <%= render 'shared/circle_gradient' %>
+
 
 <% if @project.user == current_user %>
 <%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
@@ -41,9 +44,9 @@
        <%= @project.github_url %>
        <% end %>
        <div>
-        <% if @find_existing_chatroom.nil? && user_signed_in? %>
+        <% if @find_existing_chatroom.nil? && user_signed_in? && @project.user != current_user %>
         <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post, remote: true %>
-        <% elsif @find_existing_chatroom && user_signed_in? %>
+        <% elsif @find_existing_chatroom && user_signed_in? && @project.user != current_user %>
         <%= link_to "Message #{@project.user.username}", chatroom_path(@chatroom) %>
         <% end %>
       </div>
@@ -65,9 +68,9 @@
         <% end %>
         <p>Created on: <%= test.created_at.strftime("%Y-%m-%d") %></p>
         <% unless test.is_finished %>
-        <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
+        <p><strong><i class="fas fa-circle test-live"></i>Live</strong></p>
         <% else %>
-        <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
+        <p><strong><i class="fas fa-clipboard-check test-ended"></i>Ended</strong></p>
         <% end %>
       </div>
       <% if @project.user == current_user %>
@@ -100,7 +103,7 @@
       <% end %>
       <% end %>
     </div>
-    <div class="project-body">
+    <div class="project-body mb-5">
       <p><strong>Description</strong></p>
       <div class="project-body-inside">
         <div class="test-b-desc">
@@ -116,7 +119,7 @@
             <p><strong>Responses</strong></p>
           </div>
           <div class="count">
-            <h2><%= (test.time_limit - Date.today).round %></h2>
+            <h2><%= (test.time_limit - Date.today).round >= 0 ? (test.time_limit - Date.today).round : 0%></h2>
             <p><strong>days left</strong></p>
           </div>
         </div>
