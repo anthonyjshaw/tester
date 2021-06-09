@@ -12,7 +12,7 @@
                   <% if chatroom.receiver == current_user %>
                     <div class="card-product-infos">
                       <div class="col d-flex align-items-center">
-                        <%= cl_image_tag chatroom.sender.photo.key, class: "avatar menu-icon"%>
+                        <%= cl_image_tag chatroom.sender.photo.key, class: "avatar menu-icon avatar-msg"%>
                       </div>
                       <div>
                         <%= chatroom.sender.username %>
@@ -28,7 +28,7 @@
                     <div class="card-product-infos">
                       <div class="col d-flex align-items-center">
                       <% if chatroom.receiver.photo.attached? %>
-                      <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar menu-icon"%>
+                      <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar menu-icon avatar-msg"%>
                       <% end %>
                       </div>
                       <div>
