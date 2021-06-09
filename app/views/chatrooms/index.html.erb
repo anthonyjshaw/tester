@@ -8,7 +8,6 @@
             <%= link_to chatroom_path(chatroom) do %>
               <div class="container">
                 <% @chatrooms.each do |chatroom| %>
-                  <%= chatroom.name %> 
                   <% if chatroom.receiver == current_user %>
                     <div class="card-product">
                       <div class="col d-flex align-items-center">
