@@ -68,15 +68,14 @@
   </div>
   <% else %>
   <% @project.tests.each do |test| %>
+  <%= link_to test_path(test) do %>
   <div class="project-card">
     <div class="project-head">
       <div class="p-flex">
-        <%= link_to test_path(test) do %>
         <% if test.is_finished %>
         <h5><strong><%= test.name %></h5></strong>
         <% else %>
         <h5><strong><%= test.name %></h5></strong>
-        <% end %>
         <% end %>
         <p>Created on: <%= test.created_at.strftime("%A %m %Y") %></p>
         <% unless test.is_finished == true%>
@@ -138,6 +137,7 @@
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
   <% end %>
 </div>
