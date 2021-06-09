@@ -74,24 +74,32 @@
 <main>
   <section class="hero">
     <div class="container">
+
+<svg width="400" height="325" viewBox="0 0 589 325" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="45" cy="46" r="45" fill="#2E2AC5"/>
+<path d="M39.9801 73.3103V33.7103H26.5551V24.4103H64.5051V33.7103H51.0801V73.3103H39.9801Z" fill="#FBFBFB"/>
+<path d="M155.531 91V18.664H131.008V1.676H200.33V18.664H175.807V91H155.531ZM214.258 91V1.676H270.154V18.664H234.397V36.611H264.811V53.462H234.397V74.012H271.524V91H214.258ZM316.577 92.644C310.732 92.644 304.886 91.5937 299.041 89.493C293.287 87.301 288.127 84.0587 283.56 79.766L295.068 65.929C298.265 68.669 301.781 70.9067 305.617 72.642C309.544 74.3773 313.38 75.245 317.125 75.245C321.326 75.245 324.432 74.4687 326.441 72.916C328.542 71.3633 329.592 69.2627 329.592 66.614C329.592 65.244 329.272 64.0567 328.633 63.052C328.085 62.0473 327.217 61.1797 326.03 60.449C324.934 59.627 323.564 58.8963 321.92 58.257C320.367 57.5263 318.632 56.75 316.714 55.928L305.069 50.996C302.786 50.0827 300.548 48.8953 298.356 47.434C296.255 45.9727 294.337 44.283 292.602 42.365C290.958 40.3557 289.634 38.0723 288.629 35.515C287.624 32.8663 287.122 29.898 287.122 26.61C287.122 22.9567 287.898 19.5317 289.451 16.335C291.004 13.047 293.196 10.2157 296.027 7.84099C298.858 5.375 302.192 3.457 306.028 2.08699C309.955 0.716995 314.248 0.0319953 318.906 0.0319953C324.112 0.0319953 329.227 1.03666 334.25 3.046C339.365 5.05533 343.84 7.978 347.676 11.814L337.401 24.555C334.478 22.2717 331.556 20.5363 328.633 19.349C325.71 18.0703 322.468 17.431 318.906 17.431C315.435 17.431 312.65 18.1617 310.549 19.623C308.54 20.993 307.535 22.9567 307.535 25.514C307.535 26.884 307.855 28.0713 308.494 29.076C309.225 29.9893 310.184 30.857 311.371 31.679C312.65 32.4097 314.111 33.1403 315.755 33.871C317.399 34.5103 319.18 35.241 321.098 36.063L332.606 40.721C338.086 42.913 342.379 45.927 345.484 49.763C348.681 53.599 350.279 58.668 350.279 64.97C350.279 68.7147 349.503 72.2767 347.95 75.656C346.489 78.944 344.297 81.8667 341.374 84.424C338.543 86.89 335.026 88.8993 330.825 90.452C326.624 91.9133 321.874 92.644 316.577 92.644ZM380.163 91V18.664H355.64V1.676H424.962V18.664H400.439V91H380.163ZM438.89 91V1.676H494.786V18.664H459.029V36.611H489.443V53.462H459.029V74.012H496.156V91H438.89ZM513.946 91V1.676H546.141C550.89 1.676 555.32 2.13266 559.43 3.046C563.631 3.95933 567.285 5.512 570.39 7.70399C573.495 9.80466 575.961 12.636 577.788 16.198C579.615 19.76 580.528 24.1897 580.528 29.487C580.528 36.063 579.067 41.4973 576.144 45.79C573.313 49.9913 569.477 53.1423 564.636 55.243L584.912 91H562.307L545.182 58.805H534.085V91H513.946ZM534.085 42.776H544.497C549.794 42.776 553.813 41.68 556.553 39.488C559.384 37.2047 560.8 33.871 560.8 29.487C560.8 25.103 559.384 22.0433 556.553 20.308C553.813 18.5727 549.794 17.705 544.497 17.705H534.085V42.776Z" fill="#2E2AC5"/>
+</svg>
+
+
       <div class="hero-inner">
         <div class="hero-copy">
-         <h1 class="hero-title mt-0"><strong>Start up your App idea today <br> or test a product</strong></h1>
+         <h1 class="hero-title mt-0"><strong>Start up your App idea today!</strong></h1>
          <p class="hero-paragraph">Tester is the world’s leading community <br> for people to share, test and grow their products.</p>
          <div class="hero-form field field-grouped">
+         <div class="container padleft-0">
+          <% unless user_signed_in? %>
           <div class="control control-expanded">
            <input class="input" type="email" name="email" placeholder="Your best email" style="width: 165px;">
          </div>
-         <div class="container">
           <%= link_to "Sign Up!", new_user_registration_path, class: "button button-primary button-block" %>
+          <% else %>
+          <%= link_to "Create a project" , my_projects_path, class: "button btn-primary purple-round"  %>
+          <% end %>
         </div>
       </div>
       <div class="feature text-center is-revealing">
-        <div class="feature-inner">
-          <h4 class="feature-title h3-mobile mb-8">Scroll down, discover tester!</h4>
-          <p class="text-sm">You have an excited Idea <br> for a Start-Up Business?</p>
-          <%= image_tag "idea.png" %>
-        </div>
+
       </div>
     </div>
     <div class="hero-illustration">
@@ -106,7 +114,7 @@
     </svg>
   </div>
   <div class="hero-main-shape">
-    <svg width="940" height="647" viewBox="0 0 940 647" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow:visible">
+    <svg width="940" height="647" viewBox="0 250 940 647" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow:visible">
      <defs>
       <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="hero-illustration-a">
        <stop stop-color="#261FB6" offset="0%"/>
@@ -310,7 +318,7 @@
                         <div class="features-header text-center">
                             <div class="container-sm">
                                 <h2 class="section-title mt-0">Meet Tester</h2>
-                                <p class="section-paragraph">For every Startup-Developer <br> who wants to start their business in the most effective way.</p>
+                                <p class="section-paragraph">For every startup developer <br> who wants to start their business in the most effective way.</p>
                                 <p></p>
                             </div>
                         </div>
@@ -325,7 +333,7 @@
 										    </g>
 										</svg>
                                     </div>
-                                    <h4 class="feature-title h3-mobile mb-8">Start your Idea on Tester</h4>
+                                    <h4 class="feature-title h3-mobile mb-8">Start your idea on Tester</h4>
                                     <p class="text-sm">You don't have to code alone! <br> Collaborate with other developers!</p>
                                     <%= image_tag "coding.png" %>
                                 </div>
@@ -458,7 +466,7 @@
         <%= image_tag "testimonial-01.png" %>
       </div>
       <div class="testimonial-body">
-       <p class="mb-0">With Tester, i could launch my product with a team in just 2 weeks, which i couldn't handle alone with my 9 to 5 Job. <br> We even could pitch it to a users community to get our start up fundraised <br> with interested users which liked to donate for our ideas.</p>
+       <p class="mb-0">With Tester, I could launch my product with a team in just 2 weeks, which i couldn't handle alone with my 9 to 5 Job. <br> We even could pitch it to a users community to get our start up fundraised <br> with interested users who wanted to invest in our ideas.</p>
      </div>
    </div>
    <div class="testimonial-footer">
@@ -475,8 +483,8 @@
       <%= image_tag "testimonial-02.png" %>
     </div>
     <div class="testimonial-body">
-     <p class="mb-0">Tester, gives me immediately feedback to my programmed apps from specific users. <br> I even could present my App to Investors
-     and it got financialized.</p>
+     <p class="mb-0">Tester gives me immediate feedback to my  apps from specific users. <br> I even could present my app to investors
+     and get it financed!</p>
    </div>
  </div>
  <div class="testimonial-footer">
@@ -528,7 +536,7 @@
 </section>
 </main>
 <div id="footer">
-  <p>Startup your Idea into a real product follow ©Tester</p>
+  <p>Startup your idea into a real product follow ©Tester</p>
   <ul class="list-inline">
     <li class="list-inline-item"><a href="https://github.com/speakinginlungs/tester"><i class="fab fa-github"></i></a></li>
     <li class="list-inline-item"><a href="https://instagram.com/github"><i class="fab fa-instagram-square"></i></a></li>
