@@ -1,13 +1,27 @@
+.current_user, .other_user {
+  width: 40%;
+  padding: 24px;
+  margin-bottom: 10px;
+  border-radius: 24px;
+
+  overflow: hidden;
+  margin-right: 100%;
+}
+
 .current_user {
-  background: white;
-  margin: 0 100px;
+  background: #2e2ac5;
+  color: white;
+  margin: 10px 70%;
 }
 
 .other_user {
-  background: white;
+  background: #f4f6f9;
+  color: grey;
 }
 
 .message-border-bottom {
+  margin-top: 20%;
+  margin-bottom: 0;
   border: none;
   border-bottom: 1px solid grey;
 }
