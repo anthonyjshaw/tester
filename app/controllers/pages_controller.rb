@@ -8,11 +8,7 @@ class PagesController < ApplicationController
   end
 
   def explore
-    if params[:query].present?
-      @projects = Project.search_project_name_description(params[:query])
-    else
-      @projects = Project.where.not(user: current_user)
-    end
+    @projects = policy_scope(Project)
   end
 
 end
