@@ -42,8 +42,8 @@ Review.destroy_all
   file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/michael-dam-mEZ3PoFGs_k-unsplash_tlsc87.jpg') 
   user_zero = User.create!(
     email: 'sarah@smith.com',
-    first_name: 'sarah',
-    last_name: 'smith',
+    first_name: 'Sarah',
+    last_name: 'Smith',
     username: 'sasi',
     password: 123456)
     user_zero.photo.attach(io: file, filename: 'sarah.jpg', content_type: 'image/jpg')
@@ -51,7 +51,7 @@ Review.destroy_all
     file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/christopher-campbell-rDEOVtE7vOs-unsplash_h6sn7u.jpg') 
     user_one = User.create!(
       email: 'lisa@mueller.com',
-      first_name: 'lisa',
+      first_name: 'Lisa',
       last_name: 'Müller',
       username: 'Lisam',
       password: 123456)
@@ -508,29 +508,29 @@ Review.destroy_all
     project_tag: Project::PROJECT_TAGS.sample
   )
 
-  # project_24 = Project.create!( #25
-  #   name: "Masteryourownway",
-  #   description: "Breakthrough your limited beliefs, with the most trackable Training for Martial-Artists: ARE YOU READY?, TO FIGHT FOR YOUR DREAMS?!",
-  #   github_url: "https://github.com/masteryouronwway",
-  #   user_id: users[24].id,
-  #   project_tag: Project::PROJECT_TAGS.sample
-  # )
+  project_24 = Project.create!( #25
+    name: "Masteryourownway",
+    description: "Breakthrough your limited beliefs, with the most trackable Training for Martial-Artists: ARE YOU READY?, TO FIGHT FOR YOUR DREAMS?!",
+    github_url: "https://github.com/masteryouronwway",
+    user_id: users[24].id,
+    project_tag: Project::PROJECT_TAGS.sample
+  )
 
-  # project_25 = Project.create!( #26
-  #   name: "Soto's - Been.there",
-  #   description: "Share your travel experience on sightseeing, food, people, hotel, flight and more connected in one app.",
-  #   github_url: "https://github.com/been.there",
-  #   user_id: users[25].id,
-  #   project_tag: Project::PROJECT_TAGS.sample
-  # )
+  project_25 = Project.create!( #26
+    name: "Soto's - Been.there",
+    description: "Share your travel experience on sightseeing, food, people, hotel, flight and more connected in one app.",
+    github_url: "https://github.com/been.there",
+    user_id: users[25].id,
+    project_tag: Project::PROJECT_TAGS.sample
+  )
 
-  # project_26 = Project.create!( #27
-  #   name: "like-wisely",
-  #   description: "Avoid real Life mistakes which leads to pain decisions. Share your real and honest Life experience instead, so that everybody can learn from it!",
-  #   github_url: "https://github.com/likewisely",
-  #   user_id: users[26].id,
-  #   project_tag: Project::PROJECT_TAGS.sample
-  # )
+  project_26 = Project.create!( #27
+    name: "like-wisely",
+    description: "Avoid real life mistakes which leads to pain decisions. Share your real and honest life experience instead, so that everybody can learn from it!",
+    github_url: "https://github.com/likewisely",
+    user_id: users[26].id,
+    project_tag: Project::PROJECT_TAGS.sample
+  )
 
 
 p "Projects created!"
@@ -539,12 +539,26 @@ p "Projects created!"
 
 p 'Creating Tests...'
 
-23.times do |i|
+TEST_NAME = %w[searchbar order\ button homepage map layout animation scroll gallery\ user\ page storefront new\ logo illustration banner]
 
-  4.times do
+TEST_DESCRIPTION_VERB = %w[Need Looking\ for Searching\ for Want Could\ really\ do\ with Here\ to\ get\ some]
+
+TEST_PRO_1 = %w[some\ feedback some\ ideas a\ couple\ of\ ideas a\ bit\ of\ feedback]
+
+TEST_PRO_EX = %w[I\ really\ like\ it\ but\ I\ need\ a\ second\ opinion. I'm\ not\ a\ fan\ of\ it\ to\ be\ honest.\ I\ think\ it\ needs\ some\ work\. I'm\ having\ fun\ with\ it\ but\ I\ want\ a\ second\ pair\ of\ eyes]
+
+TEST_PRO_2 = %w[Could\ you Would\ you\ be\ able\ to If\ at\ all\ possible,]
+
+TEST_PRO_3 = %w[tell\ me\ what's\ good\ and\ not\ so\ good let\ me\ know\ what\ you\ think give\ me\ your\ honest\ opinion]
+
+TEST_PRO_4 = %w[Ta! Thanks! Much\ appreciated! Looking\ forward\ to\ hearing\ your\ comments! Any\ feedback\ is\ appreciated!]
+
+27.times do |i|
+
+  rand(1..5).times do
   projects = Project.all
-  name = Faker::Computer.stack
-  description = Faker::Company.bs
+  name = TEST_NAME.sample
+  description = "#{TEST_DESCRIPTION_VERB.sample} #{TEST_PRO_1.sample} on my new #{name}. #{TEST_PRO_2.sample} #{TEST_PRO_3.sample}? #{TEST_PRO_4.sample}"
   test_url = Faker::Internet.domain_name
   sample_size = Faker::Number.number(digits: 2)
   date = rand(Date.today..Date.today + 30)
@@ -558,10 +572,16 @@ p 'Creating Tests...'
   project_id: projects[i].id
 )
 end
+
 end
 p 'tests created!'
 p 'Creating reviews'
 
+27.times do |i|
+  user = User.all.sample.id
+  test = Test.all.sample.id
+  TestUser.create(user_id: user, test_id: test)
+end
 
 TestUser.create!(
   test_id: Test.last.id,
@@ -572,9 +592,11 @@ TestUser.create!(
 27.times do |i|
 users = User.all
 tests = Test.all.sample
-rating = Faker::Number.decimal(l_digits: 2)
+rating = rand(0.0..5.0)
 
-review_content = %w[Needs\ more\ color Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
+rand(1..5).times do
+
+review_content = %w[Needs\ more\ color It's\ a\ little\ confusing...Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
 questions = Review::QUESTION_1_CATEGORIES.sample
   Review.create!(
   rating: rating,
@@ -583,8 +605,7 @@ questions = Review::QUESTION_1_CATEGORIES.sample
   question1: questions,
   test_id: tests.id
 )
-
-p "created review"
+end
 end
 
 p 'reviews created!'

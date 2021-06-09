@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     authorize @project
     @test = Test.new
     authorize @test
-    @tests = policy_scope(Test).where(project: @project)
+    @tests = policy_scope(Test).where(project: @project).order(time_limit: :asc)
     find_chatrooms
   end
 

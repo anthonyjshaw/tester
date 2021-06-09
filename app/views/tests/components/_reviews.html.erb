@@ -1,19 +1,32 @@
 
 <% if @test.reviews.count.zero? %>
     <p>No reviews.</p>
+
+  <%= link_to "Add a review", "#collapseExample",  role: 'button', class: 'btn btn-primary purple-round', data: {toggle: "collapse"} unless @test.project.user == current_user || user_signed_in? == false %>
+<!--   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button> -->
+</p>
+<div class="collapse" id="collapseExample">
+
     <%= simple_form_for [@test, @review], url: test_reviews_path(@test), remote: true do  |f| %>
         <%= f.input :rating %>
         <%= f.input :question1, collection: Review::QUESTION_1_CATEGORIES, label: "How do you feel about this feature?" %>
         <%= f.input :content, label: "Any comments you'd like to share?" %>
         <%= f.submit class: "btn btn-primary purple-round" %>
         <% end %>
+</div>
+
    <% else %>
-    <p><%= link_to "Add a review", new_project_test_path(@test.project), class: "nav-link", data: {toggle: "modal", target: "#exampleModalReview"} unless @test.project.user == current_user || user_signed_in? == false %></p>
     <h5 class="my-4"> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></h5>
     <% @reviews.each do |review| %>
       <div class="row align-items-self-start">
         <div class="col-1">
+      <% if review.user.photo.attached? %>
+      <%= cl_image_tag review.user.photo.key, alt: "alttext", class: "avatar"  %>
+      <% else %>
       <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
+      <% end %>
       </div>
       <div class="card mb-4 review-card" id="review-<%= review.id %>">
         <p><strong><%= review.user.username %></strong> <span id="review-created-date"><%= review.created_at.strftime("%a %d.%m.%Y")%></span></p>
@@ -21,10 +34,13 @@
       </div>
       </div>
     <% end %>
+    <%= link_to "Add a review", "#collapseExample",  role: 'button', class: 'btn btn-primary purple-round', data: {toggle: "collapse"} unless @test.project.user == current_user || user_signed_in? == false %>
+    <div class="collapse" id="collapseExample">
         <%= simple_form_for [@test, @review], url: test_reviews_path(@test), remote: true do  |f| %>
         <%= f.input :rating %>
         <%= f.input :question1, collection: Review::QUESTION_1_CATEGORIES, label: "How do you feel about this feature?" %>
         <%= f.input :content, label: "Any comments you'd like to share?" %>
         <%= f.submit class: "btn btn-primary purple-round" %>
         <% end %>
-   <% end %>
+        <% end %>
+    </div>
