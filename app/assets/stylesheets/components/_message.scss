@@ -6,6 +6,7 @@
 
   overflow: hidden;
   margin-right: 100%;
+
 }
 
 .current_user {
@@ -30,4 +31,6 @@
   overflow: scroll;
   border: 1px solid grey;
   height: 700px;
+  overflow-x: hidden;
+  margin-bottom: 50px;
 }
