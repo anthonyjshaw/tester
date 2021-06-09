@@ -1,12 +1,12 @@
 .sidebar {
   height: 100%;
-  width: 80px;
+  width: 220px;
   position: fixed;
   top: 0;
   // 68px;
   left: 0;
-  background-color: #f4f6f9;
-  padding-top: 88px;
+  background-color: #2e2ac5;
+  padding-top: 20px;
   white-space: nowrap;
   transition: 0.5s;
   z-index: 1;
@@ -17,7 +17,7 @@
   }
 
   a {
-    color: grey;
+    color: white;
     padding: 20px 8px;
     text-decoration: none;
     font-size: 20px;
@@ -37,7 +37,7 @@
 }
 
 .sidebartoggle {
-  width: 220px;
+  width: 85px;
 }
 
 .overflow-hidden {
@@ -49,16 +49,27 @@
 }
 
 #menu-icon {
+  color: white;
   padding: 3px 3px;
   position: absolute;
   right: -38px;
-  top: 120px;
+  top: 70px;
   overflow-x: visible!important;
   border-radius: 0px 5px 5px 0px;
-  background-color: #f4f6f9;
+  background-color: #2e2ac5;
   cursor: pointer;
 }
 
 #logout a{
   border: none;
+}
+
+#sidebar-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin: 20px;
+  }
 }

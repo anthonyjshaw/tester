@@ -1,0 +1,6 @@
+<div id="searchbar">
+  <%= form_tag explore_path, method: :get , class: "form-inline ml-5 mr-4" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control mr-sm-2", id: "search-text", placeholder: "Search projects and users" %>
+      <%= submit_tag "Search", class: "btn btn-primary", id: "search-btn"%>
+  <% end %>
+</div>
