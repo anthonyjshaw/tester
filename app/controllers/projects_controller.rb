@@ -13,6 +13,10 @@ class ProjectsController < ApplicationController
     else
       @projects = Project.where.not(user: current_user)
     end
+    respond_to do |format|
+      format.html
+      format.text { render json: { projects: @projects} }
+    end
   end
 
   def user_index
