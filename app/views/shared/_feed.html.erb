@@ -1,4 +1,7 @@
 <h1>Feed</h1>
+<% Project::PROJECT_TAGS.each do |tag| %>
+  <%= link_to tag, projects_path(project_tag: tag), method: :get, controller: 'projects' %>
+<% end %>
 <div class="feed-wrapper">
   <% @projects.each do |project| %>
   <div class='card' style="width: auto;">
