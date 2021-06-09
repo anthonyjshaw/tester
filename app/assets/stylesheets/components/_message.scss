@@ -12,25 +12,48 @@
 .current_user {
   background: #2e2ac5;
   color: white;
-  margin: 10px 60%;
+  margin: 40px 55%;
 }
 
 .other_user {
-  background: #f4f6f9;
+  background: #d9dbde;
   color: grey;
+  margin-left: 2%;
 }
 
 .message-border-bottom {
-  margin-top: 20%;
+
   margin-bottom: 0;
   border: none;
-  border-bottom: 1px solid grey;
+}
+
+.required {
+  border-bottom: none;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 24px;
+;
+
 }
 
 #messages {
   overflow: scroll;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   height: 700px;
   overflow-x: hidden;
-  margin-bottom: 50px;
+  // overflow-anchor: none;
+
 }
+
+.messages-container {
+  height: 700px;
+}
+
+
+// #anchor {
+//     /* allow the final child to be selected as an anchor node */
+//     overflow-anchor: auto;
+
+//     /* anchor nodes are required to have non-zero area */
+//     height: 1px;
+// }

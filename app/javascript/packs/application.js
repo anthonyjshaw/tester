@@ -41,6 +41,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   testLink();
   changeTextBox();
+  const objectSelector = document.getElementById('messages');
+  if (objectSelector) {
+  objectSelector.scrollTo({ top: objectSelector.scrollHeight })
+  }
   initChatroomCable();
   initFlatpickr();
 });
