@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-<<<<<<< HEAD
+
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name username photo])
@@ -39,8 +39,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name username photo])
   end
 
-=======
->>>>>>> fea446ac54962a843f3549d187b659cd05a90de6
+  
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
