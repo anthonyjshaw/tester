@@ -1,13 +1,22 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show explore]
-  skip_after_action :verify_authorized, only: [:user_index]
+  skip_after_action :verify_authorized, only: [:user_index ]
   before_action :set_project, only: %i[show edit update destroy]
 
-  def index
-    @projects = policy_scope(Project).where(user: current_user)
 
-    # @projects = Project.all
-    # render :index
+  def index
+    @projects = policy_scope(Project)
+    if  params[:project_tag].present?
+      @projects = Project.where(project_tag: params[:project_tag])
+    elsif params[:query].present?
+      @projects = Project.search_project_name_description(params[:query])
+    else
+      @projects = Project.where.not(user: current_user)
+    end
+    respond_to do |format|
+      format.html
+      format.text { render json: { projects: @projects} }
+    end
   end
 
   def user_index

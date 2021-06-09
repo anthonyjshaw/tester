@@ -1,23 +1,33 @@
 <h1>Feed</h1>
-<div class="feed-wrapper">
-  <% @projects.each do |project| %>
-  <div class='card' style="width: auto;">
-    <%= link_to project_path(project) do %>
-    <div class="card-img-top" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover; background-image: url("https://picsum.photos/1600/900?<%= project.name %>")' src="" alt="Card image cap">
-  </div>
-    <div class="card-body">
-      <div class="body-header d-flex justify-content-between align-items-center mb-3">
-        <div class="col d-flex align-items-center">
-          <%= image_tag "https://i.pravatar.cc/150?img=#{project.id}", class: "avatar menu-icon"%>
-          <h5 class='username'><%= project.name %></h5>
-          </div>
-          <p class='stats'><i class="fas fa-clipboard-list"></i>25</p>
-          <p class='stats'><i class="fas fa-clipboard-check"></i>345</p>
-      </div>
-      <p class='card-text desc'><%= project.description %></p>
-
-      </div>
+<div data-controller='search'>
+  <% Project::PROJECT_TAGS.each do |tag| %>
+  <button data-action='click->search#tag' data-search-target='tagName'>
+    <%= tag %>
+    <%#= link_to tag, projects_path(project_tag: tag), method: :get, controller: 'projects', data: {
+      search_target: 'searchInput',
+      action: "click->search#tag"
+    } %>
+  </button>
   <% end %>
-  </div>
+  <div class="feed-wrapper" data-search-target='list'>
+    <% @projects.each do |project| %>
+    <div class='card' style="width: auto;">
+      <%= link_to project_path(project) do %>
+      <div class="card-img-top" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover; background-image: url("https://picsum.photos/1600/900?<%= project.name %>")' src="" alt="Card image cap">
+      </div>
+      <div class="card-body">
+        <div class="body-header d-flex justify-content-between align-items-center mb-3">
+          <div class="col d-flex align-items-center">
+            <%= image_tag "https://i.pravatar.cc/150?img=#{project.id}", class: "avatar menu-icon"%>
+            <h5 class='username'><%= project.name %></h5>
+            </div>
+            <p class='stats'><i class="fas fa-clipboard-list"></i>25</p>
+            <p class='stats'><i class="fas fa-clipboard-check"></i>345</p>
+        </div>
+        <p class='card-text desc'><%= project.description %></p>
+        </div>
       <% end %>
+    </div>
+   <% end %>
+  </div>
 </div>
