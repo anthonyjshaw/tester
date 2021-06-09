@@ -1,6 +1,6 @@
 <nav role="navigation" id="mySidebar" class="sidebar">
   <div onclick="sidebarToggle()">
-    <i class='bx bxs-chevrons-right' id="menu-icon"></i>
+    <i class="fas fa-arrow-alt-circle-left" id="menu-icon"></i>
   </div>
 
   <div class="overflow-hidden">
@@ -33,7 +33,7 @@
     </div>
     <div id="logout" >
       <%= link_to destroy_user_session_path , method: :delete do %>
-        <i class="fas fa-sign-out-alt"></i>
+        <i class="fas fa-door-open"></i>
         <span class="icon-text">exit</span>
       <% end %>
     </div>
