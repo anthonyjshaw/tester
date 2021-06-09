@@ -44,9 +44,13 @@
        <% end %>
        <div>
         <% if @find_existing_chatroom.nil? && user_signed_in? && @project.user != current_user %>
-        <%= link_to "Message #{@project.user.username}", project_chatrooms_path(@project), method: :post, remote: true %>
+        <%= link_to project_chatrooms_path(@project), method: :post, remote: true do %>
+        <i class="fas fa-comment"></i>
+        <% end %>
         <% elsif @find_existing_chatroom && user_signed_in? && @project.user != current_user %>
-        <%= link_to "Message #{@project.user.username}", chatroom_path(@chatroom) %>
+        <%= link_to  chatroom_path(@chatroom) do %>
+          <i class="fas fa-comment"></i>
+        <% end %>
         <% end %>
       </div>
     </div>
