@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # Like and Share Feature implementation to our cards
   # put ‘/post/:id/like’ to: ‘posts#like’, as: ‘like’
 
-  put '/post/:id/like', to: 'posts#like', as: 'like'
+  # put '/post/:id/like', to: 'posts#like', as: 'like'
 
   resources :test_users, only: %i[index] do
     member do
