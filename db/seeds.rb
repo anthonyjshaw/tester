@@ -1,4 +1,5 @@
 require 'faker'
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -19,32 +20,292 @@ Review.destroy_all
 
   p 'Creating user'
 
-  27.times do |i|
+  # 27.times do |i|
 
-  email = Faker::Internet.email
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = Faker::Internet.username
+  # email = Faker::Internet.email
+  # first_name = Faker::Name.first_name
+  # last_name = Faker::Name.last_name
+  # username = Faker::Internet.username
 
-  user_i = User.create!(
-    email: email,
-    first_name: first_name,
-    last_name: last_name,
-    username: username,
-    password: 123456)
-  end
+  # user_i = User.create!(
+  #   email: email,
+  #   first_name: first_name,
+  #   last_name: last_name,
+  #   username: username,
+  #   password: 123456)
+  # end
 
-  p "User created!"
-  p 'Creating Project'
+  
+  
 
   # 27.times do
-
+  file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/michael-dam-mEZ3PoFGs_k-unsplash_tlsc87.jpg') 
   user_zero = User.create!(
-    email: 'soto@soto.com',
-    first_name: 'soto',
-    last_name: 'dim',
-    username: 'saoma',
-    password: 1111111)
+    email: 'sarah@smith.com',
+    first_name: 'sarah',
+    last_name: 'smith',
+    username: 'sasi',
+    password: 123456)
+    user_zero.photo.attach(io: file, filename: 'sarah.jpg', content_type: 'image/jpg')
+
+    file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/christopher-campbell-rDEOVtE7vOs-unsplash_h6sn7u.jpg') 
+    user_one = User.create!(
+      email: 'lisa@mueller.com',
+      first_name: 'lisa',
+      last_name: 'Müller',
+      username: 'Lisam',
+      password: 123456)
+      user_one.photo.attach(io: file, filename: 'lisa.jpg', content_type: 'image/jpg')
+
+      file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623226896/28wpskeu05xl5tv038ab4u9df9k7.jpg') 
+      user_2 = User.create!(
+        email: 'Rosie@parker.com',
+        first_name: 'Rosie',
+        last_name: 'Parker',
+        username: 'Roparker',
+        password: 123456)
+        user_2.photo.attach(io: file, filename: 'rosie.jpg', content_type: 'image/jpg')
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/ben-parker-OhKElOkQ3RE-unsplash_goztsy.jpg') 
+      user_3 = User.create!(
+        email: 'Ben@parker.com',
+        first_name: 'Ben',
+        last_name: 'Parker',
+        username: 'Benparker',
+        password: 123456)
+        user_3.photo.attach(io: file, filename: 'ben.jpg', content_type: 'image/jpg')
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/fred-moon-vSI2KnI4Abc-unsplash_qqhd2p.jpg') 
+      user_4 = User.create!(
+        email: 'Fred@moon.com',
+        first_name: 'Fred',
+        last_name: 'Moon',
+        username: 'Moored',
+        password: 123456)
+        user_4.photo.attach(io: file, filename: 'fred.jpg', content_type: 'image/jpg')
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/bruce-mars-AndE50aaHn4-unsplash_aoprqy.jpg') 
+        user_5 = User.create!(
+          email: 'hayden@brown.com',
+          first_name: 'Hayden',
+          last_name: 'Brown',
+          username: 'Haybrown',
+          password: 123456)
+          user_5.photo.attach(io: file, filename: 'brown.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/tanjir-ahmed-chowdhury-Qy4wpL2B4ac-unsplash_ouvqzp.jpg') 
+        user_6 = User.create!(
+          email: 'Ahmed@Tanjir.com',
+          first_name: 'Ahmed',
+          last_name: 'Tanjir',
+          username: 'tanji',
+          password: 123456)
+          user_6.photo.attach(io: file, filename: 'ahmed.jpg', content_type: 'image/jpg')
+
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/matheus-ferrero-W7b3eDUb_2I-unsplash_eniojf.jpg') 
+        user_7 = User.create!(
+          email: 'Belinda@fleming.com',
+          first_name: 'Belinda',
+          last_name: 'Fleming',
+          username: 'flem',
+          password: 123456)
+          user_7.photo.attach(io: file, filename: 'flem.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/raul-angel-x8Ac6jee_3s-unsplash_edfx0v.jpg') 
+        user_8 = User.create!(
+          email: 'Jessica@Eaton.com',
+          first_name: 'Jessica',
+          last_name: 'Eaton',
+          username: 'jess',
+          password: 123456)
+          user_8.photo.attach(io: file, filename: 'eaton.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/barbora-polednova-bj7Ox4W1yBY-unsplash_culgu4.jpg') 
+        user_9 = User.create!(
+          email: 'Barbara@penelope',
+          first_name: 'Barbara',
+          last_name: 'Penelope',
+          username: 'baralope',
+          password: 123456)
+          user_9.photo.attach(io: file, filename: 'barbara.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/ben-den-engelsen-YUu9UAcOKZ4-unsplash_xrljdp.jpg') 
+        user_10 = User.create!(
+          email: 'ben@engelsen.com',
+          first_name: 'Ben',
+          last_name: 'Engelsen',
+          username: 'bengel',
+          password: 123456)
+          user_10.photo.attach(io: file, filename: 'ben.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/ana-itonishvili-7WYM9m8-7kE-unsplash_fncczh.jpg') 
+        user_11 = User.create!(
+          email: 'anna@brown.com',
+          first_name: 'Anna',
+          last_name: 'Brown',
+          username: 'ann',
+          password: 123456)
+          user_11.photo.attach(io: file, filename: 'ann.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/ayo-ogunseinde-6W4F62sN_yI-unsplash_wjg1a1.jpg') 
+        user_12 = User.create!(
+          email: 'elisa@beth.com',
+          first_name: 'Elisa',
+          last_name: 'Beth',
+          username: 'elisa',
+          password: 123456)
+          user_12.photo.attach(io: file, filename: 'elisa.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/sarah-brown-tTdC88_6a_I-unsplash_hdpq7y.jpg') 
+        user_13 = User.create!(
+          email: 'Savanna@shields.com',
+          first_name: 'Savanna',
+          last_name: 'shields',
+          username: 'shield',
+          password: 123456)
+          user_13.photo.attach(io: file, filename: 'savanna.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/taylor-hernandez-STiVSlutjt8-unsplash_g75j1r.jpg') 
+        user_14 = User.create!(
+          email: 'taylor@laine.com',
+          first_name: 'taylor',
+          last_name: 'laine',
+          username: 'laini',
+          password: 123456)
+          user_14.photo.attach(io: file, filename: 'taylor.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/taylor-hernandez-DLKR_x3T_7s-unsplash_xkvep2.jpg') 
+        user_15 = User.create!(
+          email: 'annika@schmidt.com',
+          first_name: 'Annika',
+          last_name: 'Schmidt',
+          username: 'an',
+          password: 123456)
+          user_15.photo.attach(io: file, filename: 'an.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/aiony-haust-3TLl_97HNJo-unsplash_ky55fu.jpg') 
+        user_16 = User.create!(
+          email: 'seo@dalmi.com',
+          first_name: 'seo',
+          last_name: 'dalmi',
+          username: 'dalmia',
+          password: 123456)
+          user_16.photo.attach(io: file, filename: 'seo.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/tamara-bellis-A3Gd2b-98_g-unsplash_jcwjoh.jpg') 
+        user_17 = User.create!(
+          email: 'tamara@bellis.com',
+          first_name: 'tamara',
+          last_name: 'Bellis',
+          username: 'tam',
+          password: 123456)
+          user_17.photo.attach(io: file, filename: 'tam.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/midas-hofstra-a6PMA5JEmWE-unsplash_ecczhm.jpg') 
+        user_18 = User.create!(
+          email: 'Johann@jones.com',
+          first_name: 'johann',
+          last_name: 'jones',
+          username: 'jjones',
+          password: 123456)
+          user_18.photo.attach(io: file, filename: 'jones.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/rafaella-mendes-diniz-et_78QkMMQs-unsplash_hzqwqo.jpg') 
+        user_19 = User.create!(
+          email: 'rafaela@mendes.com',
+          first_name: 'rafaela',
+          last_name: 'mendes',
+          username: 'ela',
+          password: 123456)
+          user_19.photo.attach(io: file, filename: 'ela.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/wes-hicks-4-EeTnaC1S4-unsplash_z2c7ni.jpg') 
+        user_20 = User.create!(
+          email: 'Nam@san.com',
+          first_name: 'Namdo',
+          last_name: 'San',
+          username: 'Haybrown',
+          password: 123456)
+          user_20.photo.attach(io: file, filename: 'sansan.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash_f9sh4o.jpg') 
+        user_21 = User.create!(
+          email: 'jo@brown.com',
+          first_name: 'Jo',
+          last_name: 'Brown',
+          username: 'Jobrown',
+          password: 123456)
+          user_21.photo.attach(io: file, filename: 'jobrown.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/cobro-JDJIDtZNJsM-unsplash_knhdnk.jpg') 
+        user_22 = User.create!(
+          email: 'jordan@cane.com',
+          first_name: 'jordan',
+          last_name: 'cane',
+          username: 'canebrown',
+          password: 123456)
+          user_22.photo.attach(io: file, filename: 'jordan.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/jonas-kakaroto-KIPqvvTOC1s-unsplash_ovaxkz.jpg') 
+        user_23 = User.create!(
+          email: 'jonas@east.com',
+          first_name: 'jonas',
+          last_name: 'east',
+          username: 'eastjonas',
+          password: 123456)
+          user_23.photo.attach(io: file, filename: 'jonas.jpg', content_type: 'image/jpg')
+
+          
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229564/80984292_mmassb.jpg ') 
+        user_24 = User.create!(
+        email: 'jan@dreamfighterjourney.com',
+        first_name: 'jan',
+        last_name: 'peter',
+        username: 'masteryourownway',
+        password: 123456)
+        user_24.photo.attach(io: file, filename: 'jan.jpg', content_type: 'image/jpg')
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/angelo-pantazis-_bmROQSJJG0-unsplash_zqs5qj.jpg') 
+        user_25 = User.create!(
+          email: 'soto@soto.com',
+          first_name: 'soto',
+          last_name: 'dim',
+          username: 'saoma',
+          password: 1111111)
+          user_25.photo.attach(io: file, filename: 'soto.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/mustafa-chahwala-jvSTl5SCPUs-unsplash_bwea6z.jpg') 
+        user_26 = User.create!(
+          email: 'dom@nik.com',
+          first_name: 'dom',
+          last_name: 'nik',
+          username: 'dom',
+          password: 123456)
+          user_26.photo.attach(io: file, filename: 'dom.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/scorpio-creative-ZGlGMTlOc1E-unsplash_t9tc5t.jpg') 
+        user_27 = User.create!(
+          email: 'tim@raue.com',
+          first_name: 'tim',
+          last_name: 'raue',
+          username: 'rautim',
+          password: 123456)
+          user_27.photo.attach(io: file, filename: 'rautim.jpg', content_type: 'image/jpg')
+
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/shipman-northcutt-sgZX15Da8YE-unsplash_jcvnwq.jpg') 
+        user_28 = User.create!(
+          email: 'Kurt@raue.com',
+          first_name: 'kurt',
+          last_name: 'raue',
+          username: 'kurtim',
+          password: 123456)
+          user_28.photo.attach(io: file, filename: 'kurt.jpg', content_type: 'image/jpg')
+
+    p "User created!"
+
+    p 'Creating Project'
 
   project_zero_0 = Project.create!( #1
     name: Faker::App.name,
