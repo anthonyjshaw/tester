@@ -27,7 +27,9 @@
                   <% else %>
                     <div class="card-product-infos">
                       <div class="col d-flex align-items-center">
+                      <% if chatroom.receiver.photo.attached? %>
                       <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar menu-icon"%>
+                      <% end %>
                       </div>
                       <div>
                         <%= chatroom.receiver.username %>

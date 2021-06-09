@@ -256,9 +256,9 @@ Review.destroy_all
           password: 123456)
           user_23.photo.attach(io: file, filename: 'jonas.jpg', content_type: 'image/jpg')
 
-          
 
-        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229564/80984292_mmassb.jpg ') 
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229564/80984292_mmassb.jpg')
         user_24 = User.create!(
         email: 'jan@dreamfighterjourney.com',
         first_name: 'jan',
@@ -267,7 +267,7 @@ Review.destroy_all
         password: 123456)
         user_24.photo.attach(io: file, filename: 'jan.jpg', content_type: 'image/jpg')
 
-        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/angelo-pantazis-_bmROQSJJG0-unsplash_zqs5qj.jpg') 
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/angelo-pantazis-_bmROQSJJG0-unsplash_zqs5qj.jpg')
         user_25 = User.create!(
           email: 'soto@soto.com',
           first_name: 'soto',
@@ -276,7 +276,7 @@ Review.destroy_all
           password: 1111111)
           user_25.photo.attach(io: file, filename: 'soto.jpg', content_type: 'image/jpg')
 
-          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/mustafa-chahwala-jvSTl5SCPUs-unsplash_bwea6z.jpg') 
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/mustafa-chahwala-jvSTl5SCPUs-unsplash_bwea6z.jpg')
         user_26 = User.create!(
           email: 'dom@nik.com',
           first_name: 'dom',
@@ -285,7 +285,7 @@ Review.destroy_all
           password: 123456)
           user_26.photo.attach(io: file, filename: 'dom.jpg', content_type: 'image/jpg')
 
-          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/scorpio-creative-ZGlGMTlOc1E-unsplash_t9tc5t.jpg') 
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/scorpio-creative-ZGlGMTlOc1E-unsplash_t9tc5t.jpg')
         user_27 = User.create!(
           email: 'tim@raue.com',
           first_name: 'tim',
@@ -294,7 +294,7 @@ Review.destroy_all
           password: 123456)
           user_27.photo.attach(io: file, filename: 'rautim.jpg', content_type: 'image/jpg')
 
-          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/shipman-northcutt-sgZX15Da8YE-unsplash_jcvnwq.jpg') 
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/shipman-northcutt-sgZX15Da8YE-unsplash_jcvnwq.jpg')
         user_28 = User.create!(
           email: 'Kurt@raue.com',
           first_name: 'kurt',
@@ -508,29 +508,29 @@ Review.destroy_all
     project_tag: Project::PROJECT_TAGS.sample
   )
 
-  project_24 = Project.create!( #25
-    name: "Masteryourownway",
-    description: "Breakthrough your limited beliefs, with the most trackable Training for Martial-Artists: ARE YOU READY?, TO FIGHT FOR YOUR DREAMS?!",
-    github_url: "https://github.com/masteryouronwway",
-    user_id: users[24].id,
-    project_tag: Project::PROJECT_TAGS.sample
-  )
+  # project_24 = Project.create!( #25
+  #   name: "Masteryourownway",
+  #   description: "Breakthrough your limited beliefs, with the most trackable Training for Martial-Artists: ARE YOU READY?, TO FIGHT FOR YOUR DREAMS?!",
+  #   github_url: "https://github.com/masteryouronwway",
+  #   user_id: users[24].id,
+  #   project_tag: Project::PROJECT_TAGS.sample
+  # )
 
-  project_25 = Project.create!( #26
-    name: "Soto's - Been.there",
-    description: "Share your travel experience on sightseeing, food, people, hotel, flight and more connected in one app.",
-    github_url: "https://github.com/been.there",
-    user_id: users[25].id,
-    project_tag: Project::PROJECT_TAGS.sample
-  )
+  # project_25 = Project.create!( #26
+  #   name: "Soto's - Been.there",
+  #   description: "Share your travel experience on sightseeing, food, people, hotel, flight and more connected in one app.",
+  #   github_url: "https://github.com/been.there",
+  #   user_id: users[25].id,
+  #   project_tag: Project::PROJECT_TAGS.sample
+  # )
 
-  project_26 = Project.create!( #27
-    name: "like-wisely",
-    description: "Avoid real Life mistakes which leads to pain decisions. Share your real and honest Life experience instead, so that everybody can learn from it!",
-    github_url: "https://github.com/likewisely",
-    user_id: users[26].id,
-    project_tag: Project::PROJECT_TAGS.sample
-  )
+  # project_26 = Project.create!( #27
+  #   name: "like-wisely",
+  #   description: "Avoid real Life mistakes which leads to pain decisions. Share your real and honest Life experience instead, so that everybody can learn from it!",
+  #   github_url: "https://github.com/likewisely",
+  #   user_id: users[26].id,
+  #   project_tag: Project::PROJECT_TAGS.sample
+  # )
 
 
 p "Projects created!"
@@ -539,7 +539,7 @@ p "Projects created!"
 
 p 'Creating Tests...'
 
-27.times do |i|
+23.times do |i|
 
   4.times do
   projects = Project.all
