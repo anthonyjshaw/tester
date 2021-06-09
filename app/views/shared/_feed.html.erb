@@ -1,8 +1,8 @@
 <h1>Feed</h1>
 <% Project::PROJECT_TAGS.each do |tag| %>
-  <%= link_to tag, projects_path(project_tag: tag), method: :get, controller: 'projects' %>
+<span data-search-target="feed"><%= link_to tag, projects_path(project_tag: tag), method: :get, controller: 'projects' %>
 <% end %>
-<div class="feed-wrapper">
+<div class="feed-wrapper" data-search-target='feed'>
   <% @projects.each do |project| %>
   <div class='card' style="width: auto;">
     <%= link_to project_path(project) do %>
