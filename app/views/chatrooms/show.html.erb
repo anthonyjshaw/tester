@@ -13,10 +13,10 @@
       <p><%= message.content %></p>
     </div>
   <% end %>
-</div>
 <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Send a message", input_html: {class: "message-border-bottom"} %>
 <% end %>
+</div>
 <% end %>
 </div>
 

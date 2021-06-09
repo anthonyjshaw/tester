@@ -28,8 +28,11 @@
 
 
 <%= render 'shared/circle_gradient' %>
-
-
+<div class="container">
+<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+      <circle class="anime-element fadeup-animation" cx="44" cy="44" r="44" fill="#FFD2DA" fill-rule="evenodd"></circle>
+    </svg>
+</div>
 <% if @project.user == current_user %>
 <%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
 <% end %>
@@ -67,7 +70,7 @@
         <% end %>
         <% end %>
         <p>Created on: <%= test.created_at.strftime("%Y-%m-%d") %></p>
-        <% unless test.is_finished %>
+        <% unless test.is_finished == true%>
         <p><strong><i class="fas fa-circle test-live"></i>Live</strong></p>
         <% else %>
         <p><strong><i class="fas fa-clipboard-check test-ended"></i>Ended</strong></p>
