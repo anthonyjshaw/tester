@@ -44,4 +44,4 @@ yarn-debug.log*
 *.csr
 *.pass.key
 .env*
-.env*
+
