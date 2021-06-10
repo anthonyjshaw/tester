@@ -33,6 +33,7 @@ import { changeTextBox } from 'packs/change_text_box';
 import { testLink } from '../custom/testlink';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { sidebarToggle } from '../custom/sidebar';
+
 window.sidebarToggle = sidebarToggle;
 // window.sidebarOff = sidebarOff;
 

@@ -17,3 +17,23 @@
 .desc {
   min-height: 5rem;
 }
+
+
+
+#tag {
+  font-size: 0.8rem;
+  background-color: #ececec;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+
+#tag:hover {
+  background-color: #2e2ac5;
+  color:white;
+}
+
+a#tag:focus{
+  background-color: #2e2ac5;
+  color:white;
+}
