@@ -3,12 +3,14 @@
 <p>No messages</p>
 <% else %>
 <div class="messages-container">
-<h1><%= @chatroom.sender == current_user ? @chatroom.receiver.username : @chatroom.sender.username %></h1>
+  <div class="row align-items-center mx-3">
 <% if @chatroom.receiver.photo.attached? %>
-<%= cl_image_tag @chatroom.receiver.photo.key, gravity: :face, class: 'avatar avatar-msg' %>
+<span><%= cl_image_tag @chatroom.receiver.photo.key, gravity: :face, class: 'avatar avatar-msg' %></span>
 <% else %>
-<%= image_tag "source", alt: "alttext" %>
+<%= image_tag "placeholder-avatar.png", alt: "alttext", class: 'avatar avatar-msg' %>
 <% end %>
+<h1><%= @chatroom.sender == current_user ? @chatroom.receiver.username : @chatroom.sender.username %></h1>
+</div>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>" data-chatroom-messenger-id="<%= message.user == current_user %>">

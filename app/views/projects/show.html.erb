@@ -30,7 +30,7 @@
 <%= render 'shared/circle_gradient' %>
 
 <% if @project.user == current_user %>
-<%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"} %>
+<%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"}, style: "margin: -46px 100px 10px 10px;"  %>
 <% end %>
 <div class="container mt-3">
   <h1 class='project-name'><%= @project.name %></h1>
@@ -131,7 +131,7 @@
           </div>
           <div class="count">
             <h2><%= (test.time_limit - Date.today).round >= 0 ? (test.time_limit - Date.today).round : 0%></h2>
-            <p><strong>days left</strong></p>
+            <p><strong> <%= (test.time_limit - Date.today).round > 1 ? "days" : "day" %> left</strong></p>
           </div>
         </div>
       </div>
