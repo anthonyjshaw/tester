@@ -2,9 +2,9 @@
 <div class="project-card mb-4">
   <div class="test_card_show">
     <h5 id="color"><strong><%= @test.name %></strong></h5>
-    <p>Created on: 2021-06-04</p>
+    <p><strong>Created on: 2021-06-04</strong></p>
     <p><strong><i class="fas fa-circle test-live"></i><%= @test_status %></strong></p>
-    <p> test url: <span><%= link_to "https://#{@test.test_url}", "https://#{@test.test_url}", target: "_blank" %></span></p>
+    <strong><%= link_to "TEST NOW", @test.test_url, target: "_blank", id: "color", style: "font-size: 1.2rem" %></strong>
     <% if @test.project.user == current_user %>
       <div style="justify-self: end">
         <a data-method="get" href="/tests/28/edit">
