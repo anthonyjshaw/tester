@@ -1,14 +1,14 @@
 <h1>Feed</h1>
 <div data-controller='search'>
-  <% Project::PROJECT_TAGS.each do |tag| %>
-  <button data-action='click->search#tag' data-search-target='tagName'>
-    <%= tag %>
-    <%#= link_to tag, projects_path(project_tag: tag), method: :get, controller: 'projects', data: {
-      search_target: 'searchInput',
-      action: "click->search#tag"
-    } %>
-  </button>
-  <% end %>
+  <div class="d-flex justify-content-center mb-3">
+    <% Project::PROJECT_TAGS.each do |tag| %>
+      <a type="button" tabindex="0" data-action='click->search#tag' class='badge badge-pill badge-light' data-search-target='tag' id="tag">
+
+        <%= tag %>
+
+      </a>
+    <% end %>
+  </div>
   <div class="feed-wrapper" data-search-target='list'>
     <% @projects.each do |project| %>
     <div class='card' style="width: auto;">
