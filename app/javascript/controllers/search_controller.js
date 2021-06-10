@@ -1,9 +1,10 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ 'list' ];
+  static targets = [ 'list', 'tag' ];
 
   tag(event) {
+
     const tagName = event.path[0].innerText
     fetch('/projects', { headers: { 'Accept': 'text/plain' } })
     .then(response => response.json())
@@ -30,7 +31,6 @@ export default class extends Controller {
       </div>`
       html.push(el)
       } )
-      console.log(html)
       this.listTarget.innerHTML = html.join('')
     });
   }
