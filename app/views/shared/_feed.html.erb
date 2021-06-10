@@ -9,7 +9,7 @@
       </a>
     <% end %>
   </div>
-  <div class="feed-wrapper" data-search-target='list'>
+  <div class="feed-wrapper" onload="initEmptySearch()" data-search-target='list'>
     <% @projects.each do |project| %>
     <div class='card' style="width: auto;">
       <%= link_to project_path(project) do %>
