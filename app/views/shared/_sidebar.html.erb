@@ -7,6 +7,7 @@
 
     <!-- for later:  -->
       <!-- link_to t('.profile'), business_path(@business), class: '#{'active' if current_page? business_path(@business)}' -->
+
     <%= link_to root_path, data: { turbolinks: false } do %>
       <div id="sidebar-head">
       <svg width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,15 +19,20 @@
     <% end %>
 
     <div style="margin-top: -100px">
-      <%= link_to my_projects_path, data: { turbolinks: false } do %>
+
+      <%= link_to explore_path, data: { turbolinks: false }, class: "#{current? "active", explore_path}" do %>
         <i class="fas fa-th-large"></i>
+        <span class="icon-text">Explore</span>
+      <% end %>
+      <%= link_to my_projects_path, data: { turbolinks: false }, class: "#{current? "active", my_projects_path}" do %>
+        <i class="fas fa-home"></i>
         <span class="icon-text">Dashboard</span>
       <% end %>
-      <%= link_to my_chatrooms_path, data: { turbolinks: false } do %>
+      <%= link_to my_chatrooms_path, data: { turbolinks: false }, class: "#{current? "active", my_chatrooms_path}" do %>
         <i class="fas fa-comments"></i>
         <span class="icon-text">Messages</span>
       <% end %>
-      <%= link_to test_users_path, data: { turbolinks: false } do %>
+      <%= link_to test_users_path, data: { turbolinks: false }, class: "#{current? "active", test_users_path}" do %>
         <i class="fas fa-file-alt"></i>
         <span class="icon-text">Applied Tests</span>
       <% end %>
