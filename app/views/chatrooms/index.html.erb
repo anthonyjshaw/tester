@@ -2,6 +2,7 @@
    <% if @chatrooms.empty? %>
       <h2 class='text-align-center my-5'> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
    <% else %>
+    <h2 class="testimonials section-title my-3 text-center"> My messages</h2>
       <% @chatrooms.each do |chatroom| %>
       <div class="row mt-3">
           <% if chatroom.receiver == current_user %>
