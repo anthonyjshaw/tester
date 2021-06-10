@@ -8,7 +8,11 @@
           <% if chatroom.receiver == current_user %>
             <div class="col-12 d-flex justify-content-center">
             <div class="card-product width-chatroom">
+              <% if chatroom.receiver.photo.attached? %>
               <%= cl_image_tag chatroom.sender.photo.key, class: "rounded-circle p-3 my-3"%>
+              <% else %>
+              <%= image_tag "placeholder-avatar.png", alt: "alttext" %>
+              <% end %>
               <div class="card-product-infos">
                  <h2><%= chatroom.sender.username %></h2>
                  <%= link_to chatroom_path(chatroom) do %>
@@ -20,8 +24,12 @@
           <% else %>
             <div class="col-12 d-flex justify-content-center">
               <div class="card-product width-chatroom">
+                <% if chatroom.receiver.photo.attached? %>
               <%= link_to chatroom_path(chatroom) do %>
                 <%= cl_image_tag chatroom.receiver.photo.key, class: "rounded-circle p-3 my-3"%>
+              <% end %>
+              <% else %>
+              <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "rounded-circle p-3 my-3" %>
               <% end %>
               <div class="card-product-infos">
                  <h2><%= chatroom.receiver.username %></h2>
