@@ -1,12 +1,11 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show explore]
-  skip_after_action :verify_authorized, only: [:user_index ]
+  skip_after_action :verify_authorized, only: [:user_index]
   before_action :set_project, only: %i[show edit update destroy]
-
 
   def index
     @projects = policy_scope(Project)
-    if  params[:project_tag].present?
+    if params[:project_tag].present?
       @projects = Project.where(project_tag: params[:project_tag])
     elsif params[:query].present?
       @projects = Project.search_project_name_description(params[:query])
@@ -15,7 +14,7 @@ class ProjectsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.text { render json: { projects: @projects} }
+      format.text { render json: { projects: @projects } }
     end
   end
 
@@ -84,10 +83,10 @@ class ProjectsController < ApplicationController
 
   def find_chatrooms
     @find_existing_chatroom = Chatroom.where(
-                                'receiver_id = ? AND sender_id = ?',
-                                Project.find(params[:id]).user,
-                                current_user
-                              ).first
+      'receiver_id = ? AND sender_id = ?',
+      Project.find(params[:id]).user,
+      current_user
+    ).first
     if @find_existing_chatroom.nil?
       @chatroom = Chatroom.new
     else

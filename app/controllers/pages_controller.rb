@@ -10,5 +10,4 @@ class PagesController < ApplicationController
   def explore
     @projects = policy_scope(Project)
   end
-
 end
