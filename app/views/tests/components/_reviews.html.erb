@@ -21,7 +21,7 @@
     <h5 class="my-4"> <%= @test.reviews.count %> <span> <%= @review_count > 1 ? 'reviews' : 'review' %> </span></h5>
     <% @reviews.each do |review| %>
       <div class="row align-items-self-start">
-        <div class="col-1">
+        <div class="col-1" style="margin-left: 10px">
       <% if review.user.photo.attached? %>
       <%= cl_image_tag review.user.photo.key, alt: "alttext", class: "avatar avatar-msg"  %>
       <% else %>

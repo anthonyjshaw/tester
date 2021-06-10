@@ -38,8 +38,10 @@
       <div class="site-header-inner">
         <div class="brand header-brand">
           <h1 class="m-0">
-            <%= link_to new_user_registration_path do  %>
+            <% unless user_signed_in? %>
+            <%= link_to new_user_session_path do  %>
               Login
+            <% end %>
             <% end %>
         </h1>
       </div>
