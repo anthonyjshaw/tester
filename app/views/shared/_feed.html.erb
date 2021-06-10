@@ -21,8 +21,14 @@
             <%= image_tag "https://i.pravatar.cc/150?img=#{project.id}", class: "avatar menu-icon"%>
             <h5 class='username'><%= project.name %></h5>
             </div>
-            <p class='stats'><i class="fas fa-clipboard-list"></i>25</p>
-            <p class='stats'><i class="fas fa-clipboard-check"></i>345</p>
+            <p class='stats'><i class="fas fa-clipboard-list"></i><%= project.tests.count %></p>
+            <p class='stats'><i class="fas fa-clipboard-check"></i>
+                <% i = 0 %>
+               <% project.tests.each do |test|%>
+                <% i += test.reviews.count %>
+                <%= i %>
+                <% end %>
+            </p>
         </div>
         <p class='card-text desc'><%= project.description %></p>
         </div>

@@ -1,7 +1,7 @@
-<section class="livetest section-inner">
+
   <div class="container">
       <% if @chatrooms.empty? %>
-        <h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
+        <h2 class='text-align-center my-5'> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
       <% else %>
         <% @chatrooms.each do |chatroom| %>
           <div class="row">
@@ -12,7 +12,7 @@
                   <% if chatroom.receiver == current_user %>
                     <div class="card-product-infos">
                       <div class="col d-flex align-items-center">
-                        <%= cl_image_tag chatroom.sender.photo.key, class: "avatar menu-icon"%>
+                        <%= cl_image_tag chatroom.sender.photo.key, class: "avatar menu-icon avatar-msg"%>
                       </div>
                       <div>
                         <%= chatroom.sender.username %>
@@ -27,7 +27,9 @@
                   <% else %>
                     <div class="card-product-infos">
                       <div class="col d-flex align-items-center">
-                      <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar menu-icon"%>
+                      <% if chatroom.receiver.photo.attached? %>
+                      <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar menu-icon avatar-msg"%>
+                      <% end %>
                       </div>
                       <div>
                         <%= chatroom.receiver.username %>
@@ -46,7 +48,6 @@
         <% end %>
       <% end %>
   </div>
-</section>
 
 
 

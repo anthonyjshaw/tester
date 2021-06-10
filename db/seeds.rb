@@ -42,8 +42,8 @@ Review.destroy_all
   file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/michael-dam-mEZ3PoFGs_k-unsplash_tlsc87.jpg') 
   user_zero = User.create!(
     email: 'sarah@smith.com',
-    first_name: 'sarah',
-    last_name: 'smith',
+    first_name: 'Sarah',
+    last_name: 'Smith',
     username: 'sasi',
     password: 123456)
     user_zero.photo.attach(io: file, filename: 'sarah.jpg', content_type: 'image/jpg')
@@ -51,7 +51,7 @@ Review.destroy_all
     file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229346/christopher-campbell-rDEOVtE7vOs-unsplash_h6sn7u.jpg') 
     user_one = User.create!(
       email: 'lisa@mueller.com',
-      first_name: 'lisa',
+      first_name: 'Lisa',
       last_name: 'Müller',
       username: 'Lisam',
       password: 123456)
@@ -256,9 +256,9 @@ Review.destroy_all
           password: 123456)
           user_23.photo.attach(io: file, filename: 'jonas.jpg', content_type: 'image/jpg')
 
-          
 
-        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229564/80984292_mmassb.jpg ') 
+
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229564/80984292_mmassb.jpg')
         user_24 = User.create!(
         email: 'jan@dreamfighterjourney.com',
         first_name: 'jan',
@@ -267,7 +267,7 @@ Review.destroy_all
         password: 123456)
         user_24.photo.attach(io: file, filename: 'jan.jpg', content_type: 'image/jpg')
 
-        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/angelo-pantazis-_bmROQSJJG0-unsplash_zqs5qj.jpg') 
+        file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229349/angelo-pantazis-_bmROQSJJG0-unsplash_zqs5qj.jpg')
         user_25 = User.create!(
           email: 'soto@soto.com',
           first_name: 'soto',
@@ -276,7 +276,7 @@ Review.destroy_all
           password: 1111111)
           user_25.photo.attach(io: file, filename: 'soto.jpg', content_type: 'image/jpg')
 
-          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/mustafa-chahwala-jvSTl5SCPUs-unsplash_bwea6z.jpg') 
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/mustafa-chahwala-jvSTl5SCPUs-unsplash_bwea6z.jpg')
         user_26 = User.create!(
           email: 'dom@nik.com',
           first_name: 'dom',
@@ -285,7 +285,7 @@ Review.destroy_all
           password: 123456)
           user_26.photo.attach(io: file, filename: 'dom.jpg', content_type: 'image/jpg')
 
-          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/scorpio-creative-ZGlGMTlOc1E-unsplash_t9tc5t.jpg') 
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229347/scorpio-creative-ZGlGMTlOc1E-unsplash_t9tc5t.jpg')
         user_27 = User.create!(
           email: 'tim@raue.com',
           first_name: 'tim',
@@ -294,7 +294,7 @@ Review.destroy_all
           password: 123456)
           user_27.photo.attach(io: file, filename: 'rautim.jpg', content_type: 'image/jpg')
 
-          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/shipman-northcutt-sgZX15Da8YE-unsplash_jcvnwq.jpg') 
+          file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623229348/shipman-northcutt-sgZX15Da8YE-unsplash_jcvnwq.jpg')
         user_28 = User.create!(
           email: 'Kurt@raue.com',
           first_name: 'kurt',
@@ -526,7 +526,7 @@ Review.destroy_all
 
   project_26 = Project.create!( #27
     name: "like-wisely",
-    description: "Avoid real Life mistakes which leads to pain decisions. Share your real and honest Life experience instead, so that everybody can learn from it!",
+    description: "Avoid real life mistakes which leads to pain decisions. Share your real and honest life experience instead, so that everybody can learn from it!",
     github_url: "https://github.com/likewisely",
     user_id: users[26].id,
     project_tag: Project::PROJECT_TAGS.sample
@@ -539,12 +539,26 @@ p "Projects created!"
 
 p 'Creating Tests...'
 
+TEST_NAME = %w[searchbar order\ button homepage map layout animation scroll gallery\ user\ page storefront new\ logo illustration banner]
+
+TEST_DESCRIPTION_VERB = %w[Need Looking\ for Searching\ for Want Could\ really\ do\ with Here\ to\ get\ some]
+
+TEST_PRO_1 = %w[some\ feedback some\ ideas a\ couple\ of\ ideas a\ bit\ of\ feedback]
+
+TEST_PRO_EX = %w[I\ really\ like\ it\ but\ I\ need\ a\ second\ opinion. I'm\ not\ a\ fan\ of\ it\ to\ be\ honest.\ I\ think\ it\ needs\ some\ work\. I'm\ having\ fun\ with\ it\ but\ I\ want\ a\ second\ pair\ of\ eyes]
+
+TEST_PRO_2 = %w[Could\ you Would\ you\ be\ able\ to If\ at\ all\ possible,]
+
+TEST_PRO_3 = %w[tell\ me\ what's\ good\ and\ not\ so\ good let\ me\ know\ what\ you\ think give\ me\ your\ honest\ opinion]
+
+TEST_PRO_4 = %w[Ta! Thanks! Much\ appreciated! Looking\ forward\ to\ hearing\ your\ comments! Any\ feedback\ is\ appreciated!]
+
 27.times do |i|
 
-  4.times do
+  rand(1..5).times do
   projects = Project.all
-  name = Faker::Computer.stack
-  description = Faker::Company.bs
+  name = TEST_NAME.sample
+  description = "#{TEST_DESCRIPTION_VERB.sample} #{TEST_PRO_1.sample} on my new #{name}. #{TEST_PRO_2.sample} #{TEST_PRO_3.sample}? #{TEST_PRO_4.sample}"
   test_url = Faker::Internet.domain_name
   sample_size = Faker::Number.number(digits: 2)
   date = rand(Date.today..Date.today + 30)
@@ -558,10 +572,16 @@ p 'Creating Tests...'
   project_id: projects[i].id
 )
 end
+
 end
 p 'tests created!'
 p 'Creating reviews'
 
+27.times do |i|
+  user = User.all.sample.id
+  test = Test.all.sample.id
+  TestUser.create(user_id: user, test_id: test)
+end
 
 TestUser.create!(
   test_id: Test.last.id,
@@ -572,9 +592,11 @@ TestUser.create!(
 27.times do |i|
 users = User.all
 tests = Test.all.sample
-rating = Faker::Number.decimal(l_digits: 2)
+rating = rand(0.0..5.0)
 
-review_content = %w[Needs\ more\ color Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
+rand(1..5).times do
+
+review_content = %w[Needs\ more\ color It's\ a\ little\ confusing...Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
 questions = Review::QUESTION_1_CATEGORIES.sample
   Review.create!(
   rating: rating,
@@ -583,8 +605,7 @@ questions = Review::QUESTION_1_CATEGORIES.sample
   question1: questions,
   test_id: tests.id
 )
-
-p "created review"
+end
 end
 
 p 'reviews created!'
