@@ -1,11 +1,12 @@
-<section class="livetest section-inner">
+
   <div class="container">
       <% if @chatrooms.empty? %>
-        <h2> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
+        <h2 class='text-align-center my-5'> No chatrooms. <span><%= link_to "Explore and collaborate!",  "/explore"%></span></h2>
       <% else %>
         <div class="row">
           <% @chatrooms.each do |chatroom| %>
                   <% if chatroom.receiver == current_user %>
+
                     <div class="col-12 d-flex justify-content-center">
                       <div class="card-product width-chatroom">
                       <%= cl_image_tag chatroom.sender.photo.key, class: "rounded-circle p-3 my-3"%>
@@ -29,6 +30,38 @@
                             <p id="card-font"><%=  chatroom.messages.last.content.first(100) %>&hellip;</p>
                           <% end %>
                         </div>
+
+                    <div class="card-product-infos">
+                      <div class="col d-flex align-items-center">
+                        <% if chatroom.sender.photo.attached? %>
+                        <%= cl_image_tag chatroom.sender.photo.key, class: "avatar menu-icon avatar-msg"%>
+                        <% end %>
+                      </div>
+                      <div>
+                        <%= chatroom.sender.username %>
+                      </div>
+                    </div>
+                      <div>
+                        <% unless chatroom.messages == [] %>
+                        <%= chatroom.messages.last.content %>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="card-product-infos">
+                      <div class="col d-flex align-items-center">
+                      <% if chatroom.receiver.photo.attached? %>
+                      <%= cl_image_tag chatroom.receiver.photo.key, class: "avatar menu-icon avatar-msg"%>
+                      <% end %>
+                      </div>
+                      <div>
+                        <%= chatroom.receiver.username %>
+                      </div>
+                      <div>
+                        <% unless chatroom.messages == [] %>
+                        <%= chatroom.messages.last.content %>
+                        <% end %>
+
                       </div>
                     </div>
                   <% end %>
@@ -36,7 +69,6 @@
         </div>
       <% end %>
   </div>
-</section>
 
 
 

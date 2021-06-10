@@ -48,3 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initFlatpickr();
 });
+
+import "controllers"

@@ -1,8 +1,7 @@
 <div class="container mt-3" style="margin-top: 100px!important ; padding-left: 50px!important ">
   <% @test_users.each do |x| %>
-    <div class="project-card"  style="margin-bottom: 20px!important; width: 90%">
-      <div class="project-head">
-        <div class="p-flex">
+    <div class="test-card-over"  style="margin-bottom: 20px!important; width: 100%">
+      <div class="test_card">
           <%= link_to test_path(x.test) do %>
             <% if x.test.is_finished %>
               <h5><strong><%= x.test.name %></h5></strong>
@@ -10,19 +9,22 @@
               <h5 id="color"><strong><%= x.test.name %></h5></strong>
             <% end %>
           <% end %>
-          <p>Created on: <%= x.test.created_at.strftime("%Y-%m-%d") %></p>
-          <% unless x.test.is_finished %>
-            <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
-            <p><strong><%= (x.test.time_limit - Date.today).round %> days left</strong> </p>
-          <% else %>
-            <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
-          <% end %>
-        <p><strong>test url: </strong><%= link_to x.test.test_url, set_done_test_user_path(x), :target => "_blank", :class => 'test-link' %></p>
+          <div style="display: flex">
+            <p>Created on: <%= x.test.created_at.strftime("%d/%m/%Y") %></p>
+            <% unless x.test.is_finished %>
+              <p><strong><i class="fas fa-circle test-live"></i>live</strong></p>
+              <p><strong><%= (x.test.time_limit - Date.today).round %> days left</strong> </p>
+            <% else %>
+              <p><strong><i class="fas fa-clipboard-check test-ended"></i>ended</strong></p>
+            <% end %>
+          </div>
+          <p><strong>test url: </strong><%= link_to x.test.test_url, set_done_test_user_path(x), :target => "_blank", :class => 'test-link' %></p>
+          <div>
+            <% if x.test_finished %>
+              <%= link_to 'leave a review', test_path(x.test_id), class: "test-card-btn" %>
+            <% end %>
+          </div>
         </div>
-        <% if x.test_finished %>
-          <%= link_to 'leave a review', test_path(x.test_id), class: "test-btn" %>
-        <% end %>
-      </div>
     </div>
   <% end %>
 </div>

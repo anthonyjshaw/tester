@@ -6,6 +6,7 @@
 
   overflow: hidden;
   margin-right: 100%;
+  font-size: 24px;
 
 }
 
@@ -22,31 +23,40 @@
 }
 
 .message-border-bottom {
-
   margin-bottom: 0;
   border: none;
+  border-bottom: 1px lightgrey solid;
+  border-left: 1px lightgrey solid;
+  border-right: 1px lightgrey solid;
+  font-size:24px;
 }
 
-.required {
-  border-bottom: none;
-  margin-bottom: 0;
-  position: relative;
-  bottom: 24px;
-;
 
-}
+
+
+// .required {
+//   border-bottom: none;
+//   margin-bottom: 0;
+//   position: relative;
+//   bottom: 24px;
+// ;
+
+// }
 
 #messages {
   overflow: scroll;
   border: 1px solid lightgrey;
-  height: 700px;
+  border-bottom: none;
+  height: 100%;
   overflow-x: hidden;
   // overflow-anchor: none;
+
 
 }
 
 .messages-container {
   height: 700px;
+
 }
 
 
