@@ -78,7 +78,7 @@
         <h5><strong><%= test.name %></h5></strong>
         <% end %>
         <p>Created on: <%= test.created_at.strftime("%A %m %Y") %></p>
-        <% unless test.is_finished == true%>
+        <% unless test.is_finished%>
         <p><strong><i class="fas fa-circle test-live"></i>Live</strong></p>
         <% else %>
         <p><strong><i class="fas fa-clipboard-check test-ended"></i>Ended</strong></p>
@@ -131,7 +131,7 @@
           </div>
           <div class="count">
             <h2><%= (test.time_limit - Date.today).round >= 0 ? (test.time_limit - Date.today).round : 0%></h2>
-            <p><strong> <%= (test.time_limit - Date.today).round > 1 ? "days" : "day" %> left</strong></p>
+            <p><strong> <%= (test.time_limit - Date.today).round == 1 ? "day" : "days" %> left</strong></p>
           </div>
         </div>
       </div>

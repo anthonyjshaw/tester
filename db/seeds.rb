@@ -558,19 +558,23 @@ p 'Creating Tests...'
 #   project_id: projects[i].id
 # )
 
+date = rand(Date.today..Date.today + 30)
+
 test_0 = Test.create!( #1
     name: "User Experience for the Website Builder",
-    description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+    description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
     test_url: "https://github.com/test/1/website-builder",
     sample_size: 20,
-    project_id: project[1].id 
+    time_limit: date,
+    project_id: project_1.id
   )
   test_2 = Test.create!( #2
   name: "Implement our new gem 'Valeriedations'",
   description: "add our gem into your rails app to the Gemfile and feel the better workflow",
   test_url: "https://github.com/test/1/valeriedations",
   sample_size: 21,
-  project_id: project[2].id 
+  time_limit: date,
+  project_id: project_2.id
 )
 
 test_3 = Test.create!( #3
@@ -578,7 +582,8 @@ name: "Shop on my mood",
 description: "Test and Shop on our new website 'my mood' and find the right clothes for your mood of the day. Happy shopping and testing:)",
 test_url: "https://github.com/test-and-shop-my-mood",
 sample_size: 50,
-project_id: project[3].id 
+time_limit: date,
+project_id: project_3.id
 )
 
 test_4 = Test.create!( #4
@@ -586,7 +591,8 @@ name: "Sign up and create a Blog profile page",
 description: "Register on Soul Blogs and create your own Blog with your passion or experience and write your first Blog post and share it!",
 test_url: "https://github.com/test-soul-blogs",
 sample_size: 55,
-project_id: project[1].id 
+time_limit: date,
+project_id: project_4.id
 )
 
 test_5 = Test.create!( #5
@@ -594,192 +600,216 @@ name: "Level up your Life, do our first user journey",
 description: "Sign up and create an first Level of what you want to achieve today and what you will get as a bonus for yourself after finish that.",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[1].id 
+time_limit: date,
+project_id: project_5.id
 )
 
 test_6 = Test.create!( #6
 name: "Share your first item on Sportsswap",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[6].id 
+time_limit: date,
+project_id: project_6.id
 )
 
 test_7 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[7].id 
+time_limit: date,
+project_id: project_7.id
 )
 
 test_8 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[8].id 
+time_limit: date,
+project_id: project_8.id
 )
 
 test_9 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[9].id 
+time_limit: date,
+project_id: project_9.id
 )
 
 test_10 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[10].id 
+time_limit: date,
+project_id: project_10.id
 )
 
 test_11 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[11].id 
+time_limit: date,
+project_id: project_11.id
 )
 
 test_12 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[12].id 
+time_limit: date,
+project_id: project_12.id
 )
 
 test_13 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[13].id 
+time_limit: date,
+project_id: project_13.id
 )
 
 test_14 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[14].id 
+time_limit: date,
+project_id: project_14.id
 )
 
 test_15 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[15].id 
+time_limit: date,
+project_id: project_15.id
 )
 
 test_16 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[16].id 
+time_limit: date,
+project_id: project_16.id
 )
 
 test_17 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 20,
-project_id: project[17].id 
+time_limit: date,
+project_id: project_17.id
 )
 
 test_18 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 10,
-project_id: project[18].id 
+time_limit: date,
+project_id: project_18.id
 )
 
 test_19 = Test.create!( #1
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 10,
-project_id: project[19].id 
+time_limit: date,
+project_id: project_19.id
 )
 
 test_20 = Test.create!( #20
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 9,
-project_id: project[20].id 
+time_limit: date,
+project_id: project_20.id
 )
 
 test_21 = Test.create!( #21
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 8,
-project_id: project[21].id 
+time_limit: date,
+project_id: project_21.id
 )
 
 test_22 = Test.create!( #22
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 7,
-project_id: project[22].id 
+time_limit: date,
+project_id: project_22.id
 )
 
 test_23 = Test.create!( #23
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 5,
-project_id: project[23].id 
+time_limit: date,
+project_id: project_23.id
 )
 
 test_24 = Test.create!( #24
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 4,
-project_id: project[24].id 
+time_limit: date,
+project_id: project_24.id
 )
 
 test_25 = Test.create!( #25
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
 test_url: "https://github.com/likewisely",
 sample_size: 3,
-project_id: project[25].id 
+time_limit: date,
+project_id: project_25.id
 )
 
 test_26 = Test.create!( #26
 name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
+description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to...  ",
 test_url: "https://github.com/likewisely",
 sample_size: 15,
-project_id: project[26].id 
+time_limit: date,
+project_id: project_26.id
 )
 
-test_27 = Test.create!( #27
-name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
-test_url: "https://github.com/likewisely",
-sample_size: 18,
-project_id: project[27].id 
-)
+# test_27 = Test.create!( #27
+# name: "User Experience for the Website Builder",
+# description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
+# test_url: "https://github.com/likewisely",
+# sample_size: 18,
+# time_limit: date,
+# project_id: project_27.id
+# )
 
-test_28 = Test.create!( #28
-name: "User Experience for the Website Builder",
-description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to ",
-test_url: "https://github.com/likewisely",
-sample_size: 10,
-project_id: project[28].id 
-)
+# test_28 = Test.create!( #28
+# name: "User Experience for the Website Builder",
+# description: "Haye fun with trying out our new Website Builder to implement easily everything on a basic Website. After you even can use the page for your project. Join our Test to... ",
+# test_url: "https://github.com/likewisely",
+# sample_size: 10,
+# time_limit: date,
+# project_id: project_28.id
+# )
 
 # end
 # end
@@ -842,7 +872,7 @@ rating = rand(0.0..5.0)
 
 rand(1..5).times do
 
-review_content = %w[Needs\ more\ color It's\ a\ little\ confusing...Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
+review_content = %w[Needs\ more\ color It's\ a\ little\ confusing... Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
 questions = Review::QUESTION_1_CATEGORIES.sample
   Review.create!(
   rating: rating,

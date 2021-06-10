@@ -7,6 +7,8 @@
 
 .stats {
   margin-bottom: 0;
+  font-size: 24px;
+  margin: 0 0 0 10px;
 }
 
 .fas {
@@ -16,6 +18,10 @@
 
 .desc {
   min-height: 5rem;
+}
+
+.username {
+  font-size: 19px;
 }
 
 
@@ -33,7 +39,7 @@
   color:white;
 }
 
-a#tag:focus{
+a#tag:focus  {
   background-color: #2e2ac5;
   color:white;
 }

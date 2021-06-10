@@ -18,16 +18,16 @@
       <div class="card-body">
         <div class="body-header d-flex justify-content-between align-items-center mb-3">
           <div class="col d-flex align-items-center">
+            <% if project.user.photo.attached? %>
+              <%= cl_image_tag project.user.photo.key, class: "avatar avatar-msg menu-icon" %>
+              <% else %>
             <%= image_tag "https://i.pravatar.cc/150?img=#{project.id}", class: "avatar menu-icon"%>
+            <% end %>
             <h5 class='username'><%= project.name %></h5>
             </div>
             <p class='stats'><i class="fas fa-clipboard-list"></i><%= project.tests.count %></p>
             <p class='stats'><i class="fas fa-clipboard-check"></i>
-                <% i = 0 %>
-               <% project.tests.each do |test|%>
-                <% i += test.reviews.count %>
-                <%= i %>
-                <% end %>
+               <%= project.tests.where(is_finished: false).count %>
             </p>
         </div>
         <p class='card-text desc'><%= project.description %></p>
