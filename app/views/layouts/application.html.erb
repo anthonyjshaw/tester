@@ -31,7 +31,8 @@
   </head>
   <body >
 
-    <%= render 'shared/searchbar' unless current_page?(root_path)%>
+    <%= render 'shared/searchbar' unless current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(test_users_path) %>
+    <%= render 'shared/blob_on_the_left' %>
 
     <%= render 'shared/flashes' %>
 

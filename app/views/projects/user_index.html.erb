@@ -3,7 +3,7 @@
 <%= button_tag "Create a new project", data: { toggle: "modal", target: "#exampleModal" }, class: "btn btn-flat", style: "margin: 100px 250px 10px 10px;r"  %>
 
 
-<div class="avatar-position">
+<div class="avatar-position" style="background-color: transparent">
   <% if current_user.photo.attached? %>
   <%= cl_image_tag current_user.photo.key, :transformation=>[
     {:height=>200, :width=>200, :crop=>"fill"},
