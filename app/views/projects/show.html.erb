@@ -32,30 +32,33 @@
 <% if @project.user == current_user %>
 <%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"}, style: "margin: -46px 100px 10px 10px;"  %>
 <% end %>
-<div class="container mt-3">
-  <h1 class='project-name'><%= @project.name %></h1>
-  <div class="row align-items-start ">
-    <div class="col-6">
+<div class="container mt-3 project-show-container">
+  <h1 class='project-name'  style="margin-top: 50px"><%= @project.name %></h1>
+  <div class="" style="display: grid; grid-template-columns: 1fr 1fr ;align-content: center;">
+    <div>
        <p><strong>Description</strong></p>
        <p><%= @project.description %></p>
-       <i class="fab fa-github"></i>
+    </div>
+    <div>
        <%= link_to "https://#{@project.github_url}", :target => "_blank" do %>
-       <%= @project.github_url %>
+       <i class="fab fa-github"></i>  <%= @project.github_url %>
        <% end %>
        <div>
         <% if @find_existing_chatroom.nil? && user_signed_in? && @project.user != current_user %>
-        <%= link_to project_chatrooms_path(@project), method: :post, remote: true do %>
-        <i class="fas fa-comment"></i>
-        <% end %>
+          <%= link_to project_chatrooms_path(@project), method: :post, remote: true do %>
+            <i class="fas fa-comment" style="margin: 0; margin-top: 10px"></i> message <%= @project.user.username  %>
+          <% end %>
         <% elsif @find_existing_chatroom && user_signed_in? && @project.user != current_user %>
-        <%= link_to  chatroom_path(@chatroom) do %>
-          <i class="fas fa-comment"></i>
-        <% end %>
+          <%= link_to  chatroom_path(@chatroom) do %>
+            <p style="color: black"><i class="fas fa-comment" style="font-size: 25px; margin: 0"></i> message <%= @project.user.username  %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
  </div>
+ <hr style="margin-bottom: 50px">
 </div>
+
 
 <div class="container mt-3">
 
@@ -68,20 +71,16 @@
   </div>
   <% else %>
   <% @project.tests.each do |test| %>
-  <%= link_to test_path(test) do %>
   <div class="project-card">
     <div class="project-head">
       <div class="p-flex">
-        <% if test.is_finished %>
-        <h5><strong><%= test.name %></h5></strong>
-        <% else %>
-        <h5><strong><%= test.name %></h5></strong>
+        <%= link_to test_path(test) do %>
+          <h5><strong><%= test.name %></h5></strong>
         <% end %>
-        <p>Created on: <%= test.created_at.strftime("%A %m %Y") %></p>
         <% unless test.is_finished%>
-        <p><strong><i class="fas fa-circle test-live"></i>Live</strong></p>
+          <p><strong><i class="fas fa-circle test-live"></i>Live</strong></p>
         <% else %>
-        <p><strong><i class="fas fa-clipboard-check test-ended"></i>Ended</strong></p>
+          <p><strong><i class="fas fa-clipboard-check test-ended"></i>Ended</strong></p>
         <% end %>
       </div>
       <% if @project.user == current_user %>
@@ -115,7 +114,8 @@
       <% end %>
     </div>
     <div class="project-body mb-5">
-      <p><strong>Description</strong></p>
+      <p>Created on: <%= test.created_at.strftime("%A %m %Y") %></p>
+      <p style="margin-top: 10px"><strong>Description</strong></p>
       <div class="project-body-inside">
         <div class="test-b-desc">
           <%= test.description %>
@@ -137,7 +137,6 @@
       </div>
     </div>
   </div>
-  <% end %>
   <% end %>
   <% end %>
 </div>
