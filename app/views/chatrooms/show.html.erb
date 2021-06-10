@@ -9,7 +9,7 @@
 <% else %>
 <%= image_tag "placeholder-avatar.png", alt: "alttext", class: 'avatar avatar-msg' %>
 <% end %>
-<h1><%= @chatroom.sender == current_user ? @chatroom.receiver.username : @chatroom.sender.username %></h1>
+<h1><%= @chatroom.sender == current_user ? @chatroom.receiver.username : @chatroom.sender.username %> - Messages</h1>
 </div>
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
