@@ -16,6 +16,15 @@
 @import "flatpickr/dist/themes/material_blue.css";
 
 
+body {
+  transition: 0.5s;
+  margin-left: 85px;
+}
+
+.bodyToggle {
+  margin-right: 85px;
+}
+
 @media (max-width: 576px) {
 
 
@@ -156,4 +165,13 @@ a:hover {
     font-size: 1.5rem;
     color: #ffc93c;
   }
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
