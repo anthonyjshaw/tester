@@ -1,26 +1,19 @@
 
 <div class="project-card mb-4">
-    <div class="project-head">
-      <div class="p-flex">
-
-            <h5 id="color"><strong><%= @test.name %></strong></h5>
-            <p>Created on: 2021-06-04</p>
-          <p><strong><i class="fas fa-circle test-live"></i><%= @test_status %></strong></p>
+  <div class="test_card_show">
+    <h5 id="color"><strong><%= @test.name %></strong></h5>
+    <p>Created on: 2021-06-04</p>
+    <p><strong><i class="fas fa-circle test-live"></i><%= @test_status %></strong></p>
+    <p> test url: <span><%= link_to "https://#{@test.test_url}", "https://#{@test.test_url}", target: "_blank" %></span></p>
+    <% if @test.project.user == current_user %>
+      <div style="justify-self: end">
+        <a data-method="get" href="/tests/28/edit">
+          <i class="fas fa-edit"></i>
+        </a>
+        <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/tests/28">
+          <i class="far fa-trash-alt trash"></i>
+        </a>
       </div>
-      <p> test url: <span><%= link_to "https://#{@test.test_url}", "https://#{@test.test_url}", target: "_blank" %></span></p>
-      <div class="p-flex">
-        <% if @test.project.user == current_user %>
-        <div class="project-edit">
-          <a data-method="get" href="/tests/28/edit">
-            <i class="fas fa-edit"></i>
-</a>        </div>
-        <div class="project-delete">
-
-          <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/tests/28">
-            <i class="far fa-trash-alt trash"></i>
-</a>        </div>
-      <% end %>
-      </div>
-    </div>
-
-    </div>
+    <% end %>
+  </div>
+</div>
