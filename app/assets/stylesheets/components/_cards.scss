@@ -9,8 +9,8 @@
   }
 
   .card-product img {
-    height: 100%;
-    width: 120px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
   }
 
@@ -34,3 +34,8 @@
   .stats {
     margin-bottom: 0;
   }
+
+#card-font {
+  font-size: 14px;
+  font-weight: bold;
+}
