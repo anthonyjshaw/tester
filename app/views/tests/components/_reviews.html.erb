@@ -23,7 +23,7 @@
       <div class="row align-items-self-start">
         <div class="col-1">
       <% if review.user.photo.attached? %>
-      <%= cl_image_tag review.user.photo.key, alt: "alttext", class: "avatar"  %>
+      <%= cl_image_tag review.user.photo.key, alt: "alttext", class: "avatar avatar-msg"  %>
       <% else %>
       <%= image_tag "placeholder-avatar.png", alt: "alttext", class: "avatar" %>
       <% end %>
