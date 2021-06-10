@@ -18,20 +18,21 @@
     color: #0c9e42;
   }
 
+  i {
+    font-size: 1rem;
+  }
+
   h5 {
-    color: white;
+    color: #ffd976;
     margin: 0;
     padding-right: 10px;
     }
-
-  h5:hover {
-    color: #f4f6f9;
-  }
 
   p {
     margin: 0;
     color: white;
     margin-right: 20px;
+    font-size: 1.2rem;
   }
 
   a {
@@ -54,6 +55,7 @@
   margin: 0;
 }
 .project-body {
+  font-size: 1.2rem;
   padding: 20px;
   p {
     margin: 0;
