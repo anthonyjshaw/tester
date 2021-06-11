@@ -11,7 +11,7 @@
     {:width=>200, :crop=>"scale"}
     ] %>
     <% else %>
-    <%= image_tag "placeholder-avatar.png", class: "avatar menu-icon"%>
+    <%= image_tag "placeholder-avatar.png", style:"height:200px;width:200px;"%>
     <% end %>
     <div class="user-info">
       <h3><%= current_user.username %> </h3>
