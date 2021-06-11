@@ -851,12 +851,13 @@ end
 end
 
 p 'tests created!'
-p 'Creating reviews'
+p 'Creating reviews and test_users'
 
 27.times do |i|
+  true_or_false = [true, false]
   user = User.all.sample.id
   test = Test.all.sample.id
-  TestUser.create(user_id: user, test_id: test)
+  TestUser.create(user_id: user, test_id: test, test_finished: true_or_false.sample)
 end
 
 TestUser.create!(
@@ -872,7 +873,18 @@ rating = rand(0.0..5.0)
 
 rand(1..5).times do
 
-review_content = %w[Needs\ more\ color It's\ a\ little\ confusing... Could\ do\ with\ better\ functionality Great!\ I\ loved\ it! Would\ recommend\ to\ my\ friends! I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons I'm\ in\ awe\ of\ the\ design!].sample
+review_content = %w[
+                Needs\ more\ color...
+                It's\ okay...
+                It's\ so\ cool!
+                It's\ a\ little\ confusing...
+                Could\ do\ with\ better\ functionality...
+                Great!\ I\ loved\ it!
+                Would\ recommend\ to\ my\ friends!
+                I\ don't\ really\ like\ the\ shapes\ of\ the\ buttons...
+                I'd\ really\ like\ to\ see\ some\ more\ vibrancy!
+                I'm\ in\ awe\ of\ the\ design!].sample
+
 questions = Review::QUESTION_1_CATEGORIES.sample
   Review.create!(
   rating: rating,
@@ -885,4 +897,4 @@ end
 end
 
 p 'reviews created!'
-p "you have #{Project.count} projects"
+p "You have #{Project.count} projects, #{Test.count} tests and #{Review.count} reviews."
