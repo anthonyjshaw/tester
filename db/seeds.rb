@@ -845,7 +845,7 @@ project_id: project_25.id
 
 test_26 = Test.create!( #27
 name: "Test our Blog - Editor",
-description: "test our blog editor with all the function in it to write down one of your deepest Life experience to share.",
+description: "Test our blog editor with all the function in it to write down one of your deepest Life experience to share.",
 test_url: "https://github.com/likewisely",
 sample_size: 18,
 time_limit: rand(Date.today..Date.today + 30),
@@ -870,27 +870,27 @@ TEST_PRO_3 = %w[tell\ me\ what's\ good\ and\ not\ so\ good let\ me\ know\ what\ 
 
 TEST_PRO_4 = %w[Ta! Thanks! Much\ appreciated! Looking\ forward\ to\ hearing\ your\ comments! Any\ feedback\ is\ appreciated!]
 
-# 27.times do |i|
+27.times do |i|
 
-#   rand(1..5).times do
-#   projects = Project.all
-#   name = TEST_NAME.sample
-#   description = "#{TEST_DESCRIPTION_VERB.sample} #{TEST_PRO_1.sample} on my new #{name}. #{TEST_PRO_2.sample} #{TEST_PRO_3.sample}? #{TEST_PRO_4.sample}"
-#   test_url = Faker::Internet.domain_name
-#   sample_size = Faker::Number.number(digits: 2)
-#   date = rand(Date.today..Date.today + 30)
+  rand(1..5).times do
+  projects = Project.all
+  name = TEST_NAME.sample
+  description = "#{TEST_DESCRIPTION_VERB.sample} #{TEST_PRO_1.sample} on my new #{name}. #{TEST_PRO_2.sample} #{TEST_PRO_3.sample}? #{TEST_PRO_4.sample}"
+  test_url = Faker::Internet.domain_name
+  sample_size = Faker::Number.number(digits: 2)
+  date = rand(Date.today..Date.today + 30)
 
-#   Test.create!(
-#   name: name,
-#   description: description,
-#   test_url: test_url,
-#   sample_size: sample_size,
-#   time_limit: date,
-#   project_id: projects.sample.id
-# )
-# end
+  Test.create!(
+  name: name,
+  description: description,
+  test_url: test_url,
+  sample_size: sample_size,
+  time_limit: date,
+  project_id: projects.sample.id
+)
+end
 
-# end
+end
 
 p 'tests created!'
 p 'Creating reviews and test_users'
