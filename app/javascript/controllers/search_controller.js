@@ -5,7 +5,7 @@ export default class extends Controller {
 
   tag(event) {
 
-    const tagName = event.path[0].innerText
+    const tagName = (event.path || (event.composedPath && event.composedPath())).[0].innerText;
     fetch('/projects', { headers: { 'Accept': 'text/plain' } })
     .then(response => response.json())
     .then((data) => {
