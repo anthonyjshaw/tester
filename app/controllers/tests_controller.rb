@@ -9,6 +9,12 @@ class TestsController < ApplicationController
   def show
     @test.is_finished = true if (@test.time_limit - Date.today) <= 0
 
+    @test_url = if @test.test_url.include?("https://")
+                   @test.test_url
+                else
+                  "https://#{@test.test_url}"
+                end
+
     if finished?(@test)
       @test_status = 'Ended'
     else
