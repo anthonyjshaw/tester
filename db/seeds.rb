@@ -845,7 +845,7 @@ project_id: project_25.id
 
 test_26 = Test.create!( #27
 name: "Test our Blog - Editor",
-description: "test our blog editor with all the function in it to write down one of your deepest Life experience to share.",
+description: "Test our blog editor with all the function in it to write down one of your deepest Life experience to share.",
 test_url: "https://github.com/likewisely",
 sample_size: 18,
 time_limit: rand(Date.today..Date.today + 30),
