@@ -307,6 +307,7 @@ Review.destroy_all
 
     p 'Creating Project'
 
+users = User.all
 file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623365419/divibuilder_mo1pmp.jpg')
   project_zero_0 = Project.create!( #1
     name: Faker::App.name,
@@ -317,7 +318,7 @@ file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v16
 project_zero_0.photo.attach(io: file, filename: 'divibuilder.jpg', content_type: 'image/jpg')
 
 
-  # users = User.all
+
 file = URI.open('https://res.cloudinary.com/dreamfighterjourney/image/upload/v1623365340/valeriedations_adqer8.png')
   project_0 = Project.create!( #1
     name: "Valeriedations",
