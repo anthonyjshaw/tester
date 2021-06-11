@@ -16,7 +16,9 @@
               <div class="card-product-infos">
                  <h2><%= chatroom.sender.username %></h2>
                  <%= link_to chatroom_path(chatroom) do %>
+                 <%= unless chatroom.messages.last.nil? %>
                  <p id="card-font"><%=  chatroom.messages.last.content.first(100) %>&hellip;</p>
+                 <% end %>
                  <% end %>
               </div>
             </div>
