@@ -14,7 +14,7 @@
     <div class='card' style="width: auto;">
       <%= link_to project_path(project) do %>
 
-      <div class="card-img-top" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover; background-image: url("https://picsum.photos/1600/900?<%= project.name %>")' src="" alt="Card image cap">
+      <div class="card-img-top" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover;background-image: url("/photos/<%= project.project_tag %>.jpg")' src="" alt="Card image cap">
       </div>
 
       <div class="card-body">
