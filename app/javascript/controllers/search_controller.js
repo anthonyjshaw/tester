@@ -15,7 +15,7 @@ export default class extends Controller {
 
       searchResults.forEach((el) => {
 
-        // console.log(el)
+        console.log(el)
       // const photoKey = document.querySelector('#photo-key').dataset.photoKey
         el = `<div class='card' style="width: auto;">
         <a href="/projects/${el.id}">
